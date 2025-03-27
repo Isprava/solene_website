@@ -1,0 +1,25 @@
+{
+  "name": "my-gulp-project",
+  "version": "1.0.0",
+  "description": "A project that uses Gulp for automatic server reloading on HTML and CSS changes.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^4.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "sass": "^1.85.1",
+    "uglify": "^0.1.5"
+  },
+  "author": "",
+  "license": "ISC"
+}

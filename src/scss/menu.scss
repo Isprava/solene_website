@@ -1,0 +1,93 @@
+// Define variables
+$header-bg: #fedfbe;
+$menu-color: #484848;
+$menu-active: #232323;
+$button-bg: #9c3c33;
+$button-text: #fff5eb;
+
+// Header styling
+.header {
+  width: 1280px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: $header-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: self-start;
+  margin-top: 32px;
+
+  .header-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    height: 50px; // Adjust as needed
+  }
+
+  // Navigation Menu
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+
+    a {
+      text-decoration: none;
+      color: $menu-color;
+      font-family: "Alegreya Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      transition: color 0.3s;
+
+      &.active,
+      &:hover {
+        color: $menu-active;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Button Styling
+  .btn {
+    color: $button-text;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+    display: inline-flex;
+    height: 48px;
+    padding: 6px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(0deg, $button-bg 0%, $button-bg 100%),
+      $header-bg;
+    transition: 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  // Sticky header when scrolling down
+  &.sticky {
+    position: fixed;
+    top: 0;
+    background: rgba(254, 223, 190, 0.95); // Slight transparency effect
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    margin-top: 0px;
+    .logo {
+      height: 40px; // Smaller logo
+    }
+  }
+}
