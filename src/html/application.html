@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Membership Application Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400,700" rel="stylesheet" />
+    <link href="/css/application.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header -->
+      <div class="header">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="/public/application/logo.svg" alt="Logo" />
+        </div>
+        <!-- Header Content -->
+        <section class="partner-details">
+          <h1>Membership application form</h1>
+          <p>We're excited that you're interested in becoming a part of Solene. Tell us a little about yourself so we can get to know you better.</p>
+        </section>
+      </div>
+
+      <!-- Main Card -->
+      <div class="main-card">
+        <!-- Address Section -->
+        <section class="address-section">
+          <div class="section-content">
+            <div class="section-header">
+              <h2>Personal Details</h2>
+              <p>Tell us about yourself and your partner so we can get to know you better</p>
+            </div>
+            <hr />
+          </div>
+        </section>
+
+        <!-- Personal Details Section -->
+        <section class="personal-details">
+          <div class="radio-group">
+            <h3>Are you a part of the Isprava Family?*</h3>
+            <div class="radio-options">
+              <label class="radio-label">
+                <input type="radio" name="family" value="isprava" />
+                <span>Isprava Homeowner</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="family" value="chapter" />
+                <span>The Chapter Homeowner</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="family" value="lohono" />
+                <span>Lohono Platinum</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="family" value="not-yet" checked />
+                <span>Not yet</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Membership Info Section -->
+        <section class="membership-info">
+          <div class="form-sections">
+            <!-- Basic Details -->
+            <div class="form-section">
+              <h3>Basic Details*</h3>
+              <div class="form-grid">
+                <div class="form-field">
+                  <input type="text" placeholder="Full Name*" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Date of Birth*" />
+                </div>
+                <div class="form-field phone-field">
+                  <div class="country-code">
+                    <span>+91 India</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="divider"></div>
+                  <input type="tel" placeholder="Phone Number*" />
+                </div>
+                <div class="form-field">
+                  <input type="email" placeholder="Email ID*" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Social Media Handle (URL)" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Permanent Address -->
+            <div class="form-section">
+              <h3>Permanent Address*</h3>
+              <div class="form-grid">
+                <div class="form-field">
+                  <input type="text" placeholder="Address Line 1*" />
+                  <span class="helper-text">Area, Street name, etc.</span>
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Address Line 2*" />
+                  <span class="helper-text">Apartment No., Apartment name, etc.</span>
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Pincode*" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="State*" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Partner's Details -->
+            <div class="form-section">
+              <h3>Partner's Details</h3>
+              <div class="form-grid">
+                <div class="form-field">
+                  <input type="text" placeholder="Full Name*" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Date of Birth*" />
+                </div>
+                <div class="form-field phone-field">
+                  <div class="country-code">
+                    <span>+91 India</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                  <div class="divider"></div>
+                  <input type="tel" placeholder="Phone Number*" />
+                </div>
+                <div class="form-field">
+                  <input type="email" placeholder="Email ID*" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Anniversary" />
+                </div>
+                <div class="form-field">
+                  <input type="text" placeholder="Social Media Handle (URL)" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Navigation -->
+        <footer class="form-navigation">
+          <div class="progress-bar">
+            <div class="progress" style="width: 35.85%"></div>
+          </div>
+          <div class="navigation-buttons">
+            <button class="btn-previous">Previous</button>
+            <button class="btn-next" disabled>Next</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

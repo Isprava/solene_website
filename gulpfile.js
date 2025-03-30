@@ -28,7 +28,7 @@ gulp.task('html', function () {
 
 // Task to process SCSS files, minify CSS, and reload the server when CSS files change
 gulp.task('scss', function () {
-  return gulp.src('src/scss/styles.scss')
+  return gulp.src('src/scss/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({ compatibility: 'ie8' })) // Minify CSS
     .pipe(gulp.dest('dist/css'))
@@ -43,10 +43,10 @@ gulp.task('js', function () {
     .pipe(connect.reload());
 });
 
-// Task to copy assets to the dist folder
-gulp.task('assets', function () {
-  return gulp.src('src/assets/**/*')
-    .pipe(gulp.dest('dist/assets'))
+// Task to copy public to the dist folder
+gulp.task('public', function () {
+  return gulp.src('src/public/**/*')
+    .pipe(gulp.dest('dist/public'))
     .pipe(connect.reload());
 });
 
@@ -57,18 +57,18 @@ gulp.task('fonts', function () {
     .pipe(connect.reload());
 });
 
-// Task to watch for changes in HTML, SCSS, JS, assets, and font files
+// Task to watch for changes in HTML, SCSS, JS, public, and font files
 gulp.task('watch', function(done) {
   gulp.watch(['./src/html/*.html'], gulp.series('html'));
   gulp.watch(['./src/scss/*.scss'], gulp.series('scss'));
   gulp.watch(['./src/js/**/*.js'], gulp.series('js'));
-  gulp.watch(['./src/assets/**/*'], gulp.series('assets'));
+  gulp.watch(['./src/public/**/*'], gulp.series('public'));
   gulp.watch(['./src/fonts/**/*'], gulp.series('fonts'));
   done();
 });
 
 // Build task to run all tasks in sequence
-gulp.task('build', gulp.series('html', 'scss', 'js', 'assets', 'fonts'));
+gulp.task('build', gulp.series('html', 'scss', 'js', 'public', 'fonts'));
 
 // Default task to run when `gulp` command is executed
 gulp.task('default', gulp.parallel('connect', 'watch', 'build'));

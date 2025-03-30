@@ -1,0 +1,288 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Alegreya Sans', Helvetica, sans-serif;
+  }
+  
+  @font-face {
+    font-family: "FONTSPRING DEMO - The Seasons";
+    src: url("/public/fonts/FONTSPRINGDEMO-TheSeasonsBold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  body {
+    background-color: #fffcf9;
+  }
+  
+  /* App container */
+  .app {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Header */
+  .header {
+    width: 100%;
+    height: 320px;
+    background-color: #9c3c33;
+    position: relative;
+  }
+  
+  .logo {
+    position: relative;
+    width: 104px;
+    height: 48px;
+    padding-top: 24px;
+    padding-left: 80px;
+  }
+  
+  /* Partner Details Section (now in header) */
+  .partner-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 768px;
+    margin: 40px auto 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .partner-details h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: "FONTSPRING DEMO - The Seasons";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+  }
+  
+  .partner-details p {
+    margin-top: 15px;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 26px;
+    font-weight: 500;
+  }
+  
+  /* Main card */
+  .main-card {
+    width: 848px;
+    margin: -64px auto 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Address Section */
+  .address-section {
+    width: 100%;
+    padding: 24px 0;
+  }
+  
+  .section-content {
+    padding: 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 28px;
+    line-height: 36px;
+    color: #3d3937;
+    font-weight: bold;
+  }
+  
+  .section-header p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #787878;
+    margin-top: 8px;
+  }
+  
+  hr {
+    margin-top: 16px;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Personal Details Section */
+  .personal-details {
+    width: 100%;
+    max-width: 706px;
+    padding: 0 40px;
+  }
+  
+  .radio-group h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #484848;
+    font-weight: 500;
+  }
+  
+  .radio-options {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  
+  .radio-label span {
+    font-size: 18px;
+    color: #3d3937;
+  }
+  
+  /* Membership Info Section */
+  .membership-info {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .form-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .form-section h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #484848;
+    font-weight: 500;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 16px;
+  }
+  
+  .form-field {
+    position: relative;
+  }
+  
+  .form-field input {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    border: 1px solid rgba(25, 22, 19, 0.1);
+    border-radius: 4px;
+    font-size: 16px;
+    color: #3d3937;
+  }
+  
+  .form-field input::placeholder {
+    color: #787878;
+  }
+  
+  .helper-text {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #787878;
+  }
+  
+  /* Phone field specific styles */
+  .phone-field {
+    position: relative;
+  }
+  
+  .country-code {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3d3937;
+    font-weight: 500;
+  }
+  
+  .divider {
+    position: absolute;
+    left: 106px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 40px;
+    background-color: #e5e5e5;
+  }
+  
+  .phone-field input {
+    padding-left: 119px;
+  }
+  
+  /* Form Navigation */
+  .form-navigation {
+    width: 100%;
+    padding: 20px 0;
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    margin-top: -20px;
+    background-color: rgba(222, 222, 222, 0.8);
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #8d9b53;
+    transition: width 0.3s ease;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+  
+  .btn-previous,
+  .btn-next {
+    height: 48px;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .btn-previous {
+    color: #9c3c33;
+    background: white;
+    border: 1px solid #9c3c33;
+  }
+  
+  .btn-next {
+    color: white;
+    background: #dddddd;
+    border: none;
+    cursor: not-allowed;
+  }
+  
+  /* Focus states */
+  input:focus {
+    outline: none;
+    border-color: #9c3c33;
+  }
+  
+  .btn-previous:hover {
+    background: rgba(156, 60, 51, 0.05);
+  }

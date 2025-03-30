@@ -1,0 +1,498 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Alegreya Sans", sans-serif;
+  line-height: 1.5;
+  color: #232323;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 5%,
+      rgba(0, 0, 0, 0) 58%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    url("/public/landing/frame-37399.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.5);
+  padding: 1rem 7.5rem;
+  width: 100%;
+}
+
+.opaque {
+  background: rgba(17, 17, 17, 1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  width: 103px;
+  height: 48px;
+}
+
+.logo img {
+  position: absolute;
+}
+
+.logo-top {
+  width: 27px;
+  height: 21px;
+  top: 0;
+  left: 0;
+}
+
+.logo-bottom {
+  width: 27px;
+  height: 21px;
+  top: 15px;
+  left: 0;
+}
+
+.logo-text {
+  width: 86px;
+  height: 21px;
+  top: 27px;
+  left: 17px;
+}
+
+.contact-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #fedfbe;
+  background: transparent;
+  color: #fedfbe;
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 0.56px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: rgba(254, 223, 190, 0.1);
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 928px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.hero h1 {
+  font-family: "Bodoni 72", serif;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* About Section */
+.about {
+  background: #fff5eb;
+  padding: 4.5rem 7.5rem;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-text p {
+  font-size: 1.5rem;
+}
+
+.about-image {
+  width: 354.58px;
+  height: 498.93px;
+  object-fit: cover;
+}
+
+/* Amenities Section */
+.amenities {
+  padding: 4.5rem 7.5rem;
+  background: white;
+}
+
+.amenities-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.amenities-header {
+  max-width: 779px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.amenities-header h2 {
+  font-family: "Bodoni 72", serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.amenity-card {
+  background: rgba(155, 60, 52, 0.08);
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.amenity-card img {
+  width: 63px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.amenity-card h3 {
+  color: #9b3c34;
+  font-family: "Bodoni 72", serif;
+  font-size: 1.5rem;
+}
+
+/* Membership Section */
+.membership {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/public/landing/frame-37448.png");
+  background-size: cover;
+  background-position: center;
+  padding: 8.375rem 18.188rem;
+  color: white;
+}
+
+.membership-content {
+  max-width: 857px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.membership h2 {
+  font-family: "Bodoni 72", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact Form Section */
+.contact {
+  background: #fff5eb;
+  padding: 3.5rem 2rem;
+}
+
+.contact-content {
+  max-width: 368px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.contact-header h2 {
+  font-family: "Bodoni 72", serif;
+  font-size: 2.5rem;
+  color: #9c3c33;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.688rem;
+}
+
+.form-group label {
+  color: #787878;
+  font-size: 0.875rem;
+}
+
+.form-group input {
+  border: none;
+  border-bottom: 1px solid #787878;
+  background: transparent;
+  height: 1.5rem;
+  padding: 0;
+  width: 100%;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #9c3c33;
+}
+
+.contact-form button {
+  height: 3.5rem;
+  border-radius: 2rem;
+  border: 1px solid #9c3c33;
+  background: transparent;
+  color: #9c3c33;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background: rgba(156, 60, 51, 0.1);
+}
+
+/* Footer */
+footer {
+  background: #111111;
+  padding: 1.938rem 2rem;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/landing/mask-group.png");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  position: relative;
+  width: 240px;
+  height: 112px;
+}
+
+.footer-logo img {
+  position: absolute;
+}
+
+.footer-logo-top {
+  width: 63px;
+  height: 49px;
+  top: 0;
+  left: 0;
+}
+
+.footer-logo-bottom {
+  width: 63px;
+  height: 49px;
+  top: 36px;
+  left: 0;
+}
+
+.footer-logo-text {
+  width: 201px;
+  height: 48px;
+  top: 64px;
+  left: 39px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: white;
+}
+
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .about,
+  .amenities {
+    padding: 4.5rem 2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    max-width: 354.58px;
+    margin: 0 auto;
+  }
+
+  .membership {
+    padding: 4.5rem 2rem;
+  }
+
+  .membership h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .about-text p {
+    font-size: 1.25rem;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .amenity-card {
+    height: 10rem;
+  }
+
+  .amenity-card img {
+    width: 48px;
+    height: 45px;
+  }
+
+  .amenity-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .contact-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about,
+  .amenities {
+    padding: 3rem 1rem;
+  }
+
+  .membership {
+    padding: 3rem 1rem;
+  }
+
+  .membership h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact {
+    padding: 3rem 1rem;
+  }
+
+  .footer-logo {
+    transform: scale(0.8);
+  }
+}

@@ -1,16 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solene</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <!-- Link to the external CSS file -->
-  </head>
-  <body>
-    @@include('./header-n-banner/_.html')
-    <!-- Include the banner.html file -->
-    <div style="padding-bottom: 100px; padding-top: 20px">Hello</div>
-  </body>
-  @@include('./partials/sticky-header.html')
+<head>
+  <meta charset="utf-8" />
+  <title>Solene - Private Members Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400|Inter:600" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <header>
+        <div class="header-content">
+          <div class="logo">
+            <img src="/public/landing/group-4.png" alt="Solene logo top" class="logo-top">
+            <img src="/public/landing/group-5.png" alt="Solene logo bottom" class="logo-bottom">
+            <img src="/public/landing/group-3.png" alt="Solene logo text" class="logo-text">
+          </div>
+          <button class="contact-btn">CONTACT US</button>
+        </div>
+      </header>
+      <div class="hero-content">
+        <h1>Community, culture and connection at Solene</h1>
+        <div class="scroll-indicator">
+          <p>Scroll Down To Explore</p>
+          <img src="/public/landing/arrow-warm-up.svg" alt="Arrow pointing down">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-content">
+        <div class="about-text">
+          <p>Solene is a private members-only club that is an intimate, peaceful space where members can connect, relax, and feel truly at home. Solene is the latest chapter in the Isprava Group's journey—a group that for the past nine years has redefined luxury living in India.</p>
+          <p>Our first Solene is located in the charming village of Moira, housed in a heritage home that has been a part of the De Souza family legacy for over five generations and is more than 100 years old.</p>
+          <p>Solene Mini in Moira is designed to offer a blend of relaxation, inspiration, and community. The carefully curated amenities ensure that every visit feels special, whether you're here to unwind, meet others, or enjoy time with your family.</p>
+        </div>
+        <img src="/public/landing/mask-group-1.png" alt="Solene club interior" class="about-image">
+      </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities">
+      <div class="amenities-content">
+        <div class="amenities-header">
+          <h2>Our Amenities</h2>
+          <p>Solene is designed to offer you different ways to unwind, rejuvenate and connect</p>
+        </div>
+        <div class="amenities-grid">
+          <div class="amenity-card">
+            <img src="/public/landing/vector.svg" alt="Lounge icon">
+            <h3>Lounge</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/solene-website-icons---26-march--2025-01-2.svg" alt="Bar icon">
+            <h3>Bar</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/clip-path-group.png" alt="Fitness Centre icon">
+            <h3>Fitness Centre</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/layer-1-2.png" alt="Children's Play Area icon">
+            <h3>Children's Play Area</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/layer-1-2-1.png" alt="Toddler's Outhouse icon">
+            <h3>Toddler's Outhouse</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/clip-path-group-1.png" alt="Pickleball Court icon">
+            <h3>Pickleball Court</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/group-37419.png" alt="Restaurant By Jaamun icon">
+            <h3>Restaurant By Jaamun</h3>
+          </div>
+          <div class="amenity-card">
+            <img src="/public/landing/group-37420.png" alt="Gardens icon">
+            <h3>Gardens</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section class="membership">
+      <div class="membership-content">
+        <h2>Membership: Discover how you can be a part of the Solene community.</h2>
+        <p>We welcome individuals who share our essence and values. Membership is by invitation, referrals and committee approval. All Isprava homeowners are offered preferential and priority membership.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact">
+      <div class="contact-content">
+        <div class="contact-header">
+          <h2>Reach out to us</h2>
+          <p>Our team will get back to you soon!</p>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" required>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/public/landing/group-1.png" alt="Solene logo top" class="footer-logo-top">
+          <img src="/public/landing/group-2.png" alt="Solene logo bottom" class="footer-logo-bottom">
+          <img src="/public/landing/group.png" alt="Solene logo text" class="footer-logo-text">
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
+        <div class="footer-separator"></div>
+        <p class="copyright"> 2025 Solene.com. All rights reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.querySelector('.contact-btn').addEventListener('click', function() {
+      document.querySelector('#contact').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 0) {
+        header.classList.add('opaque');
+      } else {
+        header.classList.remove('opaque');
+      }
+    });
+  </script>
+</body>
 </html>
