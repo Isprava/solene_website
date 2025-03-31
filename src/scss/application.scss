@@ -116,7 +116,6 @@
   /* Personal Details Section */
   .personal-details {
     width: 100%;
-    max-width: 706px;
     padding: 0 40px;
   }
   
@@ -147,7 +146,6 @@
   /* Membership Info Section */
   .membership-info {
     width: 100%;
-    max-width: 768px;
     margin: 0 auto;
     padding: 40px;
   }
@@ -173,20 +171,37 @@
   
   .form-field {
     position: relative;
-  }
+    margin-bottom: 1.5rem;
   
-  .form-field input {
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    border: 1px solid rgba(25, 22, 19, 0.1);
-    border-radius: 4px;
-    font-size: 16px;
-    color: #3d3937;
-  }
+    input {
+      width: 100%;
+      padding: 1rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: none;
+      outline: none;
+    }
   
-  .form-field input::placeholder {
-    color: #787878;
+    label {
+      position: absolute;
+      top: 1rem;
+      left: 0.5rem;
+      font-size: 1rem;
+      color: #aaa;
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+  
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: -0.5rem;
+      left: 0.5rem;
+      font-size: 0.8rem;
+      color: #333;
+      background: white;
+      padding: 0 0.2rem;
+    }
   }
   
   .helper-text {
@@ -270,12 +285,12 @@
     border: 1px solid #9c3c33;
   }
   
-  .btn-next {
-    color: white;
-    background: #dddddd;
-    border: none;
-    cursor: not-allowed;
-  }
+//   .btn-next {
+//     color: white;
+//     background: #dddddd;
+//     border: none;
+//     cursor: not-allowed;
+//   }
   
   /* Focus states */
   input:focus {

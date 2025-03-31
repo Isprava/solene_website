@@ -53,9 +53,15 @@
                 <span>Lohono Platinum</span>
               </label>
               <label class="radio-label">
-                <input type="radio" name="family" value="not-yet" checked />
+                <input type="radio" name="family" value="not-yet" />
                 <span>Not yet</span>
               </label>
+            </div>
+            <div class="form-grid" style="margin-top: 16px;">
+            <div class="form-field" id="home-name-field" style="display: none;">
+              <input type="text" id="home-name" />
+              <label for="home-name">Home Name</label>
+            </div>
             </div>
           </div>
         </section>
@@ -68,10 +74,12 @@
               <h3>Basic Details*</h3>
               <div class="form-grid">
                 <div class="form-field">
-                  <input type="text" placeholder="Full Name*" />
+                  <input type="text" id="full-name" required />
+                  <label for="full-name">Full Name*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Date of Birth*" />
+                  <input type="text" id="date-of-birth" required />
+                  <label for="date-of-birth">Date of Birth*</label>
                 </div>
                 <div class="form-field phone-field">
                   <div class="country-code">
@@ -81,13 +89,16 @@
                     </svg>
                   </div>
                   <div class="divider"></div>
-                  <input type="tel" placeholder="Phone Number*" />
+                  <input type="tel" id="phone-number" required />
+                  <label for="phone-number">Phone Number*</label>
                 </div>
                 <div class="form-field">
-                  <input type="email" placeholder="Email ID*" />
+                  <input type="email" id="email-id" required />
+                  <label for="email-id">Email ID*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Social Media Handle (URL)" />
+                  <input type="text" id="social-media-handle" />
+                  <label for="social-media-handle">Social Media Handle (URL)</label>
                 </div>
               </div>
             </div>
@@ -97,18 +108,22 @@
               <h3>Permanent Address*</h3>
               <div class="form-grid">
                 <div class="form-field">
-                  <input type="text" placeholder="Address Line 1*" />
+                  <input type="text" id="address-line-1" required />
+                  <label for="address-line-1">Address Line 1*</label>
                   <span class="helper-text">Area, Street name, etc.</span>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Address Line 2*" />
+                  <input type="text" id="address-line-2" required />
+                  <label for="address-line-2">Address Line 2*</label>
                   <span class="helper-text">Apartment No., Apartment name, etc.</span>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Pincode*" />
+                  <input type="text" id="pincode" required />
+                  <label for="pincode">Pincode*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="State*" />
+                  <input type="text" id="state" required />
+                  <label for="state">State*</label>
                 </div>
               </div>
             </div>
@@ -118,10 +133,12 @@
               <h3>Partner's Details</h3>
               <div class="form-grid">
                 <div class="form-field">
-                  <input type="text" placeholder="Full Name*" />
+                  <input type="text" id="partner-full-name" required />
+                  <label for="partner-full-name">Full Name*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Date of Birth*" />
+                  <input type="text" id="partner-date-of-birth" required />
+                  <label for="partner-date-of-birth">Date of Birth*</label>
                 </div>
                 <div class="form-field phone-field">
                   <div class="country-code">
@@ -131,16 +148,20 @@
                     </svg>
                   </div>
                   <div class="divider"></div>
-                  <input type="tel" placeholder="Phone Number*" />
+                  <input type="tel" id="partner-phone-number" required />
+                  <label for="partner-phone-number">Phone Number*</label>
                 </div>
                 <div class="form-field">
-                  <input type="email" placeholder="Email ID*" />
+                  <input type="email" id="partner-email-id" required />
+                  <label for="partner-email-id">Email ID*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Anniversary" />
+                  <input type="text" id="anniversary" />
+                  <label for="anniversary">Anniversary</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" placeholder="Social Media Handle (URL)" />
+                  <input type="text" id="partner-social-media-handle" />
+                  <label for="partner-social-media-handle">Social Media Handle (URL)</label>
                 </div>
               </div>
             </div>
@@ -154,10 +175,32 @@
           </div>
           <div class="navigation-buttons">
             <button class="btn-previous">Previous</button>
-            <button class="btn-next" disabled>Next</button>
+            <button class="btn-next" >Next</button>
           </div>
         </footer>
       </div>
     </div>
+    <script>
+      document.querySelectorAll('.form-field input').forEach(input => {
+        input.addEventListener('focus', function() {
+          this.nextElementSibling.classList.add('active');
+        });
+        input.addEventListener('blur', function() {
+          if (this.value === '') {
+            this.nextElementSibling.classList.remove('active');
+          }
+        });
+      });
+        document.querySelectorAll('input[name="family"]').forEach(radio => {
+          radio.addEventListener('change', function() {
+            const homeNameField = document.getElementById('home-name-field');
+            if (this.value === 'isprava' || this.value === 'chapter' || this.value === 'lohono') {
+              homeNameField.style.display = 'block';
+            } else {
+              homeNameField.style.display = 'none';
+            }
+          });
+        });
+    </script>
   </body>
 </html>

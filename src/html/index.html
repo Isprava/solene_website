@@ -14,9 +14,7 @@
       <header>
         <div class="header-content">
           <div class="logo">
-            <img src="/public/landing/group-4.png" alt="Solene logo top" class="logo-top">
-            <img src="/public/landing/group-5.png" alt="Solene logo bottom" class="logo-bottom">
-            <img src="/public/landing/group-3.png" alt="Solene logo text" class="logo-text">
+            <img src="/public/logo.svg" alt="Solene logo" class="logo-top" height="48px" id="logo">
           </div>
           <button class="contact-btn">CONTACT US</button>
         </div>
@@ -137,13 +135,18 @@
     </footer>
   </div>
   <script>
+    document.querySelector('.logo').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
     document.querySelector('.contact-btn').addEventListener('click', function() {
       document.querySelector('#contact').scrollIntoView({
         behavior: 'smooth'
       });
     });
-  </script>
-  <script>
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
       if (window.scrollY > 0) {
