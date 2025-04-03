@@ -1,0 +1,30 @@
+name: Deploy Solene Website on beta.thesolene.in
+
+on:
+  push:
+    tags:
+      - "rc-*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Installing dependencies
+        run: npm install --legacy-peer-deps
+      - name: Building project
+        run: npm run build:stage
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./dist/ s3://beta.thesolene.in --delete
