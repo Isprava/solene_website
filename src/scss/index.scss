@@ -32,7 +32,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+h2 {
+  font-weight: 400;
+}
 header {
   position: fixed;
   top: 0;
@@ -127,6 +129,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  opacity: 0.6;
 }
 
 /* About Section */
@@ -151,6 +154,7 @@ header {
 
 .about-text p {
   font-size: 1.5rem;
+  text-align: justify;
 }
 
 .about-image {
@@ -181,6 +185,7 @@ header {
   font-family: "Bodoni 72", serif;
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .amenities-grid {
@@ -210,16 +215,12 @@ header {
   color: #9b3c34;
   font-family: "Bodoni 72", serif;
   font-size: 1.5rem;
+  font-weight: 400;
 }
 
 /* Membership Section */
 .membership {
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.7) 100%
-    ),
-    url("/public/landing/frame-37448.png");
+  background: url("/public/landing/membership-background.png");
   background-size: cover;
   background-position: center;
   padding: 8.375rem 18.188rem;
@@ -230,6 +231,10 @@ header {
   max-width: 857px;
   margin: 0 auto;
   text-align: center;
+}
+
+.membership-content p {
+  font-weight: 400;
 }
 
 .membership h2 {
@@ -489,13 +494,33 @@ footer::before {
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 16px; /* Adjust spacing between social links */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adjust spacing between icon and text */
+  text-decoration: none;
+  color: inherit;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 16px;
+}
+
+.social-link img {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
 }
 
 .social-link {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: color 0.3s ease;
+}
+.social-link img {
+  height: 16px;
+  width: 16px;
+  object-fit: contain;
 }
 
 .social-link:hover {
