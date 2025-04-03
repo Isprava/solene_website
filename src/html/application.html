@@ -4,203 +4,956 @@
     <meta charset="utf-8" />
     <title>Membership Application Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400,700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400,700"
+      rel="stylesheet"
+    />
     <link href="/css/application.css" rel="stylesheet" />
   </head>
   <body>
     <div class="app">
-      <!-- Header -->
       <div class="header">
-        <!-- Logo -->
         <div class="logo">
-          <img src="/public/application/logo.svg" alt="Logo" />
+          <img src="/public/logo.svg" alt="Logo" />
         </div>
-        <!-- Header Content -->
         <section class="partner-details">
           <h1>Membership application form</h1>
-          <p>We're excited that you're interested in becoming a part of Solene. Tell us a little about yourself so we can get to know you better.</p>
+          <p>
+            We're excited that you're interested in becoming a part of Solene.
+            Tell us a little about yourself so we can get to know you better.
+          </p>
         </section>
       </div>
 
-      <!-- Main Card -->
       <div class="main-card">
-        <!-- Address Section -->
-        <section class="address-section">
-          <div class="section-content">
-            <div class="section-header">
-              <h2>Personal Details</h2>
-              <p>Tell us about yourself and your partner so we can get to know you better</p>
-            </div>
-            <hr />
-          </div>
-        </section>
+        <div id="initial-form">
+          <section>
+            <section class="address-section">
+              <div class="section-content">
+                <div class="section-header">
+                  <h2>Personal Details</h2>
+                  <p>
+                    Tell us about yourself and your partner so we can get to
+                    know you better
+                  </p>
+                </div>
+                <hr />
+              </div>
+            </section>
 
-        <!-- Personal Details Section -->
-        <section class="personal-details">
-          <div class="radio-group">
-            <h3>Are you a part of the Isprava Family?*</h3>
-            <div class="radio-options">
-              <label class="radio-label">
-                <input type="radio" name="family" value="isprava" />
-                <span>Isprava Homeowner</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="family" value="chapter" />
-                <span>The Chapter Homeowner</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="family" value="lohono" />
-                <span>Lohono Platinum</span>
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="family" value="not-yet" />
-                <span>Not yet</span>
-              </label>
-            </div>
-            <div class="form-grid" style="margin-top: 16px;">
-            <div class="form-field" id="home-name-field" style="display: none;">
-              <input type="text" id="home-name" />
-              <label for="home-name">Home Name</label>
-            </div>
-            </div>
-          </div>
-        </section>
+            <section class="personal-details">
+              <div class="radio-group">
+                <h3>Are you a part of the Isprava Family?*</h3>
+                <div class="radio-options">
+                  <label class="radio-label">
+                    <input type="radio" name="family" value="isprava" />
+                    <span>Isprava Homeowner</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="family" value="chapter" />
+                    <span>The Chapter Homeowner</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="family" value="lohono" />
+                    <span>Lohono Platinum</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="family" value="not-yet" />
+                    <span>Not yet</span>
+                  </label>
+                </div>
+                <div class="form-grid" style="margin-top: 16px">
+                  <div
+                    class="form-field"
+                    id="home-name-field"
+                    style="display: none"
+                  >
+                    <input type="text" id="home-name" placeholder=" " />
+                    <label for="home-name">Home Name</label>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-        <!-- Membership Info Section -->
-        <section class="membership-info">
-          <div class="form-sections">
-            <!-- Basic Details -->
+            <section class="membership-info">
+              <div class="form-sections">
+                <div class="form-section">
+                  <h3>Basic Details*</h3>
+                  <div class="form-grid">
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="full-name"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="full-name">Full Name*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="date-of-birth"
+                        placeholder="DD/MM/YYYY"
+                        required
+                      />
+                      <label for="date-of-birth">Date of Birth*</label>
+                    </div>
+                    <div class="form-field phone-field">
+                      <div class="country-code">
+                        <span>+91 India</span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                      <div class="divider"></div>
+                      <input
+                        type="tel"
+                        id="phone-number"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="phone-number">Phone Number*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="email"
+                        id="email-id"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="email-id">Email ID*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="social-media-handle"
+                        placeholder=" "
+                      />
+                      <label for="social-media-handle"
+                        >Social Media Handle (URL)</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Permanent Address*</h3>
+                  <div class="form-grid">
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="address-line-1"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="address-line-1">Address Line 1*</label>
+                      <span class="helper-text">Area, Street name, etc.</span>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="address-line-2"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="address-line-2">Address Line 2*</label>
+                      <span class="helper-text"
+                        >Apartment No., Apartment name, etc.</span
+                      >
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="pincode"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="pincode">Pincode*</label>
+                    </div>
+                    <div class="form-field">
+                      <input type="text" id="state" placeholder=" " required />
+                      <label for="state">State*</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="form-section"
+                  id="goa-address-section"
+                  style="display: none"
+                >
+                  <h3>Goa Address</h3>
+                  <div class="form-grid">
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="goa-address-line-1"
+                        placeholder=" "
+                      />
+                      <label for="goa-address-line-1">Address Line 1</label>
+                      <span class="helper-text">Area, Street name, etc.</span>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="goa-address-line-2"
+                        placeholder=" "
+                      />
+                      <label for="goa-address-line-2">Address Line 2</label>
+                      <span class="helper-text"
+                        >Apartment No., Apartment name, etc.</span
+                      >
+                    </div>
+                    <div class="form-field">
+                      <input type="text" id="goa-pincode" placeholder=" " />
+                      <label for="goa-pincode">Pincode</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="goa-state"
+                        placeholder=" "
+                        value="Goa"
+                        disabled
+                      />
+                      <label for="goa-state">State</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Partner's Details</h3>
+                  <div class="form-grid">
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="partner-full-name"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="partner-full-name">Full Name*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="partner-date-of-birth"
+                        placeholder="DD/MM/YYYY"
+                        required
+                      />
+                      <label for="partner-date-of-birth">Date of Birth*</label>
+                    </div>
+                    <div class="form-field phone-field">
+                      <div class="country-code">
+                        <span>+91 India</span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                      <div class="divider"></div>
+                      <input
+                        type="tel"
+                        id="partner-phone-number"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="partner-phone-number">Phone Number*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="email"
+                        id="partner-email-id"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="partner-email-id">Email ID*</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="anniversary"
+                        placeholder="DD/MM/YYYY"
+                      />
+                      <label for="anniversary">Anniversary</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
+                        id="partner-social-media-handle"
+                        placeholder=" "
+                      />
+                      <label for="partner-social-media-handle"
+                        >Social Media Handle (URL)</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+
+        <div id="dependant-form">
+          <div class="card-header">
+            <h2>Dependant Membership</h2>
+            <p class="card-description">
+              Apply for dependant membership for your children or parent
+            </p>
+            <div class="separator"></div>
+          </div>
+
+          <div class="card-content" id="dependants-container">
             <div class="form-section">
-              <h3>Basic Details*</h3>
+              <h3>Dependant 1</h3>
               <div class="form-grid">
                 <div class="form-field">
-                  <input type="text" id="full-name" required />
-                  <label for="full-name">Full Name*</label>
+                  <input
+                    type="text"
+                    id="dependent-1-full-name"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="dependent-1-full-name">Full Name*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" id="date-of-birth" required />
-                  <label for="date-of-birth">Date of Birth*</label>
+                  <input
+                    type="text"
+                    id="dependent-1-date-of-birth"
+                    placeholder="DD/MM/YYYY"
+                    required
+                  />
+                  <label for="dependent-1-date-of-birth">Date of Birth*</label>
                 </div>
                 <div class="form-field phone-field">
                   <div class="country-code">
                     <span>+91 India</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </div>
                   <div class="divider"></div>
-                  <input type="tel" id="phone-number" required />
-                  <label for="phone-number">Phone Number*</label>
+                  <input
+                    type="tel"
+                    id="dependent-1-phone-number"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="dependent-1-phone-number">Phone Number*</label>
                 </div>
                 <div class="form-field">
-                  <input type="email" id="email-id" required />
-                  <label for="email-id">Email ID*</label>
+                  <input
+                    type="email"
+                    id="dependent-1-email"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="dependent-1-email">Email ID*</label>
                 </div>
                 <div class="form-field">
-                  <input type="text" id="social-media-handle" />
-                  <label for="social-media-handle">Social Media Handle (URL)</label>
+                  <select id="dependent-1-relationship" required>
+                    <option value="" disabled selected></option>
+                    <option value="child">Child</option>
+                    <option value="parent">Parent</option>
+                  </select>
+                  <label for="dependent-1-relationship">Relationship*</label>
+                </div>
+                <div class="form-field">
+                  <input
+                    type="text"
+                    id="dependent-1-social-media"
+                    placeholder=" "
+                  />
+                  <label for="dependent-1-social-media"
+                    >Social Media Handle</label
+                  >
                 </div>
               </div>
             </div>
 
-            <!-- Permanent Address -->
-            <div class="form-section">
-              <h3>Permanent Address*</h3>
-              <div class="form-grid">
-                <div class="form-field">
-                  <input type="text" id="address-line-1" required />
-                  <label for="address-line-1">Address Line 1*</label>
-                  <span class="helper-text">Area, Street name, etc.</span>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="address-line-2" required />
-                  <label for="address-line-2">Address Line 2*</label>
-                  <span class="helper-text">Apartment No., Apartment name, etc.</span>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="pincode" required />
-                  <label for="pincode">Pincode*</label>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="state" required />
-                  <label for="state">State*</label>
-                </div>
-              </div>
-            </div>
+            <div class="separator"></div>
 
-            <!-- Partner's Details -->
-            <div class="form-section">
-              <h3>Partner's Details</h3>
-              <div class="form-grid">
-                <div class="form-field">
-                  <input type="text" id="partner-full-name" required />
-                  <label for="partner-full-name">Full Name*</label>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="partner-date-of-birth" required />
-                  <label for="partner-date-of-birth">Date of Birth*</label>
-                </div>
-                <div class="form-field phone-field">
-                  <div class="country-code">
-                    <span>+91 India</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                  </div>
-                  <div class="divider"></div>
-                  <input type="tel" id="partner-phone-number" required />
-                  <label for="partner-phone-number">Phone Number*</label>
-                </div>
-                <div class="form-field">
-                  <input type="email" id="partner-email-id" required />
-                  <label for="partner-email-id">Email ID*</label>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="anniversary" />
-                  <label for="anniversary">Anniversary</label>
-                </div>
-                <div class="form-field">
-                  <input type="text" id="partner-social-media-handle" />
-                  <label for="partner-social-media-handle">Social Media Handle (URL)</label>
-                </div>
-              </div>
+            <div class="add-dependant">
+              <button class="btn-outline" id="add-dependant-btn">
+                Add Dependant
+              </button>
             </div>
           </div>
-        </section>
+        </div>
 
-        <!-- Form Navigation -->
+        <div id="additional-form">
+          <div class="card-header">
+            <h2>Additional Information</h2>
+            <p class="card-description">Where did you hear about Solene?</p>
+            <div class="separator"></div>
+          </div>
+
+          <div class="card-content">
+            <div class="form-section">
+              <label class="section-label"
+                >How did you hear about Solene? (Select all that apply)</label
+              >
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="member" />
+                  <label for="member">Via a member</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="social" />
+                  <label for="social">Social Media</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="website" />
+                  <label for="website">Website</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="other" />
+                  <label for="other">Other</label>
+                </div>
+                <div class="other-input">
+                  <input type="text" placeholder="Type here" disabled />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label class="section-label"
+                >Why do you wish to be a part of the Solene community?</label
+              >
+              <textarea placeholder="Type here"></textarea>
+            </div>
+
+            <div class="form-section">
+              <label class="section-label"
+                >How do you see yourself making use of the club's facilities and
+                services?</label
+              >
+              <textarea placeholder="Type here"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="terms-section" style="display: none">
+          <label class="checkbox-container">
+            <input type="checkbox" id="terms" />
+            <span class="checkmark"></span>
+            <span class="terms-text">
+              I agree to the
+              <a href="#" class="terms-link">Terms & Conditions</a> and
+              <a href="#" class="terms-link">Privacy Policy.</a>
+            </span>
+          </label>
+        </div>
+
         <footer class="form-navigation">
           <div class="progress-bar">
-            <div class="progress" style="width: 35.85%"></div>
+            <div class="progress" style="width: 33.33%"></div>
           </div>
           <div class="navigation-buttons">
             <button class="btn-previous">Previous</button>
-            <button class="btn-next" >Next</button>
+            <button class="btn-next" id="next-button">Next</button>
           </div>
         </footer>
       </div>
     </div>
-    <script>
-      document.querySelectorAll('.form-field input').forEach(input => {
-        input.addEventListener('focus', function() {
-          this.nextElementSibling.classList.add('active');
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module">
+      import { validateForm, validateField } from "/js/validation.js";
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.style.display = "block";
+        setTimeout(() => {
+          toast.style.display = "none";
+        }, 3000);
+      }
+
+      function saveFormData() {
+        const formData = {
+          familyType:
+            document.querySelector('input[name="family"]:checked')?.value || "",
+          homeName: document.getElementById("home-name")?.value || "",
+          basicDetails: {
+            fullName: document.getElementById("full-name")?.value || "",
+            dateOfBirth: document.getElementById("date-of-birth")?.value || "",
+            phoneNumber: document.getElementById("phone-number")?.value || "",
+            emailId: document.getElementById("email-id")?.value || "",
+            socialMediaHandle:
+              document.getElementById("social-media-handle")?.value || "",
+          },
+          address: {
+            line1: document.getElementById("address-line-1")?.value || "",
+            line2: document.getElementById("address-line-2")?.value || "",
+            pincode: document.getElementById("pincode")?.value || "",
+            state: document.getElementById("state")?.value || "",
+          },
+          goaAddress: {
+            line1: document.getElementById("goa-address-line-1")?.value || "",
+            line2: document.getElementById("goa-address-line-2")?.value || "",
+            pincode: document.getElementById("goa-pincode")?.value || "",
+            state: "Goa",
+          },
+          partnerDetails: {
+            fullName: document.getElementById("partner-full-name")?.value || "",
+            dateOfBirth:
+              document.getElementById("partner-date-of-birth")?.value || "",
+            phoneNumber:
+              document.getElementById("partner-phone-number")?.value || "",
+            emailId: document.getElementById("partner-email-id")?.value || "",
+            anniversary: document.getElementById("anniversary")?.value || "",
+            socialMediaHandle:
+              document.getElementById("partner-social-media-handle")?.value ||
+              "",
+          },
+        };
+
+        localStorage.setItem("membershipFormData", JSON.stringify(formData));
+      }
+
+      function saveDependentsData() {
+        const dependents = [];
+        const dependentSections = document.querySelectorAll(
+          "#dependants-container .form-section"
+        );
+
+        dependentSections.forEach((section, index) => {
+          const dependent = {
+            fullName:
+              document.getElementById(`dependent-${index + 1}-full-name`)
+                ?.value || "",
+            dateOfBirth:
+              document.getElementById(`dependent-${index + 1}-date-of-birth`)
+                ?.value || "",
+            phoneNumber:
+              document.getElementById(`dependent-${index + 1}-phone-number`)
+                ?.value || "",
+            emailId:
+              document.getElementById(`dependent-${index + 1}-email`)?.value ||
+              "",
+            relationship:
+              document.getElementById(`dependent-${index + 1}-relationship`)
+                ?.value || "",
+            socialMediaHandle:
+              document.getElementById(`dependent-${index + 1}-social-media`)
+                ?.value || "",
+          };
+          dependents.push(dependent);
         });
-        input.addEventListener('blur', function() {
-          if (this.value === '') {
-            this.nextElementSibling.classList.remove('active');
-          }
-        });
-      });
-        document.querySelectorAll('input[name="family"]').forEach(radio => {
-          radio.addEventListener('change', function() {
-            const homeNameField = document.getElementById('home-name-field');
-            if (this.value === 'isprava' || this.value === 'chapter' || this.value === 'lohono') {
-              homeNameField.style.display = 'block';
-            } else {
-              homeNameField.style.display = 'none';
+
+        localStorage.setItem("dependentsData", JSON.stringify(dependents));
+        return dependents;
+      }
+
+      document
+        .querySelectorAll(".form-field input, .form-field select")
+        .forEach((input) => {
+          input.addEventListener("focus", function () {
+            const label = this.nextElementSibling;
+            if (label && label.tagName === "LABEL") {
+              label.classList.add("active");
+            }
+          });
+
+          input.addEventListener("blur", function () {
+            const label = this.nextElementSibling;
+            if (label && label.tagName === "LABEL" && this.value === "") {
+              label.classList.remove("active");
+            }
+            if (this.hasAttribute("required")) {
+              validateField(this);
             }
           });
         });
+
+      document.querySelectorAll('input[name="family"]').forEach((radio) => {
+        radio.addEventListener("change", function () {
+          const homeNameField = document.getElementById("home-name-field");
+          const goaAddressSection = document.getElementById(
+            "goa-address-section"
+          );
+
+          if (
+            this.value === "isprava" ||
+            this.value === "chapter" ||
+            this.value === "lohono"
+          ) {
+            homeNameField.style.display = "block";
+            goaAddressSection.style.display = "none";
+          } else if (this.value === "not-yet") {
+            homeNameField.style.display = "none";
+            goaAddressSection.style.display = "block";
+          } else {
+            homeNameField.style.display = "none";
+            goaAddressSection.style.display = "none";
+          }
+        });
+      });
+
+      const initialForm = document.getElementById("initial-form");
+      const dependantForm = document.getElementById("dependant-form");
+      const additionalForm = document.getElementById("additional-form");
+      const termsSection = document.querySelector(".terms-section");
+      const nextButton = document.getElementById("next-button");
+      const previousButton = document.querySelector(".btn-previous");
+      const progressBar = document.querySelector(".progress");
+
+      dependantForm.style.display = "none";
+      additionalForm.style.display = "none";
+
+      nextButton.addEventListener("click", function (e) {
+        if (!validateForm()) {
+          e.preventDefault();
+          showToast("Please fill in all required fields correctly");
+          document
+            .querySelector(".error")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        const selectedFamily = document.querySelector(
+          'input[name="family"]:checked'
+        )?.value;
+
+        if (nextButton.textContent === "Submit") {
+          saveFormData();
+          if (selectedFamily !== "not-yet") {
+            const dependents = saveDependentsData();
+            showToast(`Successfully saved ${dependents.length} dependent(s)`);
+          }
+          showToast("Form submitted successfully!");
+
+          setTimeout(() => {
+            window.location.href = "success.html";
+          }, 1000);
+
+          return;
+        }
+
+        initialForm.classList.add("slide-out");
+        termsSection.style.display = "block";
+        progressBar.style.width = "66.67%";
+
+        if (selectedFamily === "not-yet") {
+          additionalForm.style.display = "block";
+          additionalForm.classList.add("slide-in");
+          dependantForm.style.display = "none";
+        } else {
+          dependantForm.style.display = "block";
+          dependantForm.classList.add("active");
+          additionalForm.style.display = "none";
+        }
+
+        nextButton.textContent = "Submit";
+
+        saveFormData();
+      });
+
+      previousButton.addEventListener("click", function () {
+        initialForm.classList.remove("slide-out");
+        dependantForm.classList.remove("active");
+        additionalForm.classList.remove("slide-in");
+        termsSection.style.display = "none";
+        progressBar.style.width = "33.33%";
+        nextButton.textContent = "Next";
+      });
+
+      document
+        .getElementById("add-dependant-btn")
+        ?.addEventListener("click", function () {
+          const dependantCount = document.querySelectorAll(
+            "#dependants-container .form-section"
+          ).length;
+
+          const newDependantSection = document.createElement("div");
+          newDependantSection.className = "form-section";
+          newDependantSection.innerHTML = `
+          <h3>Dependant ${dependantCount + 1}</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <input type="text" id="dependent-${
+                dependantCount + 1
+              }-full-name" placeholder=" " required />
+              <label for="dependent-${
+                dependantCount + 1
+              }-full-name">Full Name*</label>
+            </div>
+            <div class="form-field">
+              <input type="text" id="dependent-${
+                dependantCount + 1
+              }-date-of-birth" placeholder="DD/MM/YYYY" required />
+              <label for="dependent-${
+                dependantCount + 1
+              }-date-of-birth">Date of Birth*</label>
+            </div>
+            <div class="form-field phone-field">
+              <div class="country-code">
+                <span>+91 India</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="divider"></div>
+              <input type="tel" id="dependent-${
+                dependantCount + 1
+              }-phone-number" placeholder=" " required />
+              <label for="dependent-${
+                dependantCount + 1
+              }-phone-number">Phone Number*</label>
+            </div>
+            <div class="form-field">
+              <input type="email" id="dependent-${
+                dependantCount + 1
+              }-email" placeholder=" " required />
+              <label for="dependent-${
+                dependantCount + 1
+              }-email">Email ID*</label>
+            </div>
+            <div class="form-field">
+              <select id="dependent-${
+                dependantCount + 1
+              }-relationship" required>
+                <option value="" disabled selected></option>
+                <option value="child">Child</option>
+                <option value="parent">Parent</option>
+              </select>
+              <label for="dependent-${
+                dependantCount + 1
+              }-relationship">Relationship*</label>
+            </div>
+            <div class="form-field">
+              <input type="text" id="dependent-${
+                dependantCount + 1
+              }-social-media" placeholder=" " />
+              <label for="dependent-${
+                dependantCount + 1
+              }-social-media">Social Media Handle</label>
+            </div>
+          </div>
+        `;
+
+          const container = document.getElementById("dependants-container");
+          const addDependantButton = container.querySelector(".add-dependant");
+          container.insertBefore(newDependantSection, addDependantButton);
+          container.insertBefore(
+            document.createElement("div"),
+            addDependantButton
+          ).className = "separator";
+
+          newDependantSection
+            .querySelectorAll(".form-field input, .form-field select")
+            .forEach((input) => {
+              input.addEventListener("focus", function () {
+                const label = this.nextElementSibling;
+                if (label && label.tagName === "LABEL") {
+                  label.classList.add("active");
+                }
+              });
+
+              input.addEventListener("blur", function () {
+                const label = this.nextElementSibling;
+                if (label && label.tagName === "LABEL" && this.value === "") {
+                  label.classList.remove("active");
+                }
+                if (this.hasAttribute("required")) {
+                  validateField(this);
+                }
+              });
+            });
+        });
+
+      document.getElementById("other")?.addEventListener("change", function () {
+        const otherInput = document.querySelector(".other-input input");
+        otherInput.disabled = !this.checked;
+      });
+
+      const savedFormData = localStorage.getItem("membershipFormData");
+      if (savedFormData) {
+        const formData = JSON.parse(savedFormData);
+
+        if (formData.familyType) {
+          const radioButton = document.querySelector(
+            `input[name="family"][value="${formData.familyType}"]`
+          );
+          if (radioButton) {
+            radioButton.checked = true;
+            if (
+              ["isprava", "chapter", "lohono"].includes(formData.familyType)
+            ) {
+              document.getElementById("home-name-field").style.display =
+                "block";
+            } else if (formData.familyType === "not-yet") {
+              document.getElementById("goa-address-section").style.display =
+                "block";
+            }
+          }
+        }
+
+        if (formData.homeName) {
+          document.getElementById("home-name").value = formData.homeName;
+        }
+
+        const basicDetails = formData.basicDetails;
+        if (basicDetails) {
+          document.getElementById("full-name").value = basicDetails.fullName;
+          document.getElementById("date-of-birth").value =
+            basicDetails.dateOfBirth;
+          document.getElementById("phone-number").value =
+            basicDetails.phoneNumber;
+          document.getElementById("email-id").value = basicDetails.emailId;
+          document.getElementById("social-media-handle").value =
+            basicDetails.socialMediaHandle;
+        }
+
+        const address = formData.address;
+        if (address) {
+          document.getElementById("address-line-1").value = address.line1;
+          document.getElementById("address-line-2").value = address.line2;
+          document.getElementById("pincode").value = address.pincode;
+          document.getElementById("state").value = address.state;
+        }
+
+        const goaAddress = formData.goaAddress;
+        if (goaAddress) {
+          document.getElementById("goa-address-line-1").value =
+            goaAddress.line1;
+          document.getElementById("goa-address-line-2").value =
+            goaAddress.line2;
+          document.getElementById("goa-pincode").value = goaAddress.pincode;
+        }
+
+        const partnerDetails = formData.partnerDetails;
+        if (partnerDetails) {
+          document.getElementById("partner-full-name").value =
+            partnerDetails.fullName;
+          document.getElementById("partner-date-of-birth").value =
+            partnerDetails.dateOfBirth;
+          document.getElementById("partner-phone-number").value =
+            partnerDetails.phoneNumber;
+          document.getElementById("partner-email-id").value =
+            partnerDetails.emailId;
+          document.getElementById("anniversary").value =
+            partnerDetails.anniversary;
+          document.getElementById("partner-social-media-handle").value =
+            partnerDetails.socialMediaHandle;
+        }
+
+        document
+          .querySelectorAll(".form-field input, .form-field select")
+          .forEach((input) => {
+            if (input.value) {
+              const label = input.nextElementSibling;
+              if (label && label.tagName === "LABEL") {
+                label.classList.add("active");
+              }
+            }
+          });
+      }
+
+      const savedDependentsData = localStorage.getItem("dependentsData");
+      if (savedDependentsData) {
+        const dependents = JSON.parse(savedDependentsData);
+        dependents.forEach((dependent, index) => {
+          if (index > 0) {
+            document.getElementById("add-dependant-btn")?.click();
+          }
+
+          document.getElementById(`dependent-${index + 1}-full-name`).value =
+            dependent.fullName;
+          document.getElementById(
+            `dependent-${index + 1}-date-of-birth`
+          ).value = dependent.dateOfBirth;
+          document.getElementById(`dependent-${index + 1}-phone-number`).value =
+            dependent.phoneNumber;
+          document.getElementById(`dependent-${index + 1}-email`).value =
+            dependent.emailId;
+          document.getElementById(`dependent-${index + 1}-relationship`).value =
+            dependent.relationship;
+          document.getElementById(`dependent-${index + 1}-social-media`).value =
+            dependent.socialMediaHandle;
+
+          document
+            .querySelectorAll(
+              `#dependent-${index + 1}-full-name, #dependent-${
+                index + 1
+              }-date-of-birth, #dependent-${
+                index + 1
+              }-phone-number, #dependent-${index + 1}-email, #dependent-${
+                index + 1
+              }-relationship, #dependent-${index + 1}-social-media`
+            )
+            .forEach((input) => {
+              if (input.value) {
+                const label = input.nextElementSibling;
+                if (label && label.tagName === "LABEL") {
+                  label.classList.add("active");
+                }
+              }
+            });
+        });
+      }
+    </script>
+    <script>
+      // Function to get UTM parameters from the query string
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        const utmParams = {};
+
+        // List of UTM parameters to check
+        const utmKeys = [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content",
+        ];
+
+        utmKeys.forEach((key) => {
+          if (params.has(key)) {
+            utmParams[key] = params.get(key);
+          }
+        });
+
+        return utmParams;
+      }
+
+      // Save UTM parameters to session storage
+      function saveUtmToSessionStorage() {
+        const utmParams = getQueryParams();
+        if (Object.keys(utmParams).length > 0) {
+          sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
+        }
+      }
+
+      // Run the function on page load
+      document.addEventListener("DOMContentLoaded", saveUtmToSessionStorage);
     </script>
   </body>
 </html>

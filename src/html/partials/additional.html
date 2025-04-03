@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solene Membership Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400,700" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <!-- Background header -->
+        <div class="header">
+          <div class="header-patterns">
+            <div class="patterns-container">
+              <!-- Background patterns will be loaded via CSS -->
+            </div>
+          </div>
+
+          <!-- Logo -->
+          <div class="logo">
+            <img class="logo-text" alt="Solene" src="/group-16.png" />
+            <img class="logo-part-1" alt="Logo part" src="/group-17.png" />
+            <img class="logo-part-2" alt="Logo part" src="/group-18.png" />
+          </div>
+
+          <!-- Header text -->
+          <div class="header-text">
+            <h1>Membership application form</h1>
+            <p>We're excited that you're interested in becoming a part of Solene. Tell us a little about yourself so we can get to know you better.</p>
+          </div>
+        </div>
+
+        <!-- Main form card -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Additional Information</h2>
+            <p>Where did you hear about Solene?</p>
+            <hr />
+          </div>
+
+          <div class="card-content">
+            <form id="membershipForm">
+              <!-- How did you hear about Solene section -->
+              <div class="form-section">
+                <label class="section-label">How did you hear about Solene? (Select all that apply)</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="member" />
+                    <label for="member">Via a member</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="social" />
+                    <label for="social">Social Media</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="website" />
+                    <label for="website">Website</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="other" />
+                    <label for="other">Other</label>
+                  </div>
+                  <div class="other-input">
+                    <input type="text" placeholder="Type here" disabled />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Why do you wish to be a part section -->
+              <div class="form-section">
+                <label class="section-label">Why do you wish to be a part of the Solene community?</label>
+                <textarea placeholder="Type here"></textarea>
+              </div>
+
+              <!-- How do you see yourself section -->
+              <div class="form-section">
+                <label class="section-label">How do you see yourself making use of the club's facilities and services?</label>
+                <textarea placeholder="Type here"></textarea>
+              </div>
+            </form>
+          </div>
+
+          <!-- Form footer -->
+          <div class="form-footer">
+            <!-- Terms and conditions checkbox -->
+            <div class="terms-section">
+              <input type="checkbox" id="terms" />
+              <label for="terms">
+                I agree to the <a href="#">Terms & Conditions</a> and
+                <a href="#">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <!-- Progress bar and buttons -->
+            <div class="action-section">
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%"></div>
+              </div>
+
+              <div class="buttons">
+                <button class="btn-previous">Previous</button>
+                <button class="btn-submit" disabled>Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

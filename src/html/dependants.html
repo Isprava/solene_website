@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solene - Membership Application Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:500,400,700");
+    </style>
+    <link href="/css/dependants.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Background header -->
+      <div class="header-bg"></div>
+
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-container">
+          <img class="logo-text" alt="Solene logo text" src="/group-16.png" />
+          <img class="logo-icon-top" alt="Solene logo icon" src="/group-17.png" />
+          <img class="logo-icon-bottom" alt="Solene logo icon" src="/group-18.png" />
+        </div>
+      </div>
+
+      <!-- Header text -->
+      <div class="header-text">
+        <h1>Membership application form</h1>
+        <p>We're excited that you're interested in becoming a part of Solene. Tell us a little about yourself so we can get to know you better.</p>
+      </div>
+
+      <!-- Main form card -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Dependant Membership</h2>
+          <p class="card-description">Apply for dependant membership for your children or parent</p>
+          <div class="separator"></div>
+        </div>
+
+        <div class="card-content">
+          <div class="form-section">
+            <h3>Dependant 1</h3>
+
+            <div class="form-grid">
+              <input type="text" placeholder="Full Name*" />
+              <input type="text" placeholder="Date of Birth*" />
+              
+              <div class="phone-input">
+                <div class="country-select">
+                  <span>+91 India</span>
+                  <svg class="chevron-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <input type="tel" placeholder="Phone Number*" />
+              </div>
+
+              <input type="email" placeholder="Email ID*" />
+
+              <select>
+                <option value="" disabled selected>Relationship*</option>
+                <option value="child">Child</option>
+                <option value="parent">Parent</option>
+              </select>
+
+              <input type="text" placeholder="Social Media Handle" />
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="add-dependant">
+            <button class="btn-outline">Add Dependant</button>
+          </div>
+
+          <div class="separator"></div>
+
+          <!-- Footer section moved inside card -->
+          <div class="terms-section">
+            <label class="checkbox-container">
+              <input type="checkbox" id="terms" />
+              <span class="checkmark"></span>
+              <span class="terms-text">
+                I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and
+                <a href="#" class="terms-link">Privacy Policy.</a>
+              </span>
+            </label>
+          </div>
+
+          <div class="footer-buttons">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="button-container">
+              <button class="btn-outline btn-previous">Previous</button>
+              <button class="btn-submit" disabled>Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,9 +1,13 @@
-const gulp = require('gulp');
-const connect = require('gulp-connect');
-const fileInclude = require('gulp-file-include');
-const cleanCSS = require('gulp-clean-css');
-const sass = require('gulp-sass')(require('sass'));
-const uglify = require('gulp-uglify');
+import gulp from 'gulp';
+import connect from 'gulp-connect';
+import fileInclude from 'gulp-file-include';
+import cleanCSS from 'gulp-clean-css';
+import sass from 'gulp-sass';
+import dartSass from 'sass';
+import uglify from 'gulp-uglify';
+
+// Configure Sass to use Dart Sass
+const sassCompiler = sass(dartSass);
 
 // Task to start a local server
 gulp.task('connect', function(done) {
@@ -29,7 +33,7 @@ gulp.task('html', function () {
 // Task to process SCSS files, minify CSS, and reload the server when CSS files change
 gulp.task('scss', function () {
   return gulp.src('src/scss/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sassCompiler().on('error', sassCompiler.logError))
     .pipe(cleanCSS({ compatibility: 'ie8' })) // Minify CSS
     .pipe(gulp.dest('dist/css'))
     .pipe(connect.reload());

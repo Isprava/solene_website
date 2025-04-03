@@ -1,0 +1,284 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Alegreya Sans', sans-serif;
+  background-color: #fffcf9;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+/* Header styles */
+.header {
+  width: 100%;
+  height: 320px;
+  background-color: #9c3c33;
+  position: relative;
+  z-index: -1;
+}
+
+.header-patterns {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.31;
+}
+
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 184px;
+  height: 48px;
+}
+
+.logo-text {
+  position: absolute;
+  width: 87px;
+  height: 21px;
+  top: 27px;
+  left: 17px;
+}
+
+.logo-part-1 {
+  position: absolute;
+  width: 27px;
+  height: 21px;
+  top: 0;
+  left: 0;
+}
+
+.logo-part-2 {
+  position: absolute;
+  width: 27px;
+  height: 21px;
+  top: 15px;
+  left: 0;
+}
+
+.header-text {
+  position: absolute;
+  width: 748px;
+  height: 104px;
+  top: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.header-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  line-height: 44px;
+}
+
+.header-text p {
+  margin-top: 24px;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+/* Card styles */
+.card {
+  width: 848px;
+  margin: -64px auto 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.card-header {
+  padding: 40px 40px 0;
+}
+
+.card-header h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3d3937;
+  line-height: 36px;
+}
+
+.card-header p {
+  font-size: 18px;
+  color: #787878;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+.card-header hr {
+  margin-top: 24px;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 24px 40px;
+}
+
+/* Form styles */
+.form-section {
+  margin-bottom: 28px;
+}
+
+.section-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #484848;
+  margin-bottom: 16px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkbox-item label {
+  font-size: 18px;
+  color: #484848;
+}
+
+.other-input {
+  margin-left: 40px;
+  margin-top: 8px;
+}
+
+.other-input input {
+  height: 56px;
+  width: 726px;
+  padding: 0 16px;
+  border: 1px solid rgba(25, 22, 19, 0.1);
+  border-radius: 4px;
+  font-family: 'Alegreya Sans', sans-serif;
+  color: #787878;
+  opacity: 0.5;
+}
+
+textarea {
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  border: 1px solid rgba(25, 22, 19, 0.1);
+  border-radius: 4px;
+  font-family: 'Alegreya Sans', sans-serif;
+  color: #787878;
+  resize: none;
+}
+
+/* Footer styles */
+.form-footer {
+  margin-top: 24px;
+}
+
+.terms-section {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 40px;
+  background-color: #f5f5f7;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.terms-section input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.terms-section label {
+  font-size: 16px;
+}
+
+.terms-section a {
+  color: #1c76bf;
+  text-decoration: underline;
+}
+
+.action-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(222, 222, 222, 0.8);
+}
+
+.progress {
+  height: 100%;
+  background-color: #8d9b53;
+  transition: width 0.3s ease;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.btn-previous {
+  height: 48px;
+  padding: 0 32px;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 500;
+  color: #9c3c33;
+  background: transparent;
+  border: 1px solid #9c3c33;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  height: 48px;
+  padding: 0 32px;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 500;
+  color: white;
+  background-color: #dddddd;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
+.btn-submit:not(:disabled) {
+  background-color: #9c3c33;
+  cursor: pointer;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solene - Application Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/success.css" />
+    <script>
+      window.onload = function () {
+        window.history.pushState(null, '', window.location.href);
+        window.onpopstate = function () {
+          window.history.pushState(null, '', window.location.href);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background"></div>
+      <div class="content">
+        <!-- Logo -->
+        <div class="logo">
+          <img
+            src="/public/success/group-16.png"
+            alt="Solene logo"
+            style="
+              position: absolute;
+              width: 87px;
+              height: 21px;
+              top: 27px;
+              left: 17px;
+            "
+          />
+          <img
+            src="/public/success/group-17.png"
+            alt="Logo element"
+            style="
+              position: absolute;
+              width: 27px;
+              height: 21px;
+              top: 0;
+              left: 0;
+            "
+          />
+          <img
+            src="/public/success/group-18.png"
+            alt="Logo element"
+            style="
+              position: absolute;
+              width: 27px;
+              height: 21px;
+              top: 15px;
+              left: 0;
+            "
+          />
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+          <h1>Membership application form</h1>
+          <p>
+            We're excited that you're interested in becoming a part of Solene.
+            Tell us a little about yourself so we can get to know you better.
+          </p>
+        </div>
+
+        <!-- Thank you heading -->
+        <div class="thank-you">
+          <img
+            src="/public/group-19.png"
+            alt="Decorative element"
+            width="60"
+            height="46"
+          />
+          <h2>Thank you for choosing Solene</h2>
+          <img
+            src="/public/group-20.png"
+            alt="Decorative element"
+            width="60"
+            height="46"
+          />
+        </div>
+
+        <!-- Card -->
+        <div class="card">
+          <div class="success-icon">
+            <div class="success-icon-inner">
+              <div class="success-icon-core">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <h3>Application Form Submitted</h3>
+          <p>
+            We are thrilled to receive your application and our team will be
+            reaching out to you soon.
+          </p>
+
+          <a href="/">
+            <button class="button">Visit Solene website</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -25,7 +25,7 @@ body {
       rgba(0, 0, 0, 0) 58%,
       rgba(0, 0, 0, 0.4) 100%
     ),
-    url("/public/landing/frame-37399.png");
+    url("/public/landing/hero.png");
   background-size: cover;
   background-position: center;
   color: white;
@@ -271,6 +271,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 0.688rem;
+  position: relative;
 }
 
 .form-group label {
@@ -285,11 +286,118 @@ header {
   height: 1.5rem;
   padding: 0;
   width: 100%;
+  font-size: 1rem;
+  color: #3d3937;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: #9c3c33;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+input.error {
+  border-color: #dc3545;
+}
+
+/* Phone input styles */
+.phone-group {
+  position: relative;
+}
+
+.phone-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #787878;
+  padding-bottom: 4px;
+}
+
+.country-code {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #3d3937;
+  font-size: 16px;
+  min-width: 100px;
+  padding: 4px 0;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+    color: #787878;
+  }
+
+  &.active svg {
+    transform: rotate(180deg);
+  }
+}
+
+.phone-input {
+  border: none !important;
+  padding: 4px 0 !important;
+  flex: 1;
+  font-size: 16px !important;
+  color: #3d3937 !important;
+  height: auto !important;
+
+  &::placeholder {
+    color: #787878;
+  }
+}
+
+.country-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.country-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &.selected {
+    background: rgba(156, 60, 51, 0.1);
+  }
+
+  .country-name {
+    color: #3d3937;
+    font-size: 14px;
+  }
+
+  .country-dial-code {
+    color: #787878;
+    font-size: 14px;
+  }
 }
 
 .contact-form button {
@@ -306,6 +414,16 @@ header {
 
 .contact-form button:hover {
   background: rgba(156, 60, 51, 0.1);
+}
+
+.form-success {
+  text-align: center;
+  color: #28a745;
+  padding: 20px;
+  font-size: 18px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 4px;
+  margin-top: 20px;
 }
 
 /* Footer */

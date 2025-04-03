@@ -4,7 +4,8 @@
   "description": "A project that uses Gulp for automatic server reloading on HTML and CSS changes.",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "dev": "gulp"
   },
   "dependencies": {
     "browser-sync": "^2.26.14",
@@ -21,5 +22,6 @@
     "uglify": "^0.1.5"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
