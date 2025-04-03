@@ -3,7 +3,7 @@ name: Deploy Solene Website on beta.thesolene.in
 on:
   push:
     tags:
-      - "rc-*"
+      - "release-*"
 
 jobs:
   deploy:
