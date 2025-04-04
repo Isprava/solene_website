@@ -1,0 +1,264 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  background-color: #fffcf9;
+  color: #232323;
+  line-height: 1.5;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 180px;
+  background-color: #9c3c33;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  position: absolute;
+  width: 104px;
+  height: 48px;
+  top: 24px;
+  left: 80px;
+}
+
+.logo-text {
+  position: absolute;
+  width: 87px;
+  height: 21px;
+  top: 27px;
+  left: 17px;
+}
+
+.logo-icon-top {
+  position: absolute;
+  width: 27px;
+  height: 21px;
+  top: 0;
+  left: 0;
+}
+
+.logo-icon-bottom {
+  position: absolute;
+  width: 27px;
+  height: 21px;
+  top: 15px;
+  left: 0;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  margin-top: -80px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  width: 100%;
+  max-width: 904px;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.card-content {
+  padding: 40px 60px;
+}
+
+.title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: normal;
+  color: #232323;
+  font-family: "Times New Roman", serif;
+  margin: 0 0 30px 0;
+  letter-spacing: -0.5px;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  margin: 30px 0;
+}
+
+.intro-text {
+  font-size: 16px;
+  font-weight: normal;
+  color: #232323;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.terms-list {
+  padding-left: 20px;
+  margin: 0;
+  color: #232323;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.terms-list li {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.declaration {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #232323;
+  line-height: 1.6;
+}
+
+.declaration p {
+  text-align: justify;
+}
+
+.declaration-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+/* Footer */
+footer {
+  background: #111111;
+  padding: 1.938rem 2rem;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/public/landing/mask-group.png");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  position: relative;
+  width: 240px;
+  height: 112px;
+}
+
+.footer-logo img {
+  position: absolute;
+}
+
+.footer-logo-top {
+  width: 63px;
+  height: 49px;
+  top: 0;
+  left: 0;
+}
+
+.footer-logo-bottom {
+  width: 63px;
+  height: 49px;
+  top: 36px;
+  left: 0;
+}
+
+.footer-logo-text {
+  width: 201px;
+  height: 48px;
+  top: 64px;
+  left: 39px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px; /* Adjust spacing between social links */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adjust spacing between icon and text */
+  text-decoration: none;
+  color: inherit;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 16px;
+}
+
+.social-link img {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.social-link img {
+  height: 16px;
+  width: 16px;
+  object-fit: contain;
+}
+
+.social-link:hover {
+  color: white;
+}
+
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-content {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .logo {
+    left: 20px;
+  }
+}
