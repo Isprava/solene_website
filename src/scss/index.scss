@@ -537,6 +537,86 @@ footer::before {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.success-popup {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 480px;
+  position: relative;
+}
+
+.success-popup .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9c3c33;
+  font-size: 24px;
+  padding: 4px;
+  line-height: 1;
+}
+
+.success-popup .icon {
+  width: 64px;
+  height: 64px;
+  background: #8d9b53;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.success-popup .icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.success-popup h3 {
+  font-family: "FONTSPRING DEMO - The Seasons", serif;
+  font-size: 28px;
+  color: #3d3937;
+  margin-bottom: 8px;
+  line-height: 44px;
+}
+
+.success-popup p {
+  color: #787878;
+  margin-bottom: 24px;
+}
+
+.success-popup button {
+  background: #9c3c33;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 16px;
+}
+
+.success-popup button:hover {
+  background: #8a352e;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   header {

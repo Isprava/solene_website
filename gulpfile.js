@@ -5,6 +5,7 @@ import cleanCSS from 'gulp-clean-css';
 import sass from 'gulp-sass';
 import dartSass from 'sass';
 import uglify from 'gulp-uglify';
+import replace from 'gulp-replace';
 
 // Configure Sass to use Dart Sass
 const sassCompiler = sass(dartSass);
@@ -42,6 +43,8 @@ gulp.task('scss', function () {
 // Task to minify JavaScript files and copy to the dist folder
 gulp.task('js', function () {
   return gulp.src('src/js/**/*.js')
+    .pipe(replace('__API_URL__', process.env.API_URL || ''))
+    .pipe(replace('__DEBUG__', process.env.DEBUG || 'false'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(connect.reload());
