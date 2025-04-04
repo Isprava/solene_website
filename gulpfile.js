@@ -42,10 +42,7 @@ gulp.task('scss', function () {
     .src('src/scss/*.scss')
     .pipe(sassCompiler().on('error', sassCompiler.logError))
     .pipe(cleanCSS({ compatibility: 'ie8' })) // Minify CSS
-    .pipe(rev()) // Add versioning
     .pipe(gulp.dest('dist/css'))
-    .pipe(rev.manifest('rev-manifest.json', { merge: true })) // Create or update manifest
-    .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
 
