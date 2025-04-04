@@ -11,14 +11,31 @@ jobs:
     steps:
       - name: Checking out code
         uses: actions/checkout@v3
+
       - name: Installing Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+
       - name: Installing dependencies
         run: npm install --legacy-peer-deps
+
+      - name: Set environment variables
+        run: |
+          echo "API_URL=${{ vars.STAGE_API_URL }}" >> $GITHUB_ENV
+          echo "ROBOTS=${{ vars.STAGE_ROBOTS }}" >> $GITHUB_ENV
+          echo "SITEMAP=${{ vars.STAGE_SITEMAP }}" >> $GITHUB_ENV
+
       - name: Building project
+        env:
+          API_URL: ${{ env.API_URL }}
         run: npm run build
+
+      - name: Write robots.txt
+        run: |
+          echo "${{ env.ROBOTS }}" > dist/robots.txt
+          echo "${{ env.SITEMAP }}" > dist/sitemap.xml
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

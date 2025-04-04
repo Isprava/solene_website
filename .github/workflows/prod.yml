@@ -17,8 +17,21 @@ jobs:
           node-version: "20"
       - name: Installing dependencies
         run: npm install --legacy-peer-deps
+
+      - name: Set environment variables
+        run: |
+          echo "API_URL=${{ vars.PROD_API_URL }}" >> $GITHUB_ENV
+          echo "ROBOTS=${{ vars.PROD_ROBOTS }}" >> $GITHUB_ENV
+          echo "SITEMAP=${{ vars.PROD_SITEMAP }}" >> $GITHUB_ENV
+
       - name: Building project
-        run: npm run build:stage
+        run: npm run build
+
+      - name: Write robots.txt
+        run: |
+          echo "${{ env.ROBOTS }}" > dist/robots.txt
+          echo "${{ env.SITEMAP }}" > dist/sitemap.xml
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
