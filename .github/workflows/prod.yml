@@ -21,16 +21,9 @@ jobs:
       - name: Set environment variables
         run: |
           echo "API_URL=${{ vars.PROD_API_URL }}" >> $GITHUB_ENV
-          echo "ROBOTS=${{ vars.PROD_ROBOTS }}" >> $GITHUB_ENV
-          echo "SITEMAP=${{ vars.PROD_SITEMAP }}" >> $GITHUB_ENV
 
       - name: Building project
         run: npm run build
-
-      - name: Write robots.txt
-        run: |
-          echo "${{ env.ROBOTS }}" > dist/robots.txt
-          echo "${{ env.SITEMAP }}" > dist/sitemap.xml
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -38,6 +31,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Copy Meta from S3 bucket
+        run: |
+          aws s3 cp s3://meta.thesolene.in/prod/robots.txt ./dist/robots.txt
+          aws s3 cp s3://meta.thesolene.in/prod/sitemap.xml ./dist/sitemap.xml
 
       - name: Deploy to S3 bucket
         run: aws s3 sync ./dist/ s3://thesolene.in --delete
