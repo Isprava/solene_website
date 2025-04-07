@@ -88,13 +88,21 @@ header {
 }
 
 .contact-btn {
+  font-family: Alegreya Sans;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  
+  height: 40px;
+  border-radius: 4px;
   padding: 0.75rem 1.5rem;
   border: 1px solid #fedfbe;
   background: transparent;
   color: #fedfbe;
   cursor: pointer;
-  font-size: 0.875rem;
-  letter-spacing: 0.56px;
   transition: all 0.3s ease;
 }
 
@@ -110,17 +118,17 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: -webkit-fill-available;
   align-items: center;
-  gap: 2.5rem;
+  gap: 24px;
   padding-bottom: 2rem;
 }
 
-.hero h1 {
+.hero-header {
   font-family: "Bodoni 72", serif;
   font-size: 3.5rem;
   line-height: 1.2;
   text-align: center;
-  max-width: 800px;
   margin: 0;
 }
 
@@ -142,19 +150,19 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 2rem;
+  gap: 102px;
 }
 
 .about-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .about-text p {
   font-size: 1.5rem;
-  text-align: justify;
+  text-align: left;
 }
 
 .about-image {
@@ -183,9 +191,21 @@ header {
 
 .amenities-header h2 {
   font-family: "Bodoni 72", serif;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
   font-weight: 400;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: 0%;
+  margin-bottom: 2px;
+}
+
+.amenities-header p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;  
+  color: #3D3937;
+
 }
 
 .amenities-grid {
@@ -201,13 +221,13 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2px;
   border-radius: 0.5rem;
 }
 
 .amenity-card img {
-  width: 63px;
-  height: 60px;
+  width: 88px;
+  height: 88px;
   object-fit: contain;
 }
 
@@ -220,7 +240,7 @@ header {
 
 /* Membership Section */
 .membership {
-  background: url("/public/landing/membership-background.webp");
+  background: url("/public/landing/membership-background.png");
   background-size: cover;
   background-position: center;
   padding: 8.375rem 18.188rem;
@@ -234,7 +254,7 @@ header {
 }
 
 .membership-content p {
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .membership h2 {
@@ -275,7 +295,7 @@ header {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.688rem;
+  gap: 4px;
   position: relative;
 }
 
@@ -288,11 +308,15 @@ header {
   border: none;
   border-bottom: 1px solid #787878;
   background: transparent;
-  height: 1.5rem;
   padding: 0;
   width: 100%;
-  font-size: 1rem;
-  color: #3d3937;
+  font-family: Alegreya Sans;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #3D3937;
 }
 
 .form-group input:focus {
@@ -434,7 +458,7 @@ input.error {
 /* Footer */
 footer {
   background: #111111;
-  padding: 1.938rem 2rem;
+  padding: 40px 80px;
   position: relative;
 }
 
@@ -456,7 +480,7 @@ footer::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 32px;
   position: relative;
   z-index: 1;
 }
@@ -653,13 +677,14 @@ footer::before {
     min-height: 100vh;
   }
 
-  .hero h1 {
+  .hero-header{
     font-size: 2.5rem;
     padding: 0 1rem;
   }
 
   .about-text p {
     font-size: 1.25rem;
+    text-align: justify;
   }
 
   .amenities-grid {
@@ -690,8 +715,9 @@ footer::before {
     padding: 0 1rem;
   }
 
-  .hero h1 {
+  .hero-header {
     font-size: 2rem;
+    overflow-wrap: anywhere;
   }
 
   .amenities-grid {
@@ -717,5 +743,35 @@ footer::before {
 
   .footer-logo {
     transform: scale(0.8);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-header {
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .contact-header p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #3D3937;
+  }
+
+  .footer-content p{
+    font-family: Alegreya Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #FFFFFFCC;
   }
 }
