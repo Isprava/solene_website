@@ -12,6 +12,21 @@
       rel="stylesheet"
     />
     <link href="/css/application.css" rel="stylesheet" />
+    <style>
+      .form-field.phone-field {
+        position: relative;
+      }
+
+      .error-message {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 4px;
+        color: red;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    </style>
   </head>
   <body>
     <div class="app">
@@ -438,7 +453,7 @@
                 <div
                   class="reference-details"
                   id="reference-details"
-                  style="display: none"
+                  style="display: none; position: relative"
                 >
                   <div class="form-grid">
                     <div class="form-field">
@@ -546,8 +561,241 @@
     </div>
 
     <div id="toast" class="toast"></div>
+    <script>
+      // Add these validation functions at the top of your file
+      // function validateMembershipType() {
+      //   const selectedFamily = document.querySelector('input[name="family"]:checked');
+      //   const errorElement = document.createElement('span');
+      //   errorElement.className = 'error-message';
 
-    <script type="module">
+      //   if (!selectedFamily) {
+      //     const radioGroup = document.querySelector('.radio-group');
+      //     const existingError = radioGroup.querySelector('.error-message');
+
+      //     if (!existingError) {
+      //       errorElement.textContent = 'Please select a membership type';
+      //       radioGroup.appendChild(errorElement);
+      //     }
+      //     return false;
+      //   }
+
+      //   const existingError = document.querySelector('.radio-group .error-message');
+      //   if (existingError) {
+      //     existingError.remove();
+      //   }
+      //   return true;
+      // }
+
+      // function validateHomeNameField() {
+      //   const selectedFamily = document.querySelector('input[name="family"]:checked')?.value;
+      //   if (selectedFamily === 'isprava_homeowner' || selectedFamily === 'chapter_homeowner') {
+      //     const homeName = document.getElementById('home-name');
+      //     if (!homeName.value.trim()) {
+      //       const errorElement = document.getElementById('home-name-error') || document.createElement('span');
+      //       errorElement.id = 'home-name-error';
+      //       errorElement.className = 'error-message';
+      //       errorElement.textContent = 'Please enter your home name';
+
+      //       if (!document.getElementById('home-name-error')) {
+      //         homeName.parentNode.appendChild(errorElement);
+      //       }
+      //       return false;
+      //     }
+      //   }
+      //   return true;
+      // }
+      // Form validation rules
+      const VALIDATION_RULES = {
+        "full-name": {
+          required: true,
+          minLength: 2,
+          pattern: /^[a-zA-Z\s'-]+$/,
+          message:
+            "Please enter a valid name (letters, spaces, hyphens and apostrophes only)",
+        },
+        "date-of-birth": {
+          required: true,
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
+        },
+        "phone-number": {
+          required: true,
+          pattern: /^\d{10}$/,
+          message: "Please enter a valid 10-digit phone number",
+        },
+        "email-id": {
+          required: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+          message: "Please enter a valid email address",
+        },
+        "address-line-1": {
+          required: true,
+          minLength: 5,
+          message: "Please enter your street address",
+        },
+        "address-line-2": {
+          required: true,
+          minLength: 3,
+          message: "Please enter your apartment/unit details",
+        },
+        pincode: {
+          required: true,
+          pattern: /^\d{6}$/,
+          message: "Please enter a valid 6-digit pincode",
+        },
+        state: {
+          required: true,
+          message: "Please select your state",
+        },
+        "partner-full-name": {
+          required: true,
+          minLength: 2,
+          pattern: /^[a-zA-Z\s'-]+$/,
+          message: "Please enter a valid name",
+        },
+        "partner-date-of-birth": {
+          required: true,
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
+        },
+        "partner-phone-number": {
+          required: true,
+          pattern: /^\d{10}$/,
+          message: "Please enter a valid 10-digit phone number",
+        },
+        "partner-email-id": {
+          required: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+          message: "Please enter a valid email address",
+        },
+        anniversary: {
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
+        },
+        // Optional Goa address fields
+        "goa-address-line-1": {
+          pattern: /^.{5,}$/,
+          message: "Please enter a valid street address",
+        },
+        "goa-address-line-2": {
+          pattern: /^.{3,}$/,
+          message: "Please enter valid apartment/unit details",
+        },
+        "goa-pincode": {
+          pattern: /^\d{6}$/,
+          message: "Please enter a valid 6-digit pincode",
+        },
+      };
+
+      // Validate a single field
+      function validateField(field) {
+        const rules = VALIDATION_RULES[field.id];
+        if (!rules) return true;
+
+        let isValid = true;
+        let errorMessage = "";
+
+        // Remove any existing error message
+        const existingError =
+          field.parentElement.querySelector(".error-message");
+        if (existingError) {
+          existingError.remove();
+        }
+
+        // Required field validation
+        if (rules.required && !field.value.trim()) {
+          isValid = false;
+          errorMessage = rules.message || "This field is required";
+        }
+
+        // Minimum length validation
+        if (
+          isValid &&
+          rules.minLength &&
+          field.value.trim().length < rules.minLength
+        ) {
+          isValid = false;
+          errorMessage = `Must be at least ${rules.minLength} characters`;
+        }
+
+        // Pattern validation
+        if (
+          isValid &&
+          rules.pattern &&
+          !rules.pattern.test(field.value.trim())
+        ) {
+          isValid = false;
+          errorMessage = rules.message;
+        }
+
+        // Display error message if validation failed
+        if (!isValid) {
+          const errorDiv = document.createElement("div");
+          errorDiv.className = "error-message";
+          errorDiv.textContent = errorMessage;
+
+          // Insert error message after the input field, not just append
+          field.insertAdjacentElement("afterend", errorDiv);
+        }
+
+        return isValid;
+      }
+      // Validate all form fields
+      function validateForm() {
+        const fields = document.querySelectorAll(
+          "#initial-form input[required]"
+        );
+        let isValid = true;
+        const familyType = document.querySelector(
+          'input[name="family"]:checked'
+        );
+
+        // Validate family type selection
+        if (!familyType) {
+          isValid = false;
+          const radioGroup = document.querySelector(".radio-group");
+          if (!radioGroup.querySelector(".error-message")) {
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.textContent = "Please select your family type";
+            const radioOptions = document.querySelector(".radio-options");
+            radioGroup.appendChild(errorDiv);
+          }
+        } else {
+          const radioGroup = document.querySelector(".radio-group");
+          const existingError = radioGroup.querySelector(".error-message");
+          if (existingError) {
+            existingError.remove();
+          }
+
+          // Validate home name if applicable
+          if (
+            ["isprava_homeowner", "chapter_homeowner"].includes(
+              familyType.value
+            )
+          ) {
+            const homeName = document.getElementById("home-name");
+            if (!homeName.value.trim()) {
+              isValid = false;
+              const errorDiv = document.createElement("div");
+              errorDiv.className = "error-message";
+              errorDiv.textContent = "Please enter your home name";
+              homeName.parentElement.appendChild(errorDiv);
+              homeName.classList.add("error");
+            }
+          }
+        }
+
+        // Validate all required fields
+        fields.forEach((field) => {
+          if (!validateField(field)) {
+            isValid = false;
+          }
+        });
+
+        return isValid;
+      }
+
       document.getElementById("member").addEventListener("change", function () {
         const referenceDetails = document.getElementById("reference-details");
         const referenceFullName = document.getElementById(
@@ -572,10 +820,11 @@
           referenceRelationship.removeAttribute("required");
         }
       });
-      import { validateForm, validateField } from "/js/validation.js";
 
-      function showToast(message) {
+      function showToast(message, type = "success") {
         const toast = document.getElementById("toast");
+        toast.classList.remove("success", "error");
+        toast.classList.add(type);
         toast.textContent = message;
         toast.style.display = "block";
         setTimeout(() => {
@@ -691,9 +940,13 @@
             !referencePhoneNumber ||
             !referenceRelationship
           ) {
-            errorElement.textContent =
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.textContent =
               "Please fill all required reference details (Full Name, Phone Number, Relationship)";
-            errorElement.style.display = "block";
+            const referenceDetails =
+              document.querySelector("#reference-details");
+            referenceDetails.appendChild(errorDiv);
             return false;
           }
         }
@@ -762,11 +1015,30 @@
       additionalForm.style.display = "none";
 
       nextButton.addEventListener("click", async function (e) {
-        // Disable button and show loading state
-        let originalText = nextButton.textContent;
+        if (nextButton.textContent.trim().toLowerCase() === "next") {
+          // Validate membership type
+          const isValidForm = validateForm();
+
+          if (!isValidForm) {
+            // Find the first error and scroll to it
+            const firstError = document.querySelector(".error-message");
+            if (firstError) {
+              firstError.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+            return;
+          }
+        }
 
         try {
           if (nextButton.textContent.trim().toLowerCase() === "next") {
+            // Disable button and show loading state
+            nextButton.disabled = true;
+            nextButton.classList.add("loading");
+            let originalText = nextButton.textContent;
+            nextButton.textContent = "Loading...";
             // Save form data to localStorage
             saveFormData();
 
@@ -898,7 +1170,7 @@
             nextButton.disabled = true;
             nextButton.classList.add("loading");
             if (!applicationSlug) {
-              showToast("Application not found. Please try again.");
+              showToast("Application not found. Please try again.", error);
               return;
             }
 
@@ -1000,13 +1272,17 @@
             }
 
             showToast("Form submitted successfully!");
+            localStorage.clear();
             setTimeout(() => {
               window.location.href = "success.html";
-            }, 1000);
+            }, 500);
           }
         } catch (error) {
           console.error("Error:", error);
-          showToast(error.message || "An error occurred. Please try again.");
+          showToast(
+            error.message || "An error occurred. Please try again.",
+            error
+          );
         } finally {
           nextButton.disabled = false;
           nextButton.classList.remove("loading");
@@ -1035,69 +1311,65 @@
           const newDependantSection = document.createElement("div");
           newDependantSection.className = "form-section";
           newDependantSection.innerHTML = `
-          <h3>Dependant ${dependantCount + 1}</h3>
-          <div class="form-grid">
-            <div class="form-field">
-              <input type="text" id="dependent-${
-                dependantCount + 1
-              }-full-name" placeholder=" " required />
-              <label for="dependent-${
-                dependantCount + 1
-              }-full-name">Full Name*</label>
-            </div>
-            <div class="form-field">
-              <input type="text" id="dependent-${
-                dependantCount + 1
-              }-date-of-birth" placeholder="DD/MM/YYYY" required />
-              <label for="dependent-${
-                dependantCount + 1
-              }-date-of-birth">Date of Birth*</label>
-            </div>
-            <div class="form-field phone-field">
-              <div class="country-code">
-                <span>+91 India</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-              <div class="divider"></div>
-              <input type="tel" id="dependent-${
-                dependantCount + 1
-              }-phone-number" placeholder=" " required />
-              <label for="dependent-${
-                dependantCount + 1
-              }-phone-number">Phone Number*</label>
-            </div>
-            <div class="form-field">
-              <input type="email" id="dependent-${
-                dependantCount + 1
-              }-email" placeholder=" " required />
-              <label for="dependent-${
-                dependantCount + 1
-              }-email">Email ID*</label>
-            </div>
-            <div class="form-field">
-              <select id="dependent-${
-                dependantCount + 1
-              }-relationship" required>
-                <option value="" disabled selected></option>
-                <option value="child">Child</option>
-                <option value="parent">Parent</option>
-              </select>
-              <label for="dependent-${
-                dependantCount + 1
-              }-relationship">Relationship*</label>
-            </div>
-            <div class="form-field">
-              <input type="text" id="dependent-${
-                dependantCount + 1
-              }-social-media" placeholder=" " />
-              <label for="dependent-${
-                dependantCount + 1
-              }-social-media">Social Media Handle</label>
-            </div>
-          </div>
-        `;
+    <h3>Dependant ${dependantCount + 1}</h3>
+    <div class="form-grid">
+      <div class="form-field">
+        <input type="text" id="dependent-${
+          dependantCount + 1
+        }-full-name" placeholder=" " required />
+        <label for="dependent-${
+          dependantCount + 1
+        }-full-name">Full Name*</label>
+      </div>
+      <div class="form-field">
+        <input type="text" id="dependent-${
+          dependantCount + 1
+        }-date-of-birth" placeholder="DD/MM/YYYY" required />
+        <label for="dependent-${
+          dependantCount + 1
+        }-date-of-birth">Date of Birth*</label>
+      </div>
+      <div class="form-field phone-field">
+        <div class="country-code">
+          <span>+91 India</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="divider"></div>
+        <input type="tel" id="dependent-${
+          dependantCount + 1
+        }-phone-number" placeholder=" " required />
+        <label for="dependent-${
+          dependantCount + 1
+        }-phone-number">Phone Number*</label>
+      </div>
+      <div class="form-field">
+        <input type="email" id="dependent-${
+          dependantCount + 1
+        }-email" placeholder=" " required />
+        <label for="dependent-${dependantCount + 1}-email">Email ID*</label>
+      </div>
+      <div class="form-field">
+        <select id="dependent-${dependantCount + 1}-relationship" required>
+          <option value="" disabled selected></option>
+          <option value="child">Child</option>
+          <option value="parent">Parent</option>
+        </select>
+        <label for="dependent-${
+          dependantCount + 1
+        }-relationship">Relationship*</label>
+      </div>
+      <div class="form-field">
+        <input type="text" id="dependent-${
+          dependantCount + 1
+        }-social-media" placeholder=" " />
+        <label for="dependent-${
+          dependantCount + 1
+        }-social-media">Social Media Handle</label>
+      </div>
+    </div>
+  `;
 
           const container = document.getElementById("dependants-container");
           const addDependantButton = container.querySelector(".add-dependant");
@@ -1264,8 +1536,6 @@
             });
         });
       }
-    </script>
-    <script>
       // Function to get UTM parameters from the query string
       function getQueryParams() {
         const params = new URLSearchParams(window.location.search);

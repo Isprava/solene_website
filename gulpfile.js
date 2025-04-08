@@ -8,7 +8,7 @@ import uglify from 'gulp-uglify';
 import replace from 'gulp-replace';
 import rev from 'gulp-rev';
 import revReplace from 'gulp-rev-replace';
-
+import newer from 'gulp-newer';
 // Configure Sass to use Dart Sass
 const sassCompiler = sass(dartSass);
 
@@ -62,7 +62,7 @@ gulp.task('js', function () {
 
 // Task to copy public to the dist folder
 gulp.task('public', function () {
-  return gulp.src('src/public/**/*').pipe(gulp.dest('dist/public')).pipe(connect.reload());
+  return gulp.src('src/public/**/*').pipe(newer('dist/images')).pipe(gulp.dest('dist/public')).pipe(connect.reload());
 });
 
 // Task to copy fonts to the dist folder
