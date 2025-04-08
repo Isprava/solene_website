@@ -83,23 +83,23 @@ const VALIDATION_RULES = {
     message: 'Please select your state'
   },
   'partner-full-name': {
-    required: true,
+    conditionallyRequired: true,
     minLength: 2,
     pattern: /^[a-zA-Z\s'-]+$/,
     message: 'Please enter a valid name'
   },
   'partner-date-of-birth': {
-    required: true,
+    conditionallyRequired: true,
     pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
     message: 'Please enter a valid date in DD/MM/YYYY format'
   },
   'partner-phone-number': {
-    required: true,
+    conditionallyRequired: true,
     pattern: /^\d{10}$/,
     message: 'Please enter a valid 10-digit phone number'
   },
   'partner-email-id': {
-    required: true,
+    conditionallyRequired: true,
     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     message: 'Please enter a valid email address'
   },
@@ -128,18 +128,25 @@ export function validateField(field) {
   if (!rules) return true;
 
   let isValid = true;
-  let errorMessage = '';
+  let errorMessage = "";
 
   // Remove any existing error message
-  const existingError = field.parentElement.querySelector('.error-message');
+  const existingError = field.parentElement.querySelector(".error-message");
   if (existingError) {
     existingError.remove();
+  }
+
+  // Get the label element
+  const label = field.nextElementSibling;
+  if (label && label.tagName === "LABEL") {
+    // Always add active class when validating (field has been interacted with)
+    label.classList.add("active");
   }
 
   // Required field validation
   if (rules.required && !field.value.trim()) {
     isValid = false;
-    errorMessage = rules.message || 'This field is required';
+    errorMessage = rules.message || "This field is required";
   }
 
   // Minimum length validation
@@ -156,13 +163,17 @@ export function validateField(field) {
 
   // Display error message if validation failed
   if (!isValid) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-message";
     errorDiv.textContent = errorMessage;
     field.parentElement.appendChild(errorDiv);
-    field.classList.add('error');
+    field.classList.add("error");
   } else {
-    field.classList.remove('error');
+    field.classList.remove("error");
+    // Only remove active class if field is empty and valid
+    if (label && label.tagName === "LABEL" && !field.value.trim()) {
+      label.classList.remove("active");
+    }
   }
 
   return isValid;
@@ -981,3 +992,20 @@ function saveUtmToSessionStorage() {
 
 // Run the function on page load
 document.addEventListener("DOMContentLoaded", saveUtmToSessionStorage);
+
+// Check if any partner field is filled
+function isAnyPartnerFieldFilled() {
+  const partnerFields = [
+    'partner-full-name',
+    'partner-date-of-birth',
+    'partner-phone-number',
+    'partner-email-id',
+    'anniversary',
+    'partner-social-media-handle'
+  ];
+
+  return partnerFields.some(fieldId => {
+    const field = document.getElementById(fieldId);
+    return field && field.value.trim() !== '';
+  });
+}

@@ -35,7 +35,7 @@
           <img src="/public/logo.svg" alt="Logo" />
         </div>
         <section class="partner-details">
-          <h1>Membership application form</h1>
+          <h1 id="membership-applciation">Membership application form</h1>
           <p>
             We're excited that you're interested in becoming a part of Solene.
             Tell us a little about yourself so we can get to know you better.
@@ -161,6 +161,15 @@
                     <div class="form-field">
                       <input
                         type="text"
+                        id="linkedin-url"
+                        placeholder=" "
+                        required
+                      />
+                      <label for="linkedin-url">LinkedIn Profile (URL)</label>
+                    </div>
+                    <div class="form-field">
+                      <input
+                        type="text"
                         id="social-media-handle"
                         placeholder=" "
                       />
@@ -181,7 +190,9 @@
                         placeholder=" "
                         required
                       />
-                      <label for="address-line-1">Address Line 1*</label>
+                      <label for="address-line-1" style="top: 35%"
+                        >Address Line 1*</label
+                      >
                       <span class="helper-text">Area, Street name, etc.</span>
                     </div>
                     <div class="form-field">
@@ -191,7 +202,9 @@
                         placeholder=" "
                         required
                       />
-                      <label for="address-line-2">Address Line 2*</label>
+                      <label for="address-line-2" style="top: 35%"
+                        >Address Line 2*</label
+                      >
                       <span class="helper-text"
                         >Apartment No., Apartment name, etc.</span
                       >
@@ -266,7 +279,7 @@
                         placeholder=" "
                         required
                       />
-                      <label for="partner-full-name">Full Name*</label>
+                      <label for="partner-full-name">Full Name</label>
                     </div>
                     <div class="form-field">
                       <input
@@ -275,7 +288,11 @@
                         placeholder="DD/MM/YYYY"
                         required
                       />
-                      <label for="partner-date-of-birth">Date of Birth*</label>
+                      <label
+                        for="partner-date-of-birth"
+                        style="padding-right: 8px"
+                        >Date of Birth</label
+                      >
                     </div>
                     <div class="form-field phone-field">
                       <div class="country-code">
@@ -300,7 +317,7 @@
                         placeholder=" "
                         required
                       />
-                      <label for="partner-phone-number">Phone Number*</label>
+                      <label for="partner-phone-number">Phone Number</label>
                     </div>
                     <div class="form-field">
                       <input
@@ -309,21 +326,27 @@
                         placeholder=" "
                         required
                       />
-                      <label for="partner-email-id">Email ID*</label>
+                      <label for="partner-email-id">Email ID</label>
                     </div>
                     <div class="form-field">
                       <input
                         type="text"
-                        id="anniversary"
+                        id="partner-anniversary"
                         placeholder="DD/MM/YYYY"
+                        required
                       />
-                      <label for="anniversary">Anniversary</label>
+                      <label
+                        for="partner-anniversary"
+                        style="padding-right: 12px"
+                        >Anniversary</label
+                      >
                     </div>
                     <div class="form-field">
                       <input
                         type="text"
                         id="partner-social-media-handle"
                         placeholder=" "
+                        required
                       />
                       <label for="partner-social-media-handle"
                         >Social Media Handle (URL)</label
@@ -352,20 +375,22 @@
                 <div class="form-field">
                   <input
                     type="text"
-                    id="dependent-1-full-name"
+                    id="dependant-1-full-name"
                     placeholder=" "
-                    required
                   />
-                  <label for="dependent-1-full-name">Full Name*</label>
+                  <label for="dependant-1-full-name">Full Name</label>
                 </div>
                 <div class="form-field">
                   <input
                     type="text"
-                    id="dependent-1-date-of-birth"
+                    id="dependant-1-date-of-birth"
                     placeholder="DD/MM/YYYY"
-                    required
                   />
-                  <label for="dependent-1-date-of-birth">Date of Birth*</label>
+                  <label
+                    for="dependant-1-date-of-birth"
+                    style="padding-right: 6px"
+                    >Date of Birth</label
+                  >
                 </div>
                 <div class="form-field phone-field">
                   <div class="country-code">
@@ -386,36 +411,37 @@
                   <div class="divider"></div>
                   <input
                     type="tel"
-                    id="dependent-1-phone-number"
+                    id="dependant-1-phone-number"
                     placeholder=" "
-                    required
                   />
-                  <label for="dependent-1-phone-number">Phone Number*</label>
+                  <label for="dependant-1-phone-number">Phone Number</label>
                 </div>
                 <div class="form-field">
                   <input
                     type="email"
-                    id="dependent-1-email"
+                    id="dependant-1-email"
                     placeholder=" "
                     required
                   />
-                  <label for="dependent-1-email">Email ID*</label>
+                  <label for="dependant-1-email">Email ID</label>
                 </div>
                 <div class="form-field">
-                  <select id="dependent-1-relationship" required>
+                  <select id="dependant-1-relationship" required>
                     <option value="" disabled selected></option>
-                    <option value="child">Child</option>
-                    <option value="parent">Parent</option>
+                    <option value="mother">Mother</option>
+                    <option value="father">Father</option>
+                    <option value="son">Son</option>
+                    <option value="daughter">Daughter</option>
                   </select>
-                  <label for="dependent-1-relationship">Relationship*</label>
+                  <label for="dependant-1-relationship">Relationship</label>
                 </div>
                 <div class="form-field">
                   <input
                     type="text"
-                    id="dependent-1-social-media"
+                    id="dependant-1-social-media"
                     placeholder=" "
                   />
-                  <label for="dependent-1-social-media"
+                  <label for="dependant-1-social-media"
                     >Social Media Handle</label
                   >
                 </div>
@@ -536,7 +562,7 @@
 
         <div class="terms-section" style="display: none">
           <label class="checkbox-container">
-            <input type="checkbox" id="terms" />
+            <input type="checkbox" id="terms" required />
             <span class="checkmark"></span>
             <span class="terms-text">
               I agree to the
@@ -551,10 +577,13 @@
             <div class="progress" style="width: 33.33%"></div>
           </div>
           <div class="navigation-buttons">
-            <button class="btn-previous">Previous</button>
-            <button class="btn-next" id="next-button" type="button">
-              Next
-            </button>
+            <div><button class="btn-previous">Previous</button></div>
+            <div>
+              <button class="btn-next" id="next-button" type="button">
+                Next
+              </button>
+              <a class="skip" id="skip" href="/success.html">Skip ></a>
+            </div>
           </div>
         </footer>
       </div>
@@ -648,27 +677,28 @@
           message: "Please select your state",
         },
         "partner-full-name": {
-          required: true,
+          conditionallyRequired: true,
           minLength: 2,
           pattern: /^[a-zA-Z\s'-]+$/,
           message: "Please enter a valid name",
         },
         "partner-date-of-birth": {
-          required: true,
+          conditionallyRequired: true,
           pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
           message: "Please enter a valid date in DD/MM/YYYY format",
         },
         "partner-phone-number": {
-          required: true,
+          conditionallyRequired: true,
           pattern: /^\d{10}$/,
           message: "Please enter a valid 10-digit phone number",
         },
         "partner-email-id": {
-          required: true,
+          conditionallyRequired: true,
           pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
           message: "Please enter a valid email address",
         },
-        anniversary: {
+        "partner-anniversary": {
+          conditionallyRequired: true,
           pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
           message: "Please enter a valid date in DD/MM/YYYY format",
         },
@@ -685,7 +715,67 @@
           pattern: /^\d{6}$/,
           message: "Please enter a valid 6-digit pincode",
         },
+        "linkedin-url": {
+          required: true,
+          pattern:
+            /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[\w\-._~:/?#[\]@!$&'()*+,;=]+$/,
+          message: "Please enter a valid LinkedIn profile URL",
+        },
       };
+
+      function convertDateFormat(dateString) {
+        if (!dateString) return "";
+
+        // Check if date is in DD/MM/YYYY format
+        const parts = dateString.split("/");
+        if (parts.length === 3) {
+          const [day, month, year] = parts;
+          return `${year}-${month}-${day}`;
+        }
+        return dateString;
+      }
+
+      function isAnyPartnerFieldFilled() {
+        const partnerFields = [
+          "partner-full-name",
+          "partner-date-of-birth",
+          "partner-phone-number",
+          "partner-email-id",
+          "partner-anniversary",
+          "partner-social-media-handle",
+        ];
+
+        return partnerFields.some((fieldId) => {
+          const field = document.getElementById(fieldId);
+          return field && field.value.trim() !== "";
+        });
+      }
+
+      function isAnyDependentFieldFilled(sectionIndex) {
+        const fields = [
+          `dependant-${sectionIndex}-full-name`,
+          `dependant-${sectionIndex}-date-of-birth`,
+          `dependant-${sectionIndex}-phone-number`,
+          `dependant-${sectionIndex}-email`,
+          `dependant-${sectionIndex}-relationship`,
+          `dependant-${sectionIndex}-social-media`,
+        ];
+
+        return fields.some((fieldId) => {
+          const field = document.getElementById(fieldId);
+          return field && field.value.trim() !== "";
+        });
+      }
+
+      function hasDependantData() {
+        const dependantSections = document.querySelectorAll(
+          "#dependants-container .form-section"
+        );
+        return Array.from(dependantSections).some((section, index) => {
+          const sectionIndex = index + 1;
+          return isAnyDependentFieldFilled(sectionIndex);
+        });
+      }
 
       // Validate a single field
       function validateField(field) {
@@ -702,25 +792,22 @@
           existingError.remove();
         }
 
+        // Check if field is conditionally required
+        const isRequired = rules.conditionallyRequired
+          ? isAnyPartnerFieldFilled() && field.id.startsWith("partner-")
+          : rules.required;
+
         // Required field validation
-        if (rules.required && !field.value.trim()) {
+        if (isRequired && !field.value.trim()) {
           isValid = false;
-          errorMessage = rules.message || "This field is required";
+          errorMessage =
+            "This field is required when any partner detail is provided";
         }
 
-        // Minimum length validation
+        // Pattern validation (only if field has value or is required)
         if (
           isValid &&
-          rules.minLength &&
-          field.value.trim().length < rules.minLength
-        ) {
-          isValid = false;
-          errorMessage = `Must be at least ${rules.minLength} characters`;
-        }
-
-        // Pattern validation
-        if (
-          isValid &&
+          field.value.trim() &&
           rules.pattern &&
           !rules.pattern.test(field.value.trim())
         ) {
@@ -728,68 +815,99 @@
           errorMessage = rules.message;
         }
 
+        // Minimum length validation (only if field has value or is required)
+        if (
+          isValid &&
+          field.value.trim() &&
+          rules.minLength &&
+          field.value.trim().length < rules.minLength
+        ) {
+          isValid = false;
+          errorMessage = `Must be at least ${rules.minLength} characters`;
+        }
+
         // Display error message if validation failed
         if (!isValid) {
           const errorDiv = document.createElement("div");
           errorDiv.className = "error-message";
           errorDiv.textContent = errorMessage;
-
-          // Insert error message after the input field, not just append
-          field.insertAdjacentElement("afterend", errorDiv);
+          field.parentElement.appendChild(errorDiv);
+          field.classList.add("error");
+        } else {
+          field.classList.remove("error");
         }
 
         return isValid;
       }
-      // Validate all form fields
-      function validateForm() {
-        const fields = document.querySelectorAll(
-          "#initial-form input[required]"
+
+      function validateDependents() {
+        const dependantSections = document.querySelectorAll(
+          "#dependants-container .form-section"
         );
         let isValid = true;
-        const familyType = document.querySelector(
-          'input[name="family"]:checked'
-        );
 
-        // Validate family type selection
-        if (!familyType) {
-          isValid = false;
-          const radioGroup = document.querySelector(".radio-group");
-          if (!radioGroup.querySelector(".error-message")) {
-            const errorDiv = document.createElement("div");
-            errorDiv.className = "error-message";
-            errorDiv.textContent = "Please select your family type";
-            const radioOptions = document.querySelector(".radio-options");
-            radioGroup.appendChild(errorDiv);
-          }
-        } else {
-          const radioGroup = document.querySelector(".radio-group");
-          const existingError = radioGroup.querySelector(".error-message");
-          if (existingError) {
-            existingError.remove();
-          }
+        dependantSections.forEach((section, index) => {
+          const sectionIndex = index + 1;
 
-          // Validate home name if applicable
-          if (
-            ["isprava_homeowner", "chapter_homeowner"].includes(
-              familyType.value
-            )
-          ) {
-            const homeName = document.getElementById("home-name");
-            if (!homeName.value.trim()) {
-              isValid = false;
-              const errorDiv = document.createElement("div");
-              errorDiv.className = "error-message";
-              errorDiv.textContent = "Please enter your home name";
-              homeName.parentElement.appendChild(errorDiv);
-              homeName.classList.add("error");
-            }
-          }
-        }
+          if (isAnyDependentFieldFilled(sectionIndex)) {
+            // Required fields if any field is filled
+            const requiredFields = [
+              {
+                id: `dependant-${sectionIndex}-full-name`,
+                label: "Full Name",
+                pattern: /^[a-zA-Z\s'-]+$/,
+              },
+              {
+                id: `dependant-${sectionIndex}-date-of-birth`,
+                label: "Date of Birth",
+                pattern:
+                  /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+              },
+              {
+                id: `dependant-${sectionIndex}-phone-number`,
+                label: "Phone Number",
+                pattern: /^\d{10}$/,
+              },
+              {
+                id: `dependant-${sectionIndex}-email`,
+                label: "Email",
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              },
+              {
+                id: `dependant-${sectionIndex}-relationship`,
+                label: "Relationship",
+                pattern: /.+/,
+              },
+            ];
 
-        // Validate all required fields
-        fields.forEach((field) => {
-          if (!validateField(field)) {
-            isValid = false;
+            requiredFields.forEach((field) => {
+              const element = document.getElementById(field.id);
+              const value = element.value.trim();
+
+              // Remove existing error message
+              const existingError =
+                element.parentElement.querySelector(".error-message");
+              if (existingError) {
+                existingError.remove();
+              }
+              element.classList.remove("error");
+
+              if (!value) {
+                isValid = false;
+                const errorDiv = document.createElement("div");
+                errorDiv.className = "error-message";
+                errorDiv.textContent = `${field.label} is required`;
+                element.parentElement.appendChild(errorDiv);
+                element.classList.add("error");
+              } else if (field.pattern && !field.pattern.test(value)) {
+                isValid = false;
+                const errorDiv = document.createElement("div");
+                errorDiv.className = "error-message";
+                errorDiv.textContent = `Please enter a valid ${field.label.toLowerCase()}`;
+                element.parentElement.appendChild(errorDiv);
+                element.classList.add("error");
+              }
+            });
           }
         });
 
@@ -832,6 +950,8 @@
         }, 3000);
       }
 
+      const partnerFields = document.querySelectorAll('[id^="partner-"]');
+
       function saveFormData() {
         const formData = {
           familyType:
@@ -842,6 +962,7 @@
             dateOfBirth: document.getElementById("date-of-birth")?.value || "",
             phoneNumber: document.getElementById("phone-number")?.value || "",
             emailId: document.getElementById("email-id")?.value || "",
+            linkedinUrl: document.getElementById("linkedin-url")?.value || "", // Add this line
             socialMediaHandle:
               document.getElementById("social-media-handle")?.value || "",
           },
@@ -864,7 +985,8 @@
             phoneNumber:
               document.getElementById("partner-phone-number")?.value || "",
             emailId: document.getElementById("partner-email-id")?.value || "",
-            anniversary: document.getElementById("anniversary")?.value || "",
+            anniversary:
+              document.getElementById("partner-anniversary")?.value || "",
             socialMediaHandle:
               document.getElementById("partner-social-media-handle")?.value ||
               "",
@@ -874,38 +996,38 @@
         localStorage.setItem("membershipFormData", JSON.stringify(formData));
       }
 
-      function saveDependentsData() {
-        const dependents = [];
-        const dependentSections = document.querySelectorAll(
+      function saveDependantsData() {
+        const dependants = [];
+        const dependantSections = document.querySelectorAll(
           "#dependants-container .form-section"
         );
 
-        dependentSections.forEach((section, index) => {
-          const dependent = {
+        dependantSections.forEach((section, index) => {
+          const dependant = {
             fullName:
-              document.getElementById(`dependent-${index + 1}-full-name`)
+              document.getElementById(`dependant-${index + 1}-full-name`)
                 ?.value || "",
             dateOfBirth:
-              document.getElementById(`dependent-${index + 1}-date-of-birth`)
+              document.getElementById(`dependant-${index + 1}-date-of-birth`)
                 ?.value || "",
             phoneNumber:
-              document.getElementById(`dependent-${index + 1}-phone-number`)
+              document.getElementById(`dependant-${index + 1}-phone-number`)
                 ?.value || "",
             emailId:
-              document.getElementById(`dependent-${index + 1}-email`)?.value ||
+              document.getElementById(`dependant-${index + 1}-email`)?.value ||
               "",
             relationship:
-              document.getElementById(`dependent-${index + 1}-relationship`)
+              document.getElementById(`dependant-${index + 1}-relationship`)
                 ?.value || "",
             socialMediaHandle:
-              document.getElementById(`dependent-${index + 1}-social-media`)
+              document.getElementById(`dependant-${index + 1}-social-media`)
                 ?.value || "",
           };
-          dependents.push(dependent);
+          dependants.push(dependant);
         });
 
-        localStorage.setItem("dependentsData", JSON.stringify(dependents));
-        return dependents;
+        localStorage.setItem("dependantsData", JSON.stringify(dependants));
+        return dependants;
       }
 
       function validateSourceCheckboxes() {
@@ -1003,13 +1125,70 @@
         });
       });
 
+      function validateForm() {
+        const fields = document.querySelectorAll(
+          "#initial-form input[required]"
+        );
+        let isValid = true;
+        const familyType = document.querySelector(
+          'input[name="family"]:checked'
+        );
+
+        // Validate family type selection
+        if (!familyType) {
+          isValid = false;
+          const radioGroup = document.querySelector(".radio-group");
+          if (!radioGroup.querySelector(".error-message")) {
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.textContent = "Please select your family type";
+            const radioOptions = document.querySelector(".radio-options");
+            radioGroup.appendChild(errorDiv);
+          }
+        } else {
+          const radioGroup = document.querySelector(".radio-group");
+          const existingError = radioGroup.querySelector(".error-message");
+          if (existingError) {
+            existingError.remove();
+          }
+
+          // Validate home name if applicable
+          if (
+            ["isprava_homeowner", "chapter_homeowner"].includes(
+              familyType.value
+            )
+          ) {
+            const homeName = document.getElementById("home-name");
+            if (!homeName.value.trim()) {
+              isValid = false;
+              const errorDiv = document.createElement("div");
+              errorDiv.className = "error-message";
+              errorDiv.textContent = "Please enter your home name";
+              homeName.parentElement.appendChild(errorDiv);
+              homeName.classList.add("error");
+            }
+          }
+        }
+
+        // Validate all required fields
+        fields.forEach((field) => {
+          if (!validateField(field)) {
+            isValid = false;
+          }
+        });
+
+        return isValid;
+      }
+
       const initialForm = document.getElementById("initial-form");
       const dependantForm = document.getElementById("dependant-form");
       const additionalForm = document.getElementById("additional-form");
       const termsSection = document.querySelector(".terms-section");
       const nextButton = document.getElementById("next-button");
+      const skipButton = document.getElementById("skip");
       const previousButton = document.querySelector(".btn-previous");
       const progressBar = document.querySelector(".progress");
+      const membershipForm = document.querySelector("#membership-applciation");
 
       dependantForm.style.display = "none";
       additionalForm.style.display = "none";
@@ -1058,14 +1237,24 @@
                 initialForm.classList.add("slide-out");
                 additionalForm.style.display = "block";
                 additionalForm.classList.add("slide-in");
+                membershipForm.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
               } else {
                 initialForm.classList.add("slide-out");
                 dependantForm.style.display = "block";
                 dependantForm.classList.add("slide-in");
+                membershipForm.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+                // skipButton.style.display = "block";
               }
 
               progressBar.style.width = "66.67%";
               nextButton.textContent = "Submit";
+              termsSection.display = "block";
               originalText = "Submit";
               return;
             }
@@ -1079,11 +1268,14 @@
                 membership_type: formData.familyType,
                 home_name: formData.homeName,
                 name: formData.basicDetails.fullName,
-                date_of_birth: formData.basicDetails.dateOfBirth,
+                date_of_birth: convertDateFormat(
+                  formData.basicDetails.dateOfBirth
+                ),
                 email: formData.basicDetails.emailId,
                 country_code: "+91",
                 mobile: formData.basicDetails.phoneNumber,
                 links: {
+                  linkedinUrl: formData.basicDetails.linkedinUrl || "",
                   social_media_handle: formData.basicDetails.socialMediaHandle,
                 },
                 addresses_attributes: [
@@ -1109,11 +1301,15 @@
                 ],
                 partner_attributes: {
                   full_name: formData.partnerDetails.fullName,
-                  date_of_birth: formData.partnerDetails.dateOfBirth,
+                  date_of_birth: convertDateFormat(
+                    formData.partnerDetails.dateOfBirth
+                  ),
                   email: formData.partnerDetails.emailId,
                   country_code: "+91",
                   mobile: formData.partnerDetails.phoneNumber,
-                  anniversary: formData.partnerDetails.anniversary,
+                  anniversary: convertDateFormat(
+                    formData.partnerDetails.anniversary
+                  ),
                   social_media_handle:
                     formData.partnerDetails.socialMediaHandle,
                 },
@@ -1157,6 +1353,7 @@
               }
 
               progressBar.style.width = "66.67%";
+              termsSection.display = "block";
               nextButton.textContent = "Submit";
               originalText = "Submit";
             } else {
@@ -1173,7 +1370,22 @@
               showToast("Application not found. Please try again.", error);
               return;
             }
-
+            if (
+              formData.familyType === "isprava_homeowner" ||
+              formData.familyType === "chapter_homeowner"
+            ) {
+              // Validate dependents if any field is filled
+              if (!validateDependents()) {
+                const firstError = document.querySelector(".error-message");
+                if (firstError) {
+                  firstError.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }
+                return;
+              }
+            }
             if (
               formData.familyType === "lohono_platinum" ||
               formData.familyType === "not_yet"
@@ -1224,50 +1436,60 @@
                 throw new Error("Failed to save additional information");
               }
             } else {
-              const dependentSections = document.querySelectorAll(
+              if (!hasDependantData()) {
+                // Skip API call and proceed to success page
+                showToast("Form submitted successfully!");
+                localStorage.clear();
+                setTimeout(() => {
+                  window.location.href = "success.html";
+                }, 500);
+                return;
+              }
+              const dependantSections = document.querySelectorAll(
                 "#dependants-container .form-section"
               );
-              const dependents = Array.from(dependentSections).map(
+              const dependants = Array.from(dependantSections).map(
                 (section, index) => ({
                   full_name:
-                    document.getElementById(`dependent-${index + 1}-full-name`)
+                    document.getElementById(`dependant-${index + 1}-full-name`)
                       ?.value || "",
-                  date_of_birth:
+                  date_of_birth: convertDateFormat(
                     document.getElementById(
-                      `dependent-${index + 1}-date-of-birth`
-                    )?.value || "",
+                      `dependant-${index + 1}-date-of-birth`
+                    )?.value || ""
+                  ),
                   email:
-                    document.getElementById(`dependent-${index + 1}-email`)
+                    document.getElementById(`dependant-${index + 1}-email`)
                       ?.value || "",
                   country_code: "+91",
                   mobile:
                     document.getElementById(
-                      `dependent-${index + 1}-phone-number`
+                      `dependant-${index + 1}-phone-number`
                     )?.value || "",
                   relationship:
                     document.getElementById(
-                      `dependent-${index + 1}-relationship`
+                      `dependant-${index + 1}-relationship`
                     )?.value || "",
                   social_media_handle:
                     document.getElementById(
-                      `dependent-${index + 1}-social-media`
+                      `dependant-${index + 1}-social-media`
                     )?.value || "",
                 })
               );
 
               const response = await fetch(
-                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/dependents/add_multiple`,
+                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/dependants/add_multiple`,
                 {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
                   },
-                  body: JSON.stringify({ dependents }),
+                  body: JSON.stringify({ dependants }),
                 }
               );
 
               if (!response.ok) {
-                throw new Error("Failed to save dependents");
+                throw new Error("Failed to save dependants");
               }
             }
 
@@ -1298,6 +1520,7 @@
         termsSection.style.display = "none";
         progressBar.style.width = "33.33%";
         nextButton.textContent = "Next";
+        skipButton.style.display = "none";
         originalText = "Next";
       });
 
@@ -1314,20 +1537,18 @@
     <h3>Dependant ${dependantCount + 1}</h3>
     <div class="form-grid">
       <div class="form-field">
-        <input type="text" id="dependent-${
+        <input type="text" id="dependant-${
           dependantCount + 1
         }-full-name" placeholder=" " required />
-        <label for="dependent-${
-          dependantCount + 1
-        }-full-name">Full Name*</label>
+        <label for="dependant-${dependantCount + 1}-full-name">Full Name</label>
       </div>
       <div class="form-field">
-        <input type="text" id="dependent-${
+        <input type="text" id="dependant-${
           dependantCount + 1
         }-date-of-birth" placeholder="DD/MM/YYYY" required />
-        <label for="dependent-${
+        <label for="dependant-${
           dependantCount + 1
-        }-date-of-birth">Date of Birth*</label>
+        }-date-of-birth" style="padding-right: 6px">Date of Birth</label>
       </div>
       <div class="form-field phone-field">
         <div class="country-code">
@@ -1337,34 +1558,34 @@
           </svg>
         </div>
         <div class="divider"></div>
-        <input type="tel" id="dependent-${
+        <input type="tel" id="dependant-${
           dependantCount + 1
         }-phone-number" placeholder=" " required />
-        <label for="dependent-${
+        <label for="dependant-${
           dependantCount + 1
-        }-phone-number">Phone Number*</label>
+        }-phone-number">Phone Number</label>
       </div>
       <div class="form-field">
-        <input type="email" id="dependent-${
+        <input type="email" id="dependant-${
           dependantCount + 1
         }-email" placeholder=" " required />
-        <label for="dependent-${dependantCount + 1}-email">Email ID*</label>
+        <label for="dependant-${dependantCount + 1}-email">Email ID*</label>
       </div>
       <div class="form-field">
-        <select id="dependent-${dependantCount + 1}-relationship" required>
+        <select id="dependant-${dependantCount + 1}-relationship" required>
           <option value="" disabled selected></option>
           <option value="child">Child</option>
           <option value="parent">Parent</option>
         </select>
-        <label for="dependent-${
+        <label for="dependant-${
           dependantCount + 1
         }-relationship">Relationship*</label>
       </div>
       <div class="form-field">
-        <input type="text" id="dependent-${
+        <input type="text" id="dependant-${
           dependantCount + 1
         }-social-media" placeholder=" " />
-        <label for="dependent-${
+        <label for="dependant-${
           dependantCount + 1
         }-social-media">Social Media Handle</label>
       </div>
@@ -1445,6 +1666,8 @@
           document.getElementById("phone-number").value =
             basicDetails.phoneNumber;
           document.getElementById("email-id").value = basicDetails.emailId;
+          document.getElementById("linkedin-url").value =
+            basicDetails.linkedinUrl || "";
           document.getElementById("social-media-handle").value =
             basicDetails.socialMediaHandle;
         }
@@ -1476,7 +1699,7 @@
             partnerDetails.phoneNumber;
           document.getElementById("partner-email-id").value =
             partnerDetails.emailId;
-          document.getElementById("anniversary").value =
+          document.getElementById("partner-anniversary").value =
             partnerDetails.anniversary;
           document.getElementById("partner-social-media-handle").value =
             partnerDetails.socialMediaHandle;
@@ -1494,37 +1717,37 @@
           });
       }
 
-      const savedDependentsData = localStorage.getItem("dependentsData");
-      if (savedDependentsData) {
-        const dependents = JSON.parse(savedDependentsData);
-        dependents.forEach((dependent, index) => {
+      const savedDependantsData = localStorage.getItem("dependantsData");
+      if (savedDependantsData) {
+        const dependants = JSON.parse(savedDependantsData);
+        dependants.forEach((dependant, index) => {
           if (index > 0) {
             document.getElementById("add-dependant-btn")?.click();
           }
 
-          document.getElementById(`dependent-${index + 1}-full-name`).value =
-            dependent.fullName;
+          document.getElementById(`dependant-${index + 1}-full-name`).value =
+            dependant.fullName;
           document.getElementById(
-            `dependent-${index + 1}-date-of-birth`
-          ).value = dependent.dateOfBirth;
-          document.getElementById(`dependent-${index + 1}-phone-number`).value =
-            dependent.phoneNumber;
-          document.getElementById(`dependent-${index + 1}-email`).value =
-            dependent.emailId;
-          document.getElementById(`dependent-${index + 1}-relationship`).value =
-            dependent.relationship;
-          document.getElementById(`dependent-${index + 1}-social-media`).value =
-            dependent.socialMediaHandle;
+            `dependant-${index + 1}-date-of-birth`
+          ).value = dependant.dateOfBirth;
+          document.getElementById(`dependant-${index + 1}-phone-number`).value =
+            dependant.phoneNumber;
+          document.getElementById(`dependant-${index + 1}-email`).value =
+            dependant.emailId;
+          document.getElementById(`dependant-${index + 1}-relationship`).value =
+            dependant.relationship;
+          document.getElementById(`dependant-${index + 1}-social-media`).value =
+            dependant.socialMediaHandle;
 
           document
             .querySelectorAll(
-              `#dependent-${index + 1}-full-name, #dependent-${
+              `#dependant-${index + 1}-full-name, #dependant-${
                 index + 1
-              }-date-of-birth, #dependent-${
+              }-date-of-birth, #dependant-${
                 index + 1
-              }-phone-number, #dependent-${index + 1}-email, #dependent-${
+              }-phone-number, #dependant-${index + 1}-email, #dependant-${
                 index + 1
-              }-relationship, #dependent-${index + 1}-social-media`
+              }-relationship, #dependant-${index + 1}-social-media`
             )
             .forEach((input) => {
               if (input.value) {
@@ -1536,6 +1759,7 @@
             });
         });
       }
+
       // Function to get UTM parameters from the query string
       function getQueryParams() {
         const params = new URLSearchParams(window.location.search);
