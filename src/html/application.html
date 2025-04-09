@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <title>Membership Application Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <!-- Favicon -->
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
 
@@ -12,27 +16,6 @@
       rel="stylesheet"
     />
     <link href="/css/application.css" rel="stylesheet" />
-    <style>
-      .form-field.phone-field {
-        position: relative;
-      }
-
-      .error-message {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: 4px;
-        color: red;
-        font-size: 12px;
-        white-space: nowrap;
-      }
-
-      .btn-next.disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        background-color: #ccc;
-      }
-    </style>
   </head>
   <body>
     <div class="app">
@@ -967,7 +950,7 @@
             });
 
             // Toggle current dropdown
-            dropdown.classList.add("show");
+            dropdown.classList.add("active");
           });
         });
 
@@ -1011,16 +994,16 @@
         const countryOptions = phoneField.querySelectorAll(".country-option");
 
         // Toggle dropdown
-        countryCode.addEventListener("click", function (e) {
-          e.stopPropagation();
-          // Close all other dropdowns
-          document.querySelectorAll(".country-dropdown").forEach((d) => {
-            if (d !== dropdown) {
-              d.classList.remove("active");
-            }
-          });
-          dropdown.classList.toggle("active");
-        });
+        // countryCode.addEventListener("click", function (e) {
+        //   e.stopPropagation();
+        //   // Close all other dropdowns
+        //   document.querySelectorAll(".country-dropdown").forEach((d) => {
+        //     if (d !== dropdown) {
+        //       d.classList.remove("active");
+        //     }
+        //   });
+        //   dropdown.classList.toggle("active");
+        // });
 
         // Handle country selection
         countryOptions.forEach((option) => {
