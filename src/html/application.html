@@ -1894,7 +1894,14 @@
           const newDependantSection = document.createElement("div");
           newDependantSection.className = "form-section";
           newDependantSection.innerHTML = `
-        <h3>Dependant ${dependantCount + 1}</h3>
+        <div class="dependant-header">
+          <h3>Dependant ${dependantCount + 1}</h3>
+          ${
+            dependantCount > 0
+              ? '<button class="remove-dependant">Remove</button>'
+              : ""
+          }
+        </div>
         <div class="form-grid">
           <div class="form-field">
             <input type="text" id="dependant-${
@@ -2012,6 +2019,54 @@
             });
 
           initializeNewDependantDropdowns(newDependantSection);
+
+          // Hide remove buttons on all sections except the last one
+          const dependantSections = document.querySelectorAll(
+            "#dependants-container .form-section"
+          );
+          dependantSections.forEach((section, index) => {
+            const removeBtn = section.querySelector(".remove-dependant");
+            if (removeBtn) {
+              removeBtn.style.display =
+                index === dependantSections.length - 1 ? "block" : "none";
+            }
+          });
+        });
+
+      document
+        .getElementById("dependants-container")
+        .addEventListener("click", function (e) {
+          if (e.target.classList.contains("remove-dependant")) {
+            const section = e.target.closest(".form-section");
+            const separator = section.nextElementSibling;
+
+            // Remove the section and its separator
+            section.remove();
+            if (separator && separator.classList.contains("separator")) {
+              separator.remove();
+            }
+
+            // Update the numbering of remaining dependants
+            const dependantSections = document.querySelectorAll(
+              "#dependants-container .form-section"
+            );
+            dependantSections.forEach((section, index) => {
+              const header = section.querySelector("h3");
+              header.textContent = `Dependant ${index + 1}`;
+
+              // Show remove button only for the last dependant
+              const removeBtn = section.querySelector(".remove-dependant");
+              if (removeBtn) {
+                removeBtn.style.display =
+                  index === dependantSections.length - 1 && index > 0
+                    ? "block"
+                    : "none";
+              }
+            });
+
+            // Save updated dependants data
+            saveDependantsData();
+          }
         });
 
       document.getElementById("other")?.addEventListener("change", function () {
