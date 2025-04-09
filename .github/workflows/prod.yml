@@ -21,6 +21,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo "API_URL=${{ vars.PROD_API_URL }}" >> $GITHUB_ENV
+          echo "IMG_URL=${{ vars.PROD_IMG_URL }}" >> $GITHUB_ENV
 
       - name: Building project
         run: npm run build

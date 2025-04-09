@@ -23,6 +23,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo "API_URL=${{ vars.STAGE_API_URL }}" >> $GITHUB_ENV
+          echo "IMG_URL=${{ vars.STAGE_IMG_URL }}" >> $GITHUB_ENV
 
       - name: Building project
         env:
