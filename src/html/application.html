@@ -26,6 +26,12 @@
         font-size: 12px;
         white-space: nowrap;
       }
+
+      .btn-next.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #ccc;
+      }
     </style>
   </head>
   <body>
@@ -870,6 +876,67 @@
           message: "Please enter a valid LinkedIn profile URL",
         },
       };
+
+      // Add this function to check all required fields
+      function checkRequiredFields() {
+        // Check family type selection
+        const familyType = document.querySelector(
+          'input[name="family"]:checked'
+        );
+        if (!familyType) return false;
+
+        // Check home name if applicable
+        if (
+          ["isprava_homeowner", "chapter_homeowner"].includes(familyType.value)
+        ) {
+          const homeName = document.getElementById("home-name");
+          if (!homeName.value.trim()) return false;
+        }
+
+        // Check all required fields
+        const requiredFields = document.querySelectorAll(
+          "#initial-form input[required]"
+        );
+        for (const field of requiredFields) {
+          if (!validateField(field)) return false;
+        }
+
+        return true;
+      }
+
+      // Add input event listeners to all form fields
+      function setupFormValidation() {
+        // Add event listeners to family type radio buttons
+        document.querySelectorAll('input[name="family"]').forEach((radio) => {
+          radio.addEventListener("change", toggleNextButton);
+        });
+
+        // Add event listeners to all required inputs
+        document
+          .querySelectorAll(
+            "#initial-form input[required], #initial-form select[required]"
+          )
+          .forEach((field) => {
+            ["input", "change", "blur"].forEach((eventType) => {
+              field.addEventListener(eventType, toggleNextButton);
+            });
+          });
+      }
+
+      // Function to toggle Next button state
+      function toggleNextButton() {
+        const nextButton = document.getElementById("next-button");
+        const isValid = checkRequiredFields();
+
+        nextButton.disabled = !isValid;
+        nextButton.classList.toggle("disabled", !isValid);
+      }
+
+      // Initialize validation on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        setupFormValidation();
+        toggleNextButton(); // Initial check
+      });
 
       // Initialize country dropdowns when page loads
       document.addEventListener("DOMContentLoaded", function () {
