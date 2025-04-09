@@ -508,6 +508,28 @@ hr {
   z-index: 2;
 }
 
+.terms-section .checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.terms-section .terms-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.terms-section .terms-link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.terms-section .error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .checkbox-container {
   display: flex;
   align-items: center;

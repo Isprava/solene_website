@@ -1,5 +1,4 @@
-const API_URL = "__API_URL__";
-const DEBUG = "__DEBUG__";
+
 
 function showPopup() {
   document.querySelector(".backdrop").style.display = "flex";

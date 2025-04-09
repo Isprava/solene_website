@@ -241,9 +241,7 @@
                         placeholder=" "
                         required
                       />
-                      <label for="address-line-1" style="top: 35%"
-                        >Address Line 1*</label
-                      >
+                      <label for="address-line-1">Address Line 1*</label>
                       <span class="helper-text">Area, Street name, etc.</span>
                     </div>
                     <div class="form-field">
@@ -253,9 +251,7 @@
                         placeholder=" "
                         required
                       />
-                      <label for="address-line-2" style="top: 35%"
-                        >Address Line 2*</label
-                      >
+                      <label for="address-line-2">Address Line 2*</label>
                       <span class="helper-text"
                         >Apartment No., Apartment name, etc.</span
                       >
@@ -988,7 +984,32 @@
           initializeCountryDropdown(phoneField);
         });
       }
+      function validateTermsAndConditions() {
+        const termsCheckbox = document.getElementById("terms");
+        const termsSection = document.querySelector(".terms-section");
 
+        if (!termsCheckbox.checked) {
+          const errorDiv = document.createElement("div");
+          errorDiv.className = "error-message";
+          errorDiv.textContent = "Please accept the Terms & Conditions";
+
+          // Remove any existing error message
+          const existingError = termsSection.querySelector(".error-message");
+          if (existingError) {
+            existingError.remove();
+          }
+
+          termsSection.appendChild(errorDiv);
+          return false;
+        }
+
+        // Remove error message if terms are accepted
+        const existingError = termsSection.querySelector(".error-message");
+        if (existingError) {
+          existingError.remove();
+        }
+        return true;
+      }
       // Add click handler to close dropdowns when clicking outside
       document.addEventListener("click", function (e) {
         if (!e.target.closest(".phone-field")) {
@@ -1571,7 +1592,7 @@
 
               progressBar.style.width = "66.67%";
               nextButton.textContent = "Submit";
-              termsSection.display = "block";
+              termsSection.style.display = "block";
               originalText = "Submit";
               return;
             }
@@ -1676,13 +1697,20 @@
               }
 
               progressBar.style.width = "66.67%";
-              termsSection.display = "block";
+              termsSection.style.display = "block";
               nextButton.textContent = "Submit";
               originalText = "Submit";
             } else {
               throw new Error("Invalid response from server");
             }
           } else if (nextButton.textContent.trim().toLowerCase() === "submit") {
+            if (!validateTermsAndConditions()) {
+              termsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              return;
+            }
             const formData = JSON.parse(
               localStorage.getItem("membershipFormData")
             );

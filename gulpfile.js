@@ -14,6 +14,7 @@ const sassCompiler = sass(dartSass);
 
 // Task to start a local server
 gulp.task('connect', function (done) {
+  console.log("API_URL", process.env.API_URL);
   connect.server({
     root: 'dist',
     livereload: true,
@@ -26,6 +27,9 @@ gulp.task('connect', function (done) {
 gulp.task('html', function () {
   return gulp
     .src('./src/html/*.html')
+    .pipe(replace('__API_URL__', process.env.API_URL || ''))
+    .pipe(replace('__DEBUG__', process.env.DEBUG || 'false'))
+    .pipe(replace('__IMG_URL__', process.env.IMG_URL || 'false'))
     .pipe(
       fileInclude({
         prefix: '@@',
@@ -40,6 +44,9 @@ gulp.task('html', function () {
 gulp.task('scss', function () {
   return gulp
     .src('src/scss/*.scss')
+    .pipe(replace('__API_URL__', process.env.API_URL || ''))
+    .pipe(replace('__DEBUG__', process.env.DEBUG || 'false'))
+    .pipe(replace('__IMG_URL__', process.env.IMG_URL || 'false'))
     .pipe(sassCompiler().on('error', sassCompiler.logError))
     .pipe(cleanCSS({ compatibility: 'ie8' })) // Minify CSS
     .pipe(gulp.dest('dist/css'))
@@ -50,8 +57,9 @@ gulp.task('scss', function () {
 gulp.task('js', function () {
   return gulp
     .src('src/js/**/*.js')
-    .pipe(replace('__API_URL__', process.env.API_URL || ''))
+    .pipe(replace('__API_URL__', process.env.API_URL || 'NO_PROCESS'))
     .pipe(replace('__DEBUG__', process.env.DEBUG || 'false'))
+    .pipe(replace('__IMG_URL__', process.env.IMG_URL || 'false'))
     .pipe(uglify())
     .pipe(rev()) // Add versioning
     .pipe(gulp.dest('dist/js'))
