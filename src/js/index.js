@@ -44,6 +44,18 @@ try {
     }
   });
 
+   // Contact button click handler for responsive design
+   document.querySelector(".mobile-cta")?.addEventListener("click", function () {
+    try {
+      document.querySelector("#contact")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    } catch (error) {
+      console.error("Error in contact button click handler:", error);
+    }
+  });
+
+
   // Scroll handler for header opacity
   window.addEventListener("scroll", function () {
     try {
