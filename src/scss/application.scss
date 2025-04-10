@@ -1,3 +1,13 @@
+// Variables
+$primary-color: #9c3c33;
+$text-color: #3d3937;
+$text-secondary: #787878;
+$border-color: rgba(0, 0, 0, 0.1);
+$white: #fff;
+$error-color: #ff3b30;
+$input-border: #d0d5dd;
+$input-label: #667085;
+
 /* Base styles */
 * {
   margin: 0;
@@ -24,11 +34,11 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
-  background-image: url("/public/bg.webp");
-  // background-size: cover;
-  background-position: center;
-  background-repeat: repeat-y;
-  // background-attachment: fixed;
+  background: {
+    image: url("/public/bg.webp");
+    position: center;
+    repeat: repeat-y;
+  }
 
   @media (max-width: 768px) {
     display: flex;
@@ -344,11 +354,16 @@ hr {
   select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #d0d5dd;
+    border: 1px solid $input-border;
     border-radius: 8px;
     font-size: 16px;
     transition: all 0.3s ease;
     min-height: 48px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
   }
 
   label {
@@ -356,40 +371,57 @@ hr {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: white;
+    background: $white;
     padding: 0 4px;
-    color: #667085;
+    color: $input-label;
     transition: all 0.3s ease;
     pointer-events: none;
   }
 
-  input:focus ~ label,
-  select:focus ~ label,
-  label.active,
-  input:not(:placeholder-shown) ~ label {
-    top: 0;
-    transform: translateY(-50%) scale(0.9);
-    color: #344054;
-  }
-
-  &.phone-field {
-    .country-code {
-      width: 120px;
+  &.has-error {
+    input,
+    select {
+      border-color: $error-color;
     }
 
-    .country-dropdown {
-      width: 100%;
-      max-width: 300px;
+    label {
+      color: $error-color;
     }
   }
 
-  &.error input,
-  &.error select {
-    border-color: #ff3b30;
-  }
+  &:has(.helper-text) {
+    display: flex;
+    flex-direction: column;
 
-  &.error label {
-    color: #ff3b30;
+    input {
+      height: 48px;
+    }
+
+    label {
+      position: absolute;
+      top: 24px;
+      left: 12px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      margin-left: 0;
+      padding: 0 4px;
+      background: $white;
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      top: 0;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: $primary-color;
+    }
+
+    .helper-text {
+      margin-top: 4px;
+      font-size: 12px;
+      color: $text-secondary;
+    }
   }
 }
 
