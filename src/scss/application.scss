@@ -29,6 +29,12 @@ body {
   background-position: center;
   background-repeat: repeat-y;
   // background-attachment: fixed;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Header */
@@ -37,6 +43,34 @@ body {
   height: 320px;
   background-color: #9c3c33;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 64px 1rem 1rem; // Increase top padding to accommodate logo
+    margin: 0;
+
+    .partner-details {
+      width: 100%;
+      margin-top: 16px;
+
+      h1 {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+        width: 90%;
+      }
+    }
+
+    .logo {
+      img {
+        max-width: 120px;
+      }
+    }
+  }
 }
 
 .logo {
@@ -45,6 +79,21 @@ body {
   height: 48px;
   padding-top: 24px;
   padding-left: 80px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    height: auto;
+    padding: 0;
+    text-align: left;
+
+    img {
+      width: 68px;
+      max-width: 80px; // Adjust size for mobile
+      margin: 0; // Remove auto margin
+    }
+  }
 }
 
 /* Partner Details Section */
@@ -91,6 +140,26 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 800px;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    margin: 1rem auto;
+    padding: 0px;
+    top: -120px;
+    .card-header {
+      h2 {
+        font-size: 20px;
+      }
+
+      .card-description {
+        font-size: 14px;
+      }
+    }
+
+    .form-section {
+      padding: 1rem 0;
+    }
+  }
 }
 
 /* Address Section */
@@ -101,6 +170,56 @@ body {
 
 .section-content {
   padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .section-content {
+    padding: 0px;
+  }
+  .address-section {
+    width: 100%;
+    padding: 16px;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .section-header p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .form-section h3 {
+    font-size: 16px;
+  }
+
+  .form-field input,
+  .form-field select {
+    font-size: 14px;
+  }
+
+  .form-field label {
+    font-size: 12px;
+  }
+
+  .btn-outline,
+  .btn-next,
+  .btn-previous {
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .reference-details {
+    margin-left: 0;
+    padding: 12px;
+  }
 }
 
 .section-header h2 {
@@ -121,16 +240,26 @@ hr {
   margin-top: 16px;
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    margin: 16px;
+  }
 }
 
 /* Personal Details Section */
 .personal-details {
   width: 100%;
   padding: 0 40px;
+  @media (max-width: 768px) {
+    padding: 16px;
+    padding-bottom: 0;
+  }
 }
 
 .radio-group {
   position: relative;
+  @media (max-width: 768px) {
+    padding-top: 16px;
+  }
 }
 
 .radio-group h3 {
@@ -141,26 +270,39 @@ hr {
 }
 
 .radio-options {
-  display: flex;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // Show 4 columns on larger screens
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // Show 2 columns on mobile
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr 1fr; // Stack vertically on very small screens
+  }
 }
 
 .radio-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
+  white-space: nowrap; // Prevent text wrapping
+  padding: 8px;
 
   input[type="radio"] {
-    width: 20px;
-    height: 20px;
     margin: 0;
   }
-}
 
-.radio-label span {
-  font-size: 18px;
-  color: #3d3937;
+  span {
+    font-size: 16px;
+    color: #484848;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
 }
 
 /* Membership Info Section */
@@ -168,6 +310,9 @@ hr {
   width: 100%;
   margin: 0 auto;
   padding: 40px;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 }
 
 .form-sections {
@@ -185,54 +330,67 @@ hr {
 
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* Form field styles */
 .form-field {
   position: relative;
   margin-bottom: 24px;
-}
-
-.form-field input,
-.form-field select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #d0d5dd;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
 
-.form-field label {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  padding: 0 4px;
-  color: #667085;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    min-height: 48px;
+  }
 
-.form-field input:focus ~ label,
-.form-field select:focus ~ label,
-.form-field label.active,
-.form-field input:not(:placeholder-shown) ~ label {
-  top: 0;
-  transform: translateY(-50%) scale(0.9);
-  color: #344054;
-}
+  label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 0 4px;
+    color: #667085;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
 
-.form-field.error input,
-.form-field.error select {
-  border-color: #ff3b30;
-}
+  input:focus ~ label,
+  select:focus ~ label,
+  label.active,
+  input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%) scale(0.9);
+    color: #344054;
+  }
 
-.form-field.error label {
-  color: #ff3b30;
+  &.phone-field {
+    .country-code {
+      width: 120px;
+    }
+
+    .country-dropdown {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  &.error input,
+  &.error select {
+    border-color: #ff3b30;
+  }
+
+  &.error label {
+    color: #ff3b30;
+  }
 }
 
 .error-message {
@@ -247,7 +405,7 @@ hr {
   position: relative;
 
   input {
-    padding-left: 119px;
+    padding-left: 124px;
 
     &::placeholder {
       color: transparent;
@@ -485,6 +643,12 @@ hr {
   font-style: normal;
   font-weight: 400;
   line-height: 14px; /* 116.667% */
+  display: block;
+  margin-top: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
 }
 .skip {
   display: inline-flex;
@@ -810,7 +974,6 @@ textarea {
       top: 0;
       transform: translateY(-50%);
       font-size: 12px;
-      color: #9c3c33;
     }
 
     .helper-text {
