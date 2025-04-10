@@ -138,7 +138,7 @@ body {
 
 /* Main card */
 .main-card {
-  width: 848px;
+  width: 768px;
   margin: -64px auto 0;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -166,8 +166,8 @@ body {
       }
     }
 
-    .form-section {
-      padding: 1rem 0;
+    .form-group {
+      padding: 1.25rem 1rem;
     }
   }
 }
@@ -188,17 +188,20 @@ body {
   }
   .address-section {
     width: 100%;
+    padding: 0px;
+  }
+  .section-header {
     padding: 16px;
   }
-  .section-header h2 {
-    font-size: 20px;
-    line-height: 28px;
-  }
+  // .section-header h2 {
+  //   font-size: 20px;
+  //   line-height: 28px;
+  // }
 
-  .section-header p {
-    font-size: 14px;
-    line-height: 20px;
-  }
+  // .section-header p {
+  //   font-size: 14px;
+  //   line-height: 20px;
+  // }
 
   .form-section h3 {
     font-size: 16px;
@@ -237,6 +240,11 @@ body {
   line-height: 36px;
   color: #3d3937;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
 .section-header p {
@@ -244,6 +252,11 @@ body {
   line-height: 24px;
   color: #787878;
   margin-top: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 hr {
@@ -251,7 +264,7 @@ hr {
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   @media (max-width: 768px) {
-    margin: 16px;
+    margin-top: 0px;
   }
 }
 
@@ -260,15 +273,21 @@ hr {
   width: 100%;
   padding: 0 40px;
   @media (max-width: 768px) {
-    padding: 16px;
-    padding-bottom: 0;
+    // padding: 16px 16px 0 16px;
+    padding: 0;
   }
 }
 
 .radio-group {
   position: relative;
+  // @media (max-width: 768px) {
+  //   padding: 16px 16px 0 16px;
+  // }
+}
+
+.radio-home {
   @media (max-width: 768px) {
-    padding-top: 16px;
+    padding: 16px 16px 0px 16px;
   }
 }
 
@@ -277,6 +296,10 @@ hr {
   font-size: 18px;
   color: #484848;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    margin-bottom: 4px;
+  }
 }
 
 .radio-options {
@@ -286,11 +309,11 @@ hr {
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr); // Show 2 columns on mobile
-    gap: 12px;
+    gap: 8px;
   }
 
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr 1fr; // Stack vertically on very small screens
+  @media (max-width: 390px) {
+    grid-template-columns: 1fr; // Stack vertically on very small screens
   }
 }
 
@@ -329,6 +352,10 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (max-width: 768px) {
+    gap: 0px;
+  }
 }
 
 .form-section h3 {
@@ -336,6 +363,12 @@ hr {
   font-size: 18px;
   color: #484848;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .form-grid {
@@ -347,7 +380,7 @@ hr {
 /* Form field styles */
 .form-field {
   position: relative;
-  margin-bottom: 24px;
+  // margin-bottom: 20px;
   width: 100%;
 
   input,
@@ -1014,6 +1047,14 @@ textarea {
       color: #787878;
     }
   }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+#home-name-field {
+  margin-bottom: 24px;
 }
 
 /* Shake animation for error validation */
