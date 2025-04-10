@@ -784,11 +784,19 @@
           existingError.remove();
         }
 
+        // Allow empty value if field is not required
+        if (!value && !field.hasAttribute("required")) {
+          field.classList.remove("error");
+          return true;
+        }
+
+        // Required field validation
         if (!value && field.hasAttribute("required")) {
           showFieldError(field, "This field is required");
           return false;
         }
 
+        // Pattern validation for non-empty values
         if (value && !datePattern.test(value)) {
           showFieldError(field, "Please enter date in DD/MM/YYYY format");
           return false;
@@ -799,7 +807,7 @@
           const date = new Date(year, month - 1, day);
           const today = new Date();
 
-          // Check if it's a valid date (e.g., not 31/02/2024)
+          // Check if it's a valid date
           if (
             date.getDate() !== day ||
             date.getMonth() !== month - 1 ||
@@ -811,7 +819,7 @@
 
           // Check if date is not in future
           if (date > today) {
-            showFieldError(field, "Date cannot be in the future");
+            showFieldError(field, "Date cannot be in future");
             return false;
           }
         }
@@ -876,6 +884,60 @@
         });
       });
 
+      // Update the date input event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateFields = document.querySelectorAll(
+          'input[placeholder="DD/MM/YYYY"]'
+        );
+
+        dateFields.forEach((field) => {
+          // Handle input formatting
+          field.addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+
+            // Allow backspace and delete
+            if (
+              e.inputType === "deleteContentBackward" ||
+              e.inputType === "deleteContentForward"
+            ) {
+              return;
+            }
+
+            if (value.length > 8) value = value.slice(0, 8);
+
+            if (value.length >= 4) {
+              value =
+                value.slice(0, 2) +
+                "/" +
+                value.slice(2, 4) +
+                "/" +
+                value.slice(4);
+            } else if (value.length >= 2) {
+              value = value.slice(0, 2) + "/" + value.slice(2);
+            }
+
+            e.target.value = value;
+          });
+
+          // Handle keydown for delete and backspace
+          field.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" || e.key === "Delete") {
+              const start = this.selectionStart;
+              const end = this.selectionEnd;
+
+              if (start === end && this.value[start - 1] === "/") {
+                e.preventDefault();
+                this.setSelectionRange(start - 1, start - 1);
+              }
+            }
+          });
+
+          // Validate on blur
+          field.addEventListener("blur", function () {
+            validateDateField(this);
+          });
+        });
+      });
       // Update your validateField function to use custom validation
       function validateField(field) {
         const rules = VALIDATION_RULES[field.id];
