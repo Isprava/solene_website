@@ -50,215 +50,224 @@
 
             <section class="personal-details">
               <div class="radio-group">
-                <h3>Are you a part of the Isprava Family?*</h3>
-                <div class="radio-options">
-                  <label class="radio-label">
-                    <input
-                      type="radio"
-                      name="family"
-                      value="isprava_homeowner"
-                    />
-                    <span>Isprava Homeowner</span>
-                  </label>
-                  <label class="radio-label">
-                    <input
-                      type="radio"
-                      name="family"
-                      value="chapter_homeowner"
-                    />
-                    <span>The Chapter Homeowner</span>
-                  </label>
-                  <label class="radio-label">
-                    <input type="radio" name="family" value="lohono_platinum" />
-                    <span>Lohono Platinum</span>
-                  </label>
-                  <label class="radio-label">
-                    <input type="radio" name="family" value="not_yet" />
-                    <span>Not yet</span>
-                  </label>
-                </div>
-                <div class="form-grid" style="margin-top: 16px">
-                  <div
-                    class="form-field"
-                    id="home-name-field"
-                    style="display: none"
-                  >
-                    <input type="text" id="home-name" placeholder=" " />
-                    <label for="home-name">Home Name</label>
+                <div class="radio-home">
+                  <h3>Are you a part of the Isprava Family?*</h3>
+                  <div class="radio-options">
+                    <label class="radio-label">
+                      <input
+                        type="radio"
+                        name="family"
+                        value="isprava_homeowner"
+                      />
+                      <span>Isprava Homeowner</span>
+                    </label>
+                    <label class="radio-label">
+                      <input
+                        type="radio"
+                        name="family"
+                        value="chapter_homeowner"
+                      />
+                      <span>The Chapter Homeowner</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="family" value="lohono_platinum" />
+                      <span>Lohono Platinum</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="family" value="not_yet" />
+                      <span>Not yet</span>
+                    </label>
+                  </div>
+                  <div class="form-grid" id="home-name-grid" style="margin-top: 16px">
+                    <div
+                      class="form-field"
+                      id="home-name-field"
+                      style="display: none"
+                    >
+                      <input type="text" id="home-name" placeholder=" " />
+                      <label for="home-name">Home Name</label>
+                    </div>
                   </div>
                 </div>
+                <hr />
               </div>
             </section>
 
             <section class="membership-info">
               <div class="form-sections">
                 <div class="form-section">
-                  <h3>Basic Details*</h3>
-                  <div class="form-grid">
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="full-name"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="full-name">Full Name*</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="date-of-birth"
-                        placeholder="DD/MM/YYYY"
-                        required
-                      />
-                      <label for="date-of-birth">Date of Birth*</label>
-                    </div>
-                    <div class="form-field phone-field">
-                      <div class="country-code" id="basic-country-code">
-                        <span>+91 India</span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                  <div class="form-group">
+                    <h3>Basic Details*</h3>
+                    <div class="form-grid">
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="full-name"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="full-name">Full Name*</label>
                       </div>
-                      <div class="country-dropdown">
-                        <div
-                          class="country-option selected"
-                          data-code="+91"
-                          data-country="India"
-                        >
-                          <span class="country-name">India</span>
-                          <span class="country-dial-code">+91</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+1"
-                          data-country="United States"
-                        >
-                          <span class="country-name">United States</span>
-                          <span class="country-dial-code">+1</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+1"
-                          data-country="Canada"
-                        >
-                          <span class="country-name">Canada</span>
-                          <span class="country-dial-code">+1</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+44"
-                          data-country="United Kingdom"
-                        >
-                          <span class="country-name">United Kingdom</span>
-                          <span class="country-dial-code">+44</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+44"
-                          data-country="Singapore"
-                        >
-                          <span class="country-name">Singapore</span>
-                          <span class="country-dial-code">+65</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+971"
-                          data-country="United arab emirates"
-                        >
-                          <span class="country-name">United arab emirates</span>
-                          <span class="country-dial-code">+971</span>
-                        </div>
-                        <!-- Add more country options as needed -->
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="date-of-birth"
+                          placeholder="DD/MM/YYYY"
+                          required
+                        />
+                        <label for="date-of-birth">Date of Birth*</label>
                       </div>
-                      <div class="divider"></div>
-                      <input
-                        type="tel"
-                        id="phone-number"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="phone-number">Phone Number*</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="email"
-                        id="email-id"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="email-id">Email ID*</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="linkedin-url"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="linkedin-url">LinkedIn Profile (URL)</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="social-media-handle"
-                        placeholder=" "
-                      />
-                      <label for="social-media-handle"
-                        >Social Media Handle (URL)</label
-                      >
+                      <div class="form-field phone-field">
+                        <div class="country-code" id="basic-country-code">
+                          <span>+91 India</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        <div class="country-dropdown">
+                          <div
+                            class="country-option selected"
+                            data-code="+91"
+                            data-country="India"
+                          >
+                            <span class="country-name">India</span>
+                            <span class="country-dial-code">+91</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+1"
+                            data-country="United States"
+                          >
+                            <span class="country-name">United States</span>
+                            <span class="country-dial-code">+1</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+1"
+                            data-country="Canada"
+                          >
+                            <span class="country-name">Canada</span>
+                            <span class="country-dial-code">+1</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+44"
+                            data-country="United Kingdom"
+                          >
+                            <span class="country-name">United Kingdom</span>
+                            <span class="country-dial-code">+44</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+44"
+                            data-country="Singapore"
+                          >
+                            <span class="country-name">Singapore</span>
+                            <span class="country-dial-code">+65</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+971"
+                            data-country="United arab emirates"
+                          >
+                            <span class="country-name">United arab emirates</span>
+                            <span class="country-dial-code">+971</span>
+                          </div>
+                          <!-- Add more country options as needed -->
+                        </div>
+                        <div class="divider"></div>
+                        <input
+                          type="tel"
+                          id="phone-number"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="phone-number">Phone Number*</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="email"
+                          id="email-id"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="email-id">Email ID*</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="linkedin-url"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="linkedin-url">LinkedIn Profile (URL)</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="social-media-handle"
+                          placeholder=" "
+                        />
+                        <label for="social-media-handle"
+                          >Social Media Handle (URL)</label
+                        >
+                      </div>
                     </div>
                   </div>
+                  <hr />
                 </div>
 
                 <div class="form-section">
-                  <h3>Permanent Address*</h3>
-                  <div class="form-grid">
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="address-line-1"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="address-line-1">Address Line 1*</label>
-                      <span class="helper-text">Area, Street name, etc.</span>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="address-line-2"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="address-line-2">Address Line 2*</label>
-                      <span class="helper-text"
-                        >Apartment No., Apartment name, etc.</span
-                      >
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="pincode"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="pincode">Pincode*</label>
-                    </div>
-                    <div class="form-field">
-                      <input type="text" id="state" placeholder=" " required />
-                      <label for="state">State*</label>
+                  <div class="form-group">
+                    <h3>Permanent Address*</h3>
+                    <div class="form-grid">
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="address-line-1"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="address-line-1">Address Line 1*</label>
+                        <span class="helper-text">Area, Street name, etc.</span>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="address-line-2"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="address-line-2">Address Line 2*</label>
+                        <span class="helper-text"
+                          >Apartment No., Apartment name, etc.</span
+                        >
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="pincode"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="pincode">Pincode*</label>
+                      </div>
+                      <div class="form-field">
+                        <input type="text" id="state" placeholder=" " required />
+                        <label for="state">State*</label>
+                      </div>
                     </div>
                   </div>
+                  <hr />
                 </div>
 
                 <div
@@ -266,6 +275,7 @@
                   id="goa-address-section"
                   style="display: none"
                 >
+                <div class="form-group">
                   <h3>Goa Address</h3>
                   <div class="form-grid">
                     <div class="form-field">
@@ -304,140 +314,144 @@
                     </div>
                   </div>
                 </div>
+                  <hr />
+                </div>
 
                 <div class="form-section">
-                  <h3>Partner's Details</h3>
-                  <div class="form-grid">
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="partner-full-name"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="partner-full-name">Full Name</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="partner-date-of-birth"
-                        placeholder="DD/MM/YYYY"
-                        required
-                      />
-                      <label
-                        for="partner-date-of-birth"
-                        style="padding-right: 8px"
-                        >Date of Birth</label
-                      >
-                    </div>
-                    <div class="form-field phone-field">
-                      <div class="country-code">
-                        <span>+91 India</span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                  <div class="form-group">
+                    <h3>Partner's Details</h3>
+                    <div class="form-grid">
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="partner-full-name"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="partner-full-name">Full Name</label>
                       </div>
-                      <div class="country-dropdown">
-                        <div
-                          class="country-option selected"
-                          data-code="+91"
-                          data-country="India"
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="partner-date-of-birth"
+                          placeholder="DD/MM/YYYY"
+                          required
+                        />
+                        <label
+                          for="partner-date-of-birth"
+                          style="padding-right: 8px"
+                          >Date of Birth</label
                         >
-                          <span class="country-name">India</span>
-                          <span class="country-dial-code">+91</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+1"
-                          data-country="United States"
-                        >
-                          <span class="country-name">United States</span>
-                          <span class="country-dial-code">+1</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+1"
-                          data-country="Canada"
-                        >
-                          <span class="country-name">Canada</span>
-                          <span class="country-dial-code">+1</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+44"
-                          data-country="United Kingdom"
-                        >
-                          <span class="country-name">United Kingdom</span>
-                          <span class="country-dial-code">+44</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+44"
-                          data-country="Singapore"
-                        >
-                          <span class="country-name">Singapore</span>
-                          <span class="country-dial-code">+65</span>
-                        </div>
-                        <div
-                          class="country-option"
-                          data-code="+971"
-                          data-country="United arab emirates"
-                        >
-                          <span class="country-name">United arab emirates</span>
-                          <span class="country-dial-code">+971</span>
-                        </div>
-                        <!-- Add more country options as needed -->
                       </div>
-                      <div class="divider"></div>
-                      <input
-                        type="tel"
-                        id="partner-phone-number"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="partner-phone-number">Phone Number</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="email"
-                        id="partner-email-id"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="partner-email-id">Email ID</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="partner-anniversary"
-                        placeholder="DD/MM/YYYY"
-                        required
-                      />
-                      <label
-                        for="partner-anniversary"
-                        style="padding-right: 12px"
-                        >Anniversary</label
-                      >
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="partner-social-media-handle"
-                        placeholder=" "
-                        required
-                      />
-                      <label for="partner-social-media-handle"
-                        >Social Media Handle (URL)</label
-                      >
+                      <div class="form-field phone-field">
+                        <div class="country-code">
+                          <span>+91 India</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        <div class="country-dropdown">
+                          <div
+                            class="country-option selected"
+                            data-code="+91"
+                            data-country="India"
+                          >
+                            <span class="country-name">India</span>
+                            <span class="country-dial-code">+91</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+1"
+                            data-country="United States"
+                          >
+                            <span class="country-name">United States</span>
+                            <span class="country-dial-code">+1</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+1"
+                            data-country="Canada"
+                          >
+                            <span class="country-name">Canada</span>
+                            <span class="country-dial-code">+1</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+44"
+                            data-country="United Kingdom"
+                          >
+                            <span class="country-name">United Kingdom</span>
+                            <span class="country-dial-code">+44</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+44"
+                            data-country="Singapore"
+                          >
+                            <span class="country-name">Singapore</span>
+                            <span class="country-dial-code">+65</span>
+                          </div>
+                          <div
+                            class="country-option"
+                            data-code="+971"
+                            data-country="United arab emirates"
+                          >
+                            <span class="country-name">United arab emirates</span>
+                            <span class="country-dial-code">+971</span>
+                          </div>
+                          <!-- Add more country options as needed -->
+                        </div>
+                        <div class="divider"></div>
+                        <input
+                          type="tel"
+                          id="partner-phone-number"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="partner-phone-number">Phone Number</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="email"
+                          id="partner-email-id"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="partner-email-id">Email ID</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="partner-anniversary"
+                          placeholder="DD/MM/YYYY"
+                          required
+                        />
+                        <label
+                          for="partner-anniversary"
+                          style="padding-right: 12px"
+                          >Anniversary</label
+                        >
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="partner-social-media-handle"
+                          placeholder=" "
+                          required
+                        />
+                        <label for="partner-social-media-handle"
+                          >Social Media Handle (URL)</label
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
