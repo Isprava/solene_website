@@ -785,95 +785,184 @@
       //   return true;
       // }
       // Form validation rules
+      // Add this function after your VALIDATION_RULES constant
+      function validateDateField(field) {
+        const value = field.value.trim();
+        const datePattern =
+          /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/;
+
+        // Remove any existing error message
+        const existingError =
+          field.parentElement.querySelector(".error-message");
+        if (existingError) {
+          existingError.remove();
+        }
+
+        // Allow empty value if field is not required
+        if (!value && !field.hasAttribute("required")) {
+          field.classList.remove("error");
+          return true;
+        }
+
+        // Required field validation
+        if (!value && field.hasAttribute("required")) {
+          showFieldError(field, "This field is required");
+          return false;
+        }
+
+        // Pattern validation for non-empty values
+        if (value && !datePattern.test(value)) {
+          showFieldError(field, "Please enter date in DD/MM/YYYY format");
+          return false;
+        }
+
+        if (value) {
+          const [day, month, year] = value.split("/").map(Number);
+          const date = new Date(year, month - 1, day);
+          const today = new Date();
+
+          // Check if it's a valid date
+          if (
+            date.getDate() !== day ||
+            date.getMonth() !== month - 1 ||
+            date.getFullYear() !== year
+          ) {
+            showFieldError(field, "Please enter a valid date");
+            return false;
+          }
+
+          // Check if date is not in future
+          if (date > today) {
+            showFieldError(field, "Date cannot be in future");
+            return false;
+          }
+        }
+
+        field.classList.remove("error");
+        return true;
+      }
+
+      function showFieldError(field, message) {
+        field.classList.add("error");
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.textContent = message;
+        field.parentElement.appendChild(errorDiv);
+      }
+
+      // Update your VALIDATION_RULES object for date fields
       const VALIDATION_RULES = {
-        "full-name": {
-          required: true,
-          minLength: 2,
-          pattern: /^[a-zA-Z\s'-]+$/,
-          message:
-            "Please enter a valid name (letters, spaces, hyphens and apostrophes only)",
-        },
+        // ...existing rules...
         "date-of-birth": {
           required: true,
-          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
-          message: "Please enter a valid date in DD/MM/YYYY format",
-        },
-        "phone-number": {
-          required: true,
-          pattern: /^\d{10}$/,
-          message: "Please enter a valid 10-digit phone number",
-        },
-        "email-id": {
-          required: true,
-          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-          message: "Please enter a valid email address",
-        },
-        "address-line-1": {
-          required: true,
-          minLength: 5,
-          message: "Please enter your street address",
-        },
-        "address-line-2": {
-          required: true,
-          minLength: 3,
-          message: "Please enter your apartment/unit details",
-        },
-        pincode: {
-          required: true,
-          pattern: /^\d{6}$/,
-          message: "Please enter a valid 6-digit pincode",
-        },
-        state: {
-          required: true,
-          message: "Please select your state",
-        },
-        "partner-full-name": {
-          conditionallyRequired: true,
-          minLength: 2,
-          pattern: /^[a-zA-Z\s'-]+$/,
-          message: "Please enter a valid name",
+          validate: (field) => validateDateField(field),
         },
         "partner-date-of-birth": {
           conditionallyRequired: true,
-          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
-          message: "Please enter a valid date in DD/MM/YYYY format",
-        },
-        "partner-phone-number": {
-          conditionallyRequired: true,
-          pattern: /^\d{10}$/,
-          message: "Please enter a valid 10-digit phone number",
-        },
-        "partner-email-id": {
-          conditionallyRequired: true,
-          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-          message: "Please enter a valid email address",
+          validate: (field) => validateDateField(field),
         },
         "partner-anniversary": {
           conditionallyRequired: true,
-          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
-          message: "Please enter a valid date in DD/MM/YYYY format",
-        },
-        // Optional Goa address fields
-        "goa-address-line-1": {
-          pattern: /^.{5,}$/,
-          message: "Please enter a valid street address",
-        },
-        "goa-address-line-2": {
-          pattern: /^.{3,}$/,
-          message: "Please enter valid apartment/unit details",
-        },
-        "goa-pincode": {
-          pattern: /^\d{6}$/,
-          message: "Please enter a valid 6-digit pincode",
-        },
-        "linkedin-url": {
-          required: true,
-          pattern:
-            /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[\w\-._~:/?#[\]@!$&'()*+,;=]+$/,
-          message: "Please enter a valid LinkedIn profile URL",
+          validate: (field) => validateDateField(field),
         },
       };
 
+      // Add event listeners for date inputs
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateFields = document.querySelectorAll(
+          'input[placeholder="DD/MM/YYYY"]'
+        );
+
+        dateFields.forEach((field) => {
+          field.addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 8) value = value.slice(0, 8);
+
+            if (value.length >= 4) {
+              value =
+                value.slice(0, 2) +
+                "/" +
+                value.slice(2, 4) +
+                "/" +
+                value.slice(4);
+            } else if (value.length >= 2) {
+              value = value.slice(0, 2) + "/" + value.slice(2);
+            }
+
+            e.target.value = value;
+          });
+
+          field.addEventListener("blur", function () {
+            validateDateField(this);
+          });
+        });
+      });
+
+      // Update the date input event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateFields = document.querySelectorAll(
+          'input[placeholder="DD/MM/YYYY"]'
+        );
+
+        dateFields.forEach((field) => {
+          // Handle input formatting
+          field.addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+
+            // Allow backspace and delete
+            if (
+              e.inputType === "deleteContentBackward" ||
+              e.inputType === "deleteContentForward"
+            ) {
+              return;
+            }
+
+            if (value.length > 8) value = value.slice(0, 8);
+
+            if (value.length >= 4) {
+              value =
+                value.slice(0, 2) +
+                "/" +
+                value.slice(2, 4) +
+                "/" +
+                value.slice(4);
+            } else if (value.length >= 2) {
+              value = value.slice(0, 2) + "/" + value.slice(2);
+            }
+
+            e.target.value = value;
+          });
+
+          // Handle keydown for delete and backspace
+          field.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" || e.key === "Delete") {
+              const start = this.selectionStart;
+              const end = this.selectionEnd;
+
+              if (start === end && this.value[start - 1] === "/") {
+                e.preventDefault();
+                this.setSelectionRange(start - 1, start - 1);
+              }
+            }
+          });
+
+          // Validate on blur
+          field.addEventListener("blur", function () {
+            validateDateField(this);
+          });
+        });
+      });
+      // Update your validateField function to use custom validation
+      function validateField(field) {
+        const rules = VALIDATION_RULES[field.id];
+        if (!rules) return true;
+
+        if (rules.validate) {
+          return rules.validate(field);
+        }
+
+        // ... rest of your existing validation logic
+      }
       // Add this function to check all required fields
       function checkRequiredFields() {
         // Check family type selection
@@ -1199,8 +1288,9 @@
         // Required field validation
         if (isRequired && !field.value.trim()) {
           isValid = false;
-          errorMessage =
-            "This field is required when any partner detail is provided";
+          errorMessage = rules.conditionallyRequired
+            ? "This field is required when any partner detail is provided"
+            : `The Field is required`;
         }
 
         // Pattern validation (only if field has value or is required)
