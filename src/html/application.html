@@ -479,139 +479,143 @@
 
         <div id="dependant-form">
           <div class="card-header">
-            <h2>Dependant Membership</h2>
-            <p class="card-description">
-              Apply for dependant membership for your children or parent
-            </p>
+            <div class="header-group">
+              <h2>Dependant Membership</h2>
+              <p class="card-description">
+                Apply for dependant membership for your children or parent
+              </p>
+            </div>
             <div class="separator"></div>
           </div>
 
           <div class="card-content" id="dependants-container">
             <div class="form-section">
-              <h3>Dependant 1</h3>
-              <div class="form-grid">
-                <div class="form-field">
-                  <input
-                    type="text"
-                    id="dependant-1-full-name"
-                    placeholder=" "
-                  />
-                  <label for="dependant-1-full-name">Full Name</label>
-                </div>
-                <div class="form-field">
-                  <input
-                    type="text"
-                    id="dependant-1-date-of-birth"
-                    placeholder="DD/MM/YYYY"
-                  />
-                  <label
-                    for="dependant-1-date-of-birth"
-                    style="padding-right: 6px"
-                    >Date of Birth</label
-                  >
-                </div>
-                <div class="form-field phone-field">
-                  <div class="country-code" id="dependant-1-country-code">
-                    <span>+91 India</span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+              <div class="form-group">
+                <h3>Dependant 1</h3>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <input
+                      type="text"
+                      id="dependant-1-full-name"
+                      placeholder=" "
+                    />
+                    <label for="dependant-1-full-name">Full Name</label>
                   </div>
-                  <div class="country-dropdown dependent-1-country-code">
-                    <div
-                      class="country-option selected"
-                      data-code="+91"
-                      data-country="India"
+                  <div class="form-field">
+                    <input
+                      type="text"
+                      id="dependant-1-date-of-birth"
+                      placeholder="DD/MM/YYYY"
+                    />
+                    <label
+                      for="dependant-1-date-of-birth"
+                      style="padding-right: 6px"
+                      >Date of Birth</label
                     >
-                      <span class="country-name">India</span>
-                      <span class="country-dial-code">+91</span>
-                    </div>
-                    <div
-                      class="country-option"
-                      data-code="+1"
-                      data-country="United States"
-                    >
-                      <span class="country-name">United States</span>
-                      <span class="country-dial-code">+1</span>
-                    </div>
-                    <div
-                      class="country-option"
-                      data-code="+1"
-                      data-country="Canada"
-                    >
-                      <span class="country-name">Canada</span>
-                      <span class="country-dial-code">+1</span>
-                    </div>
-                    <div
-                      class="country-option"
-                      data-code="+44"
-                      data-country="United Kingdom"
-                    >
-                      <span class="country-name">United Kingdom</span>
-                      <span class="country-dial-code">+44</span>
-                    </div>
-                    <div
-                      class="country-option"
-                      data-code="+65"
-                      data-country="Singapore"
-                    >
-                      <span class="country-name">Singapore</span>
-                      <span class="country-dial-code">+65</span>
-                    </div>
-                    <div
-                      class="country-option"
-                      data-code="+971"
-                      data-country="United arab emirates"
-                    >
-                      <span class="country-name">United arab emirates</span>
-                      <span class="country-dial-code">+971</span>
-                    </div>
                   </div>
-                  <div class="divider"></div>
-                  <input
-                    type="tel"
-                    id="dependant-1-phone-number"
-                    placeholder=" "
-                  />
-                  <label for="dependant-1-phone-number">Phone Number</label>
-                </div>
-                <div class="form-field">
-                  <input
-                    type="email"
-                    id="dependant-1-email"
-                    placeholder=" "
-                    required
-                  />
-                  <label for="dependant-1-email">Email ID</label>
-                </div>
-                <div class="form-field">
-                  <select id="dependant-1-relationship" required>
-                    <option value="" disabled selected></option>
-                    <option value="mother">Mother</option>
-                    <option value="father">Father</option>
-                    <option value="son">Son</option>
-                    <option value="daughter">Daughter</option>
-                  </select>
-                  <label for="dependant-1-relationship">Relationship</label>
-                </div>
-                <div class="form-field">
-                  <input
-                    type="text"
-                    id="dependant-1-social-media"
-                    placeholder=" "
-                  />
-                  <label for="dependant-1-social-media"
-                    >Social Media Handle</label
-                  >
+                  <div class="form-field phone-field">
+                    <div class="country-code" id="dependant-1-country-code">
+                      <span>+91 India</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </div>
+                    <div class="country-dropdown dependent-1-country-code">
+                      <div
+                        class="country-option selected"
+                        data-code="+91"
+                        data-country="India"
+                      >
+                        <span class="country-name">India</span>
+                        <span class="country-dial-code">+91</span>
+                      </div>
+                      <div
+                        class="country-option"
+                        data-code="+1"
+                        data-country="United States"
+                      >
+                        <span class="country-name">United States</span>
+                        <span class="country-dial-code">+1</span>
+                      </div>
+                      <div
+                        class="country-option"
+                        data-code="+1"
+                        data-country="Canada"
+                      >
+                        <span class="country-name">Canada</span>
+                        <span class="country-dial-code">+1</span>
+                      </div>
+                      <div
+                        class="country-option"
+                        data-code="+44"
+                        data-country="United Kingdom"
+                      >
+                        <span class="country-name">United Kingdom</span>
+                        <span class="country-dial-code">+44</span>
+                      </div>
+                      <div
+                        class="country-option"
+                        data-code="+65"
+                        data-country="Singapore"
+                      >
+                        <span class="country-name">Singapore</span>
+                        <span class="country-dial-code">+65</span>
+                      </div>
+                      <div
+                        class="country-option"
+                        data-code="+971"
+                        data-country="United arab emirates"
+                      >
+                        <span class="country-name">United arab emirates</span>
+                        <span class="country-dial-code">+971</span>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+                    <input
+                      type="tel"
+                      id="dependant-1-phone-number"
+                      placeholder=" "
+                    />
+                    <label for="dependant-1-phone-number">Phone Number</label>
+                  </div>
+                  <div class="form-field">
+                    <input
+                      type="email"
+                      id="dependant-1-email"
+                      placeholder=" "
+                      required
+                    />
+                    <label for="dependant-1-email">Email ID</label>
+                  </div>
+                  <div class="form-field">
+                    <select id="dependant-1-relationship" required>
+                      <option value="" disabled selected></option>
+                      <option value="mother">Mother</option>
+                      <option value="father">Father</option>
+                      <option value="son">Son</option>
+                      <option value="daughter">Daughter</option>
+                    </select>
+                    <label for="dependant-1-relationship">Relationship</label>
+                  </div>
+                  <div class="form-field">
+                    <input
+                      type="text"
+                      id="dependant-1-social-media"
+                      placeholder=" "
+                    />
+                    <label for="dependant-1-social-media"
+                      >Social Media Handle</label
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -628,107 +632,112 @@
 
         <div id="additional-form">
           <div class="card-header">
-            <h2>Additional Information</h2>
-            <p class="card-description">Where did you hear about Solene?</p>
+            <div class="header-group">
+              <h2>Additional Information</h2>
+              <p class="card-description">Where did you hear about Solene?</p>
+            </div>
             <div class="separator"></div>
           </div>
 
           <div class="card-content">
-            <div class="form-section">
-              <label class="section-label"
-                >How did you hear about Solene? (Select all that apply) *</label
-              >
-              <div class="checkbox-group">
-                <div class="checkbox-item">
-                  <input type="checkbox" id="member" />
-                  <label for="member">Via a member</label>
-                  <div></div>
-                </div>
-                <div
-                  class="reference-details"
-                  id="reference-details"
-                  style="display: none; position: relative"
+            <div class="form-group">
+              <div class="form-section">
+                <label class="section-label"
+                  >How did you hear about Solene? (Select all that apply) *</label
                 >
-                  <div class="form-grid">
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="reference-full-name"
-                        placeholder=" "
-                      />
-                      <label for="reference-full-name">Full Name</label>
-                    </div>
-                    <div class="form-field phone-field">
-                      <div class="country-code">
-                        <span>+91 India</span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="member" />
+                    <label for="member">Via a member</label>
+                    <div></div>
+                  </div>
+                  <div
+                    class="reference-details"
+                    id="reference-details"
+                    style="display: none; position: relative"
+                  >
+                    <div class="form-grid">
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="reference-full-name"
+                          placeholder=" "
+                        />
+                        <label for="reference-full-name">Full Name</label>
                       </div>
-                      <div class="divider"></div>
-                      <input
-                        type="tel"
-                        id="reference-phone-number"
-                        placeholder=" "
-                      />
-                      <label for="reference-phone-number">Phone Number</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="reference-relationship"
-                        placeholder=" "
-                      />
-                      <label for="reference-relationship">Relationship</label>
+                      <div class="form-field phone-field">
+                        <div class="country-code">
+                          <span>+91 India</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        <div class="divider"></div>
+                        <input
+                          type="tel"
+                          id="reference-phone-number"
+                          placeholder=" "
+                        />
+                        <label for="reference-phone-number">Phone Number</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="reference-relationship"
+                          placeholder=" "
+                        />
+                        <label for="reference-relationship">Relationship</label>
+                      </div>
                     </div>
                   </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="social" />
+                    <label for="social">Social Media</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="website" />
+                    <label for="website">Website</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="other" />
+                    <label for="other">Other</label>
+                  </div>
+                  <div class="other-input">
+                    <input type="text" placeholder="Type here" disabled />
+                  </div>
                 </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="social" />
-                  <label for="social">Social Media</label>
-                </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="website" />
-                  <label for="website">Website</label>
-                </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="other" />
-                  <label for="other">Other</label>
-                </div>
-                <div class="other-input">
-                  <input type="text" placeholder="Type here" disabled />
-                </div>
+                <span class="error-message" id="source-error"></span>
               </div>
-              <span class="error-message" id="source-error"></span>
-            </div>
 
-            <div class="form-section">
-              <label class="section-label"
-                >Why do you wish to be a part of the Solene community?</label
-              >
-              <textarea placeholder="Type here" id="why"></textarea>
-            </div>
+              <div class="form-section">
+                <label class="section-label"
+                  >Why do you wish to be a part of the Solene community?</label
+                >
+                <textarea placeholder="Type here" id="why"></textarea>
+              </div>
 
-            <div class="form-section" id="how">
-              <label class="section-label"
-                >How do you see yourself making use of the club's facilities and
-                services?</label
-              >
-              <textarea placeholder="Type here"></textarea>
+              <div class="form-section" id="how">
+                <label class="section-label"
+                  >How do you see yourself making use of the club's facilities and
+                  services?</label
+                >
+                <textarea placeholder="Type here"></textarea>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="terms-section" style="display: none">
+      <div class="terms-section" style="display: none">
           <label class="checkbox-container">
             <input type="checkbox" id="terms" required />
             <span class="checkmark"></span>
@@ -754,7 +763,6 @@
             </div>
           </div>
         </footer>
-      </div>
     </div>
 
     <div id="toast" class="toast"></div>
@@ -2065,99 +2073,101 @@
           const newDependantSection = document.createElement("div");
           newDependantSection.className = "form-section";
           newDependantSection.innerHTML = `
-        <div class="dependant-header">
-          <h3>Dependant ${dependantCount + 1}</h3>
-          ${
-            dependantCount > 0
-              ? '<button class="remove-dependant">Remove</button>'
-              : ""
-          }
-        </div>
-        <div class="form-grid">
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-full-name" placeholder=" " required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-full-name">Full Name</label>
+        <div class="form-group">
+          <div class="dependant-header">
+            <h3>Dependant ${dependantCount + 1}</h3>
+            ${
+              dependantCount > 0
+                ? '<button class="remove-dependant">Remove</button>'
+                : ""
+            }
           </div>
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-date-of-birth" placeholder="DD/MM/YYYY" required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-date-of-birth" style="padding-right: 6px">Date of Birth</label>
-          </div>
-          <div class="form-field phone-field">
-            <div class="country-code" id="dependant-${
-              dependantCount + 1
-            }-country-code">
-              <span>+91 India</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
+          <div class="form-grid">
+            <div class="form-field">
+              <input type="text" id="dependant-${
+                dependantCount + 1
+              }-full-name" placeholder=" " required />
+              <label for="dependant-${
+                dependantCount + 1
+              }-full-name">Full Name</label>
             </div>
-            <div class="country-dropdown">
-              <div class="country-option selected" data-code="+91" data-country="India">
-                <span class="country-name">India</span>
-                <span class="country-dial-code">+91</span>
-              </div>
-              <div class="country-option" data-code="+1" data-country="United States">
-                <span class="country-name">United States</span>
-                <span class="country-dial-code">+1</span>
-              </div>
-              <div class="country-option" data-code="+1" data-country="Canada">
-                <span class="country-name">Canada</span>
-                <span class="country-dial-code">+1</span>
-              </div>
-              <div class="country-option" data-code="+44" data-country="United Kingdom">
-                <span class="country-name">United Kingdom</span>
-                <span class="country-dial-code">+44</span>
-              </div>
-              <div class="country-option" data-code="+65" data-country="Singapore">
-                <span class="country-name">Singapore</span>
-                <span class="country-dial-code">+65</span>
-              </div>
-              <div class="country-option" data-code="+971" data-country="United arab emirates">
-                <span class="country-name">United arab emirates</span>
-                <span class="country-dial-code">+971</span>
-              </div>
+            <div class="form-field">
+              <input type="text" id="dependant-${
+                dependantCount + 1
+              }-date-of-birth" placeholder="DD/MM/YYYY" required />
+              <label for="dependant-${
+                dependantCount + 1
+              }-date-of-birth" style="padding-right: 6px">Date of Birth</label>
             </div>
-            <div class="divider"></div>
-            <input type="tel" id="dependant-${
-              dependantCount + 1
-            }-phone-number" placeholder=" " required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-phone-number">Phone Number</label>
-          </div>
-          <div class="form-field">
-            <input type="email" id="dependant-${
-              dependantCount + 1
-            }-email" placeholder=" " required />
-            <label for="dependant-${dependantCount + 1}-email">Email ID*</label>
-          </div>
-          <div class="form-field">
-            <select id="dependant-${dependantCount + 1}-relationship" required>
-              <option value="" disabled selected></option>
-              <option value="mother">Mother</option>
-              <option value="father">Father</option>
-              <option value="son">Son</option>
-              <option value="daughter">Daughter</option>
-            </select>
-            <label for="dependant-${
-              dependantCount + 1
-            }-relationship">Relationship*</label>
-          </div>
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-social-media" placeholder=" " />
-            <label for="dependant-${
-              dependantCount + 1
-            }-social-media">Social Media Handle</label>
+            <div class="form-field phone-field">
+              <div class="country-code" id="dependant-${
+                dependantCount + 1
+              }-country-code">
+                <span>+91 India</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="country-dropdown">
+                <div class="country-option selected" data-code="+91" data-country="India">
+                  <span class="country-name">India</span>
+                  <span class="country-dial-code">+91</span>
+                </div>
+                <div class="country-option" data-code="+1" data-country="United States">
+                  <span class="country-name">United States</span>
+                  <span class="country-dial-code">+1</span>
+                </div>
+                <div class="country-option" data-code="+1" data-country="Canada">
+                  <span class="country-name">Canada</span>
+                  <span class="country-dial-code">+1</span>
+                </div>
+                <div class="country-option" data-code="+44" data-country="United Kingdom">
+                  <span class="country-name">United Kingdom</span>
+                  <span class="country-dial-code">+44</span>
+                </div>
+                <div class="country-option" data-code="+65" data-country="Singapore">
+                  <span class="country-name">Singapore</span>
+                  <span class="country-dial-code">+65</span>
+                </div>
+                <div class="country-option" data-code="+971" data-country="United arab emirates">
+                  <span class="country-name">United arab emirates</span>
+                  <span class="country-dial-code">+971</span>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <input type="tel" id="dependant-${
+                dependantCount + 1
+              }-phone-number" placeholder=" " required />
+              <label for="dependant-${
+                dependantCount + 1
+              }-phone-number">Phone Number</label>
+            </div>
+            <div class="form-field">
+              <input type="email" id="dependant-${
+                dependantCount + 1
+              }-email" placeholder=" " required />
+              <label for="dependant-${dependantCount + 1}-email">Email ID*</label>
+            </div>
+            <div class="form-field">
+              <select id="dependant-${dependantCount + 1}-relationship" required>
+                <option value="" disabled selected></option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+                <option value="son">Son</option>
+                <option value="daughter">Daughter</option>
+              </select>
+              <label for="dependant-${
+                dependantCount + 1
+              }-relationship">Relationship*</label>
+            </div>
+            <div class="form-field">
+              <input type="text" id="dependant-${
+                dependantCount + 1
+              }-social-media" placeholder=" " />
+              <label for="dependant-${
+                dependantCount + 1
+              }-social-media">Social Media Handle</label>
+            </div>
           </div>
         </div>
       `;
