@@ -374,14 +374,61 @@ hr {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 16px; // Reduced from 24px to account for new field margins
+  margin-bottom: 8px; // Add bottom margin to the grid
 }
 
 /* Form field styles */
 .form-field {
   position: relative;
-  // margin-bottom: 20px;
-  width: 100%;
+  margin-bottom: 32px;
+
+  label {
+    position: absolute;
+    left: 16px;
+    top: 50%; // Center vertically
+    transform: translateY(-50%); // Adjust for perfect centering
+    color: #757575;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background: transparent;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  // Handle active state (when input has value or is focused)
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label,
+  select:focus ~ label,
+  select:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%) scale(0.85);
+    background: #ffffff;
+    padding: 0 8px;
+    z-index: 1;
+  }
+
+  // Special handling for helper text fields
+  &:has(.helper-text) {
+    label {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      top: 0;
+      transform: translateY(-50%) scale(0.85);
+    }
+  }
+
+  .helper-text {
+    position: absolute;
+    bottom: -20px;
+    left: 16px;
+    font-size: 12px;
+    color: #757575;
+  }
 
   input,
   select {
@@ -461,6 +508,76 @@ hr {
       z-index: 1;
     }
   }
+
+  .error-message {
+    position: absolute;
+    bottom: -20px; // Position below the input field
+    left: 0;
+    color: #ff3b30;
+    font-size: 12px;
+    line-height: 16px; // Add line height for better readability
+    margin-top: 4px;
+    z-index: 1; // Ensure error message appears above other elements
+  }
+
+  // Special handling for address fields
+  &#address-line-1-field,
+  &#address-line-2-field {
+    margin-bottom: 36px; // Extra space for error message
+
+    .error-message {
+      bottom: -24px; // Adjust position for address fields
+    }
+  }
+
+  // Adjust spacing when there's both helper text and error message
+  &:has(.helper-text) {
+    .error-message {
+      bottom: -36px; // Position below helper text
+    }
+
+    &.has-error {
+      margin-bottom: 44px; // Additional space when both helper text and error are present
+    }
+  }
+
+  // Special handling for LinkedIn URL fields
+  &#linkedin-url-field {
+    margin-bottom: 36px;
+
+    .error-message {
+      bottom: -24px;
+    }
+
+    &.required::after {
+      content: "*";
+      color: #ff3b30;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 12px;
+    }
+
+    // Show required indicator only for Lohono Platinum and Not Yet
+    &[data-family-type="lohono_platinum"]::after,
+    &[data-family-type="not_yet"]::after {
+      display: block;
+    }
+
+    &[data-family-type="isprava_homeowner"]::after,
+    &[data-family-type="chapter_homeowner"]::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 28px; // Slightly less space on mobile
+
+    &#address-line-1-field,
+    &#address-line-2-field {
+      margin-bottom: 32px;
+    }
+  }
 }
 
 .error-message {
@@ -476,7 +593,7 @@ hr {
   position: relative;
 
   input {
-    padding-left: 124px;
+    padding-left: 120px !important;
 
     &::placeholder {
       color: transparent;
@@ -488,7 +605,7 @@ hr {
   }
 
   label {
-    left: 119px;
+    left: 120px !important;
   }
 
   input:focus + label,
@@ -497,7 +614,7 @@ hr {
     background: white;
     padding: 0 0.2rem;
     color: #333;
-    left: 119px;
+    left: 120px !important;
   }
 }
 
@@ -659,6 +776,7 @@ hr {
 .btn-previous {
   color: #9c3c33;
   border-color: #9c3c33;
+  display: none;
 }
 
 .btn-previous:hover {
@@ -792,6 +910,7 @@ hr {
   color: #dc3545;
   font-size: 12px;
   margin-top: 5px;
+  top: -24px;
 }
 
 .checkbox-container {
@@ -860,6 +979,11 @@ hr {
   color: #9c3c33;
   background: white;
   border: 1px solid #9c3c33;
+}
+
+#dependant-form.slide-in ~ footer .navigation-buttons .btn-previous,
+#additional-form.slide-in ~ footer .navigation-buttons .btn-previous {
+  display: block;
 }
 
 /* Focus states */
@@ -1009,53 +1133,126 @@ textarea {
 
 .form-field {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 32px; // Increased from 24px to accommodate error message
 
-  &.has-error {
-    input,
-    select {
-      border-color: #dc3545;
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $input-border;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    min-height: 48px;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      & ~ label {
+        transform: translateY(-50%) scale(0.85);
+        top: 0;
+        color: $primary-color;
+        background: white;
+        padding: 0 4px;
+        z-index: 1;
+      }
+    }
+
+    &:not(:placeholder-shown) ~ label {
+      transform: translateY(-50%) scale(0.85);
+      top: 0;
+      background: white;
+      padding: 0 4px;
+      z-index: 1;
     }
   }
 
-  // Updated styles for fields with helper text
-  &:has(.helper-text) {
-    display: flex;
-    flex-direction: column;
+  label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $input-label;
+    transition: all 0.3s ease;
+    transform-origin: left top;
+    pointer-events: none;
+    background: #ffffff;
+    padding: 0 12px 0 4px;
+  }
 
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label,
+  select:focus ~ label,
+  select:not(:placeholder-shown) ~ label {
+    transform: translateY(-50%) scale(0.85);
+    top: 0;
+    background: #ffffff;
+    padding: 0 12px 0 4px;
+    z-index: 1;
+  }
+
+  &.date-field {
     input {
-      height: 48px; // Explicitly set input height
-    }
+      &::placeholder {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
 
-    label {
-      position: absolute;
-      top: 24px; // Half of input height
-      left: 12px;
-      transform: translateY(-50%);
-      transition: all 0.3s ease;
-      pointer-events: none;
-      margin-left: 0;
-      padding-left: 0;
-      background: white;
-      padding: 0 4px;
+      &:focus::placeholder {
+        opacity: 1;
+      }
     }
 
     input:focus ~ label,
     input:not(:placeholder-shown) ~ label {
+      transform: translateY(-50%) scale(0.85);
       top: 0;
-      transform: translateY(-50%);
-      font-size: 12px;
-    }
-
-    .helper-text {
-      margin-top: 4px;
-      font-size: 12px;
-      color: #787878;
+      background: #ffffff;
+      padding: 0 12px 0 4px;
+      z-index: 1;
     }
   }
-  
+
+  .error-message {
+    position: absolute;
+    bottom: -20px; // Position below the input field
+    left: 0;
+    color: #ff3b30;
+    font-size: 12px;
+    line-height: 16px; // Add line height for better readability
+    margin-top: 4px;
+    z-index: 1; // Ensure error message appears above other elements
+  }
+
+  // Special handling for address fields
+  &#address-line-1-field,
+  &#address-line-2-field {
+    margin-bottom: 36px; // Extra space for error message
+
+    .error-message {
+      bottom: -24px; // Adjust position for address fields
+    }
+  }
+
+  // Adjust spacing when there's both helper text and error message
+  &:has(.helper-text) {
+    .error-message {
+      bottom: -36px; // Position below helper text
+    }
+
+    &.has-error {
+      margin-bottom: 44px; // Additional space when both helper text and error are present
+    }
+  }
+
   @media (max-width: 768px) {
-    margin-bottom: 0;
+    margin-bottom: 28px; // Slightly less space on mobile
+
+    &#address-line-1-field,
+    &#address-line-2-field {
+      margin-bottom: 32px;
+    }
   }
 }
 

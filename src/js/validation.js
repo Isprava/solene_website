@@ -82,93 +82,153 @@ const VALIDATION_RULES = {
 
 // Validate a single field
 export function validateField(field) {
-  const rules = VALIDATION_RULES[field.id];
-  if (!rules) return true;
+    const rules = VALIDATION_RULES[field.id];
+    if (!rules) return true;
 
-  let isValid = true;
-  let errorMessage = '';
+    // Remove any existing error message
+    const existingError = field.parentElement.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    field.classList.remove('error');
 
-  // Remove any existing error message
-  const existingError = field.parentElement.querySelector('.error-message');
-  if (existingError) {
-    existingError.remove();
-  }
+    // Empty field validation
+    if (rules.required && !field.value.trim()) {
+        showFieldError(field, "This field is required");
+        return false;
+    }
 
-  // Required field validation
-  if (rules.required && !field.value.trim()) {
-    isValid = false;
-    errorMessage = rules.message || 'This field is required';
-  }
+    // Skip further validation if field is empty and not required
+    if (!field.value.trim()) return true;
 
-  // Minimum length validation
-  if (isValid && rules.minLength && field.value.trim().length < rules.minLength) {
-    isValid = false;
-    errorMessage = `Must be at least ${rules.minLength} characters`;
-  }
+    // Pattern validation
+    if (rules.pattern && !rules.pattern.test(field.value.trim())) {
+        showFieldError(field, rules.message);
+        return false;
+    }
 
-  // Pattern validation
-  if (isValid && rules.pattern && !rules.pattern.test(field.value.trim())) {
-    isValid = false;
-    errorMessage = rules.message;
-  }
+    // Minimum length validation
+    if (rules.minLength && field.value.trim().length < rules.minLength) {
+        showFieldError(field, `Must be at least ${rules.minLength} characters`);
+        return false;
+    }
 
-  // Display error message if validation failed
-  if (!isValid) {
+    // Custom validation
+    if (rules.validate && !rules.validate(field)) {
+        return false; // Error message handled by validate function
+    }
+
+    // Conditional validation for partner fields
+    if (rules.conditionallyRequired && typeof rules.conditionallyRequired === 'function') {
+        const familyType = document.querySelector('input[name="family"]:checked')?.value;
+        if (rules.conditionallyRequired(familyType) && !field.value.trim()) {
+            showFieldError(field, "This field is required based on your selection");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
-    errorDiv.textContent = errorMessage;
+    errorDiv.textContent = message;
     field.parentElement.appendChild(errorDiv);
-    field.classList.add('error');
-  } else {
-    field.classList.remove('error');
-  }
-
-  return isValid;
 }
 
-// Validate all form fields
-export function validateForm() {
-  const fields = document.querySelectorAll('#initial-form input[required]');
-  let isValid = true;
-  const familyType = document.querySelector('input[name="family"]:checked');
+function validateDateField(field) {
+    const value = field.value.trim();
+    const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/;
 
-  // Validate family type selection
-  if (!familyType) {
-    isValid = false;
-    const radioGroup = document.querySelector('.radio-group');
-    if (!radioGroup.querySelector('.error-message')) {
-      const errorDiv = document.createElement('div');
-      errorDiv.className = 'error-message';
-      errorDiv.textContent = 'Please select your family type';
-      radioGroup.appendChild(errorDiv);
-    }
-  } else {
-    const radioGroup = document.querySelector('.radio-group');
-    const existingError = radioGroup.querySelector('.error-message');
-    if (existingError) {
-      existingError.remove();
+    if (!value && !field.hasAttribute('required')) {
+        return true;
     }
 
-    // Validate home name if applicable
-    if (['isprava', 'chapter', 'lohono'].includes(familyType.value)) {
-      const homeName = document.getElementById('home-name');
-      if (!homeName.value.trim()) {
-        isValid = false;
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = 'Please enter your home name';
-        homeName.parentElement.appendChild(errorDiv);
-        homeName.classList.add('error');
-      }
+    if (!value && field.hasAttribute('required')) {
+        showFieldError(field, "This field is required");
+        return false;
     }
-  }
 
-  // Validate all required fields
-  fields.forEach(field => {
-    if (!validateField(field)) {
-      isValid = false;
+    if (!datePattern.test(value)) {
+        showFieldError(field, "Please enter date in DD/MM/YYYY format");
+        return false;
     }
-  });
 
-  return isValid;
+    const [day, month, year] = value.split('/').map(Number);
+    const date = new Date(year, month - 1, day);
+    const today = new Date();
+
+    if (date.getDate() !== day || date.getMonth() !== month - 1 || date.getFullYear() !== year) {
+        showFieldError(field, "Please enter a valid date");
+        return false;
+    }
+
+    if (date > today) {
+        showFieldError(field, "Date cannot be in future");
+        return false;
+    }
+
+    return true;
 }
+
+// Setup form validation event listeners
+function setupFormValidation() {
+    const form = document.getElementById('initial-form');
+    const requiredFields = form.querySelectorAll('input[required], select[required]');
+
+    requiredFields.forEach(field => {
+        ['input', 'blur', 'change'].forEach(eventType => {
+            field.addEventListener(eventType, () => {
+                validateField(field);
+                toggleNextButton();
+            });
+        });
+    });
+
+    // Special handling for family type radio buttons
+    document.querySelectorAll('input[name="family"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            validateFamilyTypeFields();
+            toggleNextButton();
+        });
+    });
+}
+
+function validateFamilyTypeFields() {
+    const familyType = document.querySelector('input[name="family"]:checked')?.value;
+    
+    if (["isprava_homeowner", "chapter_homeowner"].includes(familyType)) {
+        const homeName = document.getElementById('home-name');
+        if (!homeName.value.trim()) {
+            showFieldError(homeName, "Home name is required for this membership type");
+            return false;
+        }
+    }
+    
+    if (["not_yet", "lohono_platinum"].includes(familyType)) {
+        const goaFields = ['goa-address-line-1', 'goa-address-line-2', 'goa-pincode'];
+        for (const fieldId of goaFields) {
+            const field = document.getElementById(fieldId);
+            if (!validateField(field)) return false;
+        }
+    }
+    
+    return true;
+}
+
+// Function to check if the form is valid
+function isFormValid() {
+    const requiredFields = document.querySelectorAll('#initial-form input[required], #initial-form select[required]');
+    for (const field of requiredFields) {
+        if (!validateField(field)) return false;
+    }
+    return validateFamilyTypeFields();
+}
+
+// Initialize validation
+document.addEventListener('DOMContentLoaded', () => {
+    setupFormValidation();
+    toggleNextButton(); // Initial button state
+});

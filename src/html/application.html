@@ -200,6 +200,7 @@
                           id="phone-number"
                           placeholder=" "
                           required
+                          class="phone-field"
                         />
                         <label for="phone-number">Phone Number*</label>
                       </div>
@@ -212,7 +213,11 @@
                         />
                         <label for="email-id">Email ID*</label>
                       </div>
-                      <div class="form-field">
+                      <div
+                        class="form-field"
+                        id="linkedin-url-field"
+                        style="display: none"
+                      >
                         <input
                           type="text"
                           id="linkedin-url"
@@ -456,6 +461,20 @@
                           for="partner-anniversary"
                           style="padding-right: 12px"
                           >Anniversary</label
+                        >
+                      </div>
+                      <div
+                        class="form-field"
+                        id="partner-linkedin-url-field"
+                        style="display: none"
+                      >
+                        <input
+                          type="text"
+                          id="partner-linkedin-url"
+                          placeholder=" "
+                        />
+                        <label for="partner-linkedin-url"
+                          >LinkedIn Profile (URL)</label
                         >
                       </div>
                       <div class="form-field">
@@ -734,8 +753,13 @@
             <span class="checkmark"></span>
             <span class="terms-text">
               I agree to the
-              <a href="#" class="terms-link">Terms & Conditions</a> and
-              <a href="#" class="terms-link">Privacy Policy.</a>
+              <a href="/terms-n-conditions.html" class="terms-link"
+                >Terms & Conditions</a
+              >
+              and
+              <a href="/terms-n-conditions.html" class="terms-link"
+                >Privacy Policy.</a
+              >
             </span>
           </label>
         </div>
@@ -759,50 +783,6 @@
 
     <div id="toast" class="toast"></div>
     <script>
-      // Add these validation functions at the top of your file
-      // function validateMembershipType() {
-      //   const selectedFamily = document.querySelector('input[name="family"]:checked');
-      //   const errorElement = document.createElement('span');
-      //   errorElement.className = 'error-message';
-
-      //   if (!selectedFamily) {
-      //     const radioGroup = document.querySelector('.radio-group');
-      //     const existingError = radioGroup.querySelector('.error-message');
-
-      //     if (!existingError) {
-      //       errorElement.textContent = 'Please select a membership type';
-      //       radioGroup.appendChild(errorElement);
-      //     }
-      //     return false;
-      //   }
-
-      //   const existingError = document.querySelector('.radio-group .error-message');
-      //   if (existingError) {
-      //     existingError.remove();
-      //   }
-      //   return true;
-      // }
-
-      // function validateHomeNameField() {
-      //   const selectedFamily = document.querySelector('input[name="family"]:checked')?.value;
-      //   if (selectedFamily === 'isprava_homeowner' || selectedFamily === 'chapter_homeowner') {
-      //     const homeName = document.getElementById('home-name');
-      //     if (!homeName.value.trim()) {
-      //       const errorElement = document.getElementById('home-name-error') || document.createElement('span');
-      //       errorElement.id = 'home-name-error';
-      //       errorElement.className = 'error-message';
-      //       errorElement.textContent = 'Please enter your home name';
-
-      //       if (!document.getElementById('home-name-error')) {
-      //         homeName.parentNode.appendChild(errorElement);
-      //       }
-      //       return false;
-      //     }
-      //   }
-      //   return true;
-      // }
-      // Form validation rules
-      // Add this function after your VALIDATION_RULES constant
       function validateDateField(field) {
         const value = field.value.trim();
         const datePattern =
@@ -869,18 +849,155 @@
 
       // Update your VALIDATION_RULES object for date fields
       const VALIDATION_RULES = {
-        // ...existing rules...
+        "full-name": {
+          required: true,
+          pattern: /^[a-zA-Z\s'-]+$/,
+          minLength: 2,
+          message:
+            "Please enter a valid name (letters, spaces, hyphens and apostrophes only)",
+        },
+
         "date-of-birth": {
           required: true,
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
           validate: (field) => validateDateField(field),
         },
+
+        "phone-number": {
+          required: true,
+          pattern: /^\d{10}$/,
+          message: "Please enter a valid 10-digit phone number",
+        },
+
+        "email-id": {
+          required: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+          message: "Please enter a valid email address",
+        },
+
+        "linkedin-url": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          pattern: /^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\/.*$/,
+          errorMessages: {
+            required: "LinkedIn URL is mandatory for this membership type",
+            pattern: "Please enter a valid LinkedIn URL",
+          },
+        },
+
+        "linkedin-url": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          pattern: /^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\/.*$/,
+          errorMessages: {
+            required: "LinkedIn URL is mandatory for this membership type",
+            pattern: "Please enter a valid LinkedIn URL",
+          },
+        },
+
+        // Address fields
+        "address-line-1": {
+          required: true,
+          minLength: 5,
+          message: "Please enter your street address",
+        },
+
+        "address-line-2": {
+          required: true,
+          minLength: 3,
+          message: "Please enter your apartment/building details",
+        },
+
+        pincode: {
+          required: true,
+          pattern: /^\d{6}$/,
+          message: "Please enter a valid 6-digit pincode",
+        },
+
+        state: {
+          required: true,
+          pattern: /^[a-zA-Z\s]+$/,
+          message: "Please enter a valid state name",
+        },
+
+        // Partner fields
+        "partner-full-name": {
+          conditionallyRequired: true,
+          pattern: /^[a-zA-Z\s'-]+$/,
+          message: "Please enter a valid name",
+        },
+
         "partner-date-of-birth": {
           conditionallyRequired: true,
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
           validate: (field) => validateDateField(field),
         },
+
+        "partner-phone-number": {
+          conditionallyRequired: true,
+          pattern: /^\d{10}$/,
+          message: "Please enter a valid 10-digit phone number",
+        },
+
+        "partner-email-id": {
+          conditionallyRequired: true,
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+          message: "Please enter a valid email address",
+        },
+
         "partner-anniversary": {
           conditionallyRequired: true,
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          message: "Please enter a valid date in DD/MM/YYYY format",
           validate: (field) => validateDateField(field),
+        },
+
+        // Home name field (conditional based on family type)
+        "home-name": {
+          conditionallyRequired: (familyType) => {
+            return ["isprava_homeowner", "chapter_homeowner"].includes(
+              familyType
+            );
+          },
+          minLength: 2,
+          message: "Please enter your home name",
+        },
+
+        // Goa address fields (conditional based on family type)
+        "goa-address-line-1": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          minLength: 5,
+          message: "Please enter your Goa street address",
+        },
+
+        "goa-address-line-2": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          minLength: 3,
+          message: "Please enter your Goa apartment/building details",
+        },
+
+        "goa-pincode": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          pattern: /^\d{6}$/,
+          message: "Please enter a valid 6-digit pincode",
+        },
+
+        "partner-linkedin-url": {
+          conditionallyRequired: (familyType) => {
+            return ["not_yet", "lohono_platinum"].includes(familyType);
+          },
+          pattern: /^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\/.*$/,
+          message: "Please enter a valid LinkedIn URL",
         },
       };
 
@@ -974,11 +1091,104 @@
         const rules = VALIDATION_RULES[field.id];
         if (!rules) return true;
 
-        if (rules.validate) {
-          return rules.validate(field);
+        // Remove any existing error message
+        clearFieldError(field);
+
+        // Get family type for conditional validation
+        const familyType = document.querySelector(
+          'input[name="family"]:checked'
+        )?.value;
+
+        // Check if field is LinkedIn URL and conditionally required
+        const isLinkedInField = field.id === "linkedin-url";
+        const isRequiredByFamily =
+          rules.conditionallyRequired &&
+          typeof rules.conditionallyRequired === "function"
+            ? rules.conditionallyRequired(familyType)
+            : false;
+
+        // Empty field validation for LinkedIn URL
+        if (isLinkedInField && isRequiredByFamily && !field.value.trim()) {
+          showFieldError(
+            field,
+            rules.errorMessages?.required ||
+              "LinkedIn URL is required for this membership type"
+          );
+          return false;
         }
 
-        // ... rest of your existing validation logic
+        // Skip further validation if field is empty and not required
+        if (!field.value.trim()) {
+          if (rules.required) {
+            showFieldError(field, "This field is required");
+            return false;
+          }
+          return true;
+        }
+
+        // Pattern validation for non-empty fields
+        if (rules.pattern && !rules.pattern.test(field.value.trim())) {
+          showFieldError(field, rules.errorMessages?.pattern || rules.message);
+          return false;
+        }
+
+        return true;
+      }
+
+      function clearFieldError(field) {
+        const existingError =
+          field.parentElement.querySelector(".error-message");
+        if (existingError) {
+          existingError.remove();
+        }
+        field.classList.remove("error");
+      }
+
+      // Add blur event listeners to all form fields
+      function setupFieldValidation() {
+        document
+          .querySelectorAll(".form-field input, .form-field select")
+          .forEach((field) => {
+            field.addEventListener("blur", function () {
+              // If field is empty and not required, or if it passes validation, clear error
+              const rules = VALIDATION_RULES[this.id];
+              if (!rules) return;
+
+              // Get current value
+              const value = this.value.trim();
+
+              // Clear error if:
+              // 1. Field is empty and not required
+              // 2. Field has valid value
+              if (
+                (!value && !rules.required) ||
+                (value && (!rules.pattern || rules.pattern.test(value)))
+              ) {
+                clearFieldError(this);
+              } else {
+                validateField(this);
+              }
+            });
+
+            field.addEventListener("input", function () {
+              // Re-validate on input if there was an error
+              if (this.parentElement.querySelector(".error-message")) {
+                validateField(this);
+              }
+            });
+          });
+      }
+
+      // Initialize validation on DOM load
+      document.addEventListener("DOMContentLoaded", () => {
+        setupFieldValidation();
+      });
+      function showFieldError(field, message) {
+        field.classList.add("error");
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.textContent = message;
+        field.parentElement.appendChild(errorDiv);
       }
       // Add this function to check all required fields
       function checkRequiredFields() {
@@ -1034,12 +1244,6 @@
         nextButton.disabled = !isValid;
         nextButton.classList.toggle("disabled", !isValid);
       }
-
-      // Initialize validation on page load
-      document.addEventListener("DOMContentLoaded", function () {
-        setupFormValidation();
-        toggleNextButton(); // Initial check
-      });
 
       // Initialize country dropdowns when page loads
       document.addEventListener("DOMContentLoaded", function () {
@@ -1282,69 +1486,6 @@
           howField
         );
       }
-      // Validate a single field
-      function validateField(field) {
-        const rules = VALIDATION_RULES[field.id];
-        if (!rules) return true;
-
-        let isValid = true;
-        let errorMessage = "";
-
-        // Remove any existing error message
-        const existingError =
-          field.parentElement.querySelector(".error-message");
-        if (existingError) {
-          existingError.remove();
-        }
-
-        // Check if field is conditionally required
-        const isRequired = rules.conditionallyRequired
-          ? isAnyPartnerFieldFilled() && field.id.startsWith("partner-")
-          : rules.required;
-
-        // Required field validation
-        if (isRequired && !field.value.trim()) {
-          isValid = false;
-          errorMessage = rules.conditionallyRequired
-            ? "This field is required when any partner detail is provided"
-            : `The Field is required`;
-        }
-
-        // Pattern validation (only if field has value or is required)
-        if (
-          isValid &&
-          field.value.trim() &&
-          rules.pattern &&
-          !rules.pattern.test(field.value.trim())
-        ) {
-          isValid = false;
-          errorMessage = rules.message;
-        }
-
-        // Minimum length validation (only if field has value or is required)
-        if (
-          isValid &&
-          field.value.trim() &&
-          rules.minLength &&
-          field.value.trim().length < rules.minLength
-        ) {
-          isValid = false;
-          errorMessage = `Must be at least ${rules.minLength} characters`;
-        }
-
-        // Display error message if validation failed
-        if (!isValid) {
-          const errorDiv = document.createElement("div");
-          errorDiv.className = "error-message";
-          errorDiv.textContent = errorMessage;
-          field.parentElement.appendChild(errorDiv);
-          field.classList.add("error");
-        } else {
-          field.classList.remove("error");
-        }
-
-        return isValid;
-      }
 
       function validateDependents() {
         const dependantSections = document.querySelectorAll(
@@ -1494,6 +1635,8 @@
             phoneNumber:
               document.getElementById("partner-phone-number")?.value || "",
             emailId: document.getElementById("partner-email-id")?.value || "",
+            linkedinUrl:
+              document.getElementById("partner-linkedin-url")?.value || "", // Add this line
             anniversary:
               document.getElementById("partner-anniversary")?.value || "",
             socialMediaHandle:
@@ -1827,6 +1970,7 @@
                   ),
                   social_media_handle:
                     formData.partnerDetails.socialMediaHandle,
+                  linkedin_url: formData.partnerDetails.linkedinUrl, // Add this line
                 },
               },
             };
@@ -2065,102 +2209,100 @@
           const newDependantSection = document.createElement("div");
           newDependantSection.className = "form-section";
           newDependantSection.innerHTML = `
-        <div class="dependant-header">
-          <h3>Dependant ${dependantCount + 1}</h3>
-          ${
-            dependantCount > 0
-              ? '<button class="remove-dependant">Remove</button>'
-              : ""
-          }
+  <div class="dependant-header">
+    <h3>Dependant ${dependantCount + 1}</h3>
+    ${
+      dependantCount > 0
+        ? '<button class="remove-dependant">Remove</button>'
+        : ""
+    }
+  </div>
+  <div class="form-grid">
+    <div class="form-field">
+      <input type="text" id="dependant-${
+        dependantCount + 1
+      }-full-name" placeholder=" " required />
+      <label for="dependant-${dependantCount + 1}-full-name">Full Name</label>
+    </div>
+    <div class="form-field">
+      <input type="text" id="dependant-${
+        dependantCount + 1
+      }-date-of-birth" placeholder="DD/MM/YYYY" required />
+      <label for="dependant-${
+        dependantCount + 1
+      }-date-of-birth" style="padding-right: 6px">Date of Birth</label>
+    </div>
+    <div class="form-field phone-field">
+      <div class="country-code" id="dependant-${
+        dependantCount + 1
+      }-country-code">
+        <span>+91 India</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="country-dropdown">
+        <div class="country-option selected" data-code="+91" data-country="India">
+          <span class="country-name">India</span>
+          <span class="country-dial-code">+91</span>
         </div>
-        <div class="form-grid">
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-full-name" placeholder=" " required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-full-name">Full Name</label>
-          </div>
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-date-of-birth" placeholder="DD/MM/YYYY" required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-date-of-birth" style="padding-right: 6px">Date of Birth</label>
-          </div>
-          <div class="form-field phone-field">
-            <div class="country-code" id="dependant-${
-              dependantCount + 1
-            }-country-code">
-              <span>+91 India</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-            <div class="country-dropdown">
-              <div class="country-option selected" data-code="+91" data-country="India">
-                <span class="country-name">India</span>
-                <span class="country-dial-code">+91</span>
-              </div>
-              <div class="country-option" data-code="+1" data-country="United States">
-                <span class="country-name">United States</span>
-                <span class="country-dial-code">+1</span>
-              </div>
-              <div class="country-option" data-code="+1" data-country="Canada">
-                <span class="country-name">Canada</span>
-                <span class="country-dial-code">+1</span>
-              </div>
-              <div class="country-option" data-code="+44" data-country="United Kingdom">
-                <span class="country-name">United Kingdom</span>
-                <span class="country-dial-code">+44</span>
-              </div>
-              <div class="country-option" data-code="+65" data-country="Singapore">
-                <span class="country-name">Singapore</span>
-                <span class="country-dial-code">+65</span>
-              </div>
-              <div class="country-option" data-code="+971" data-country="United arab emirates">
-                <span class="country-name">United arab emirates</span>
-                <span class="country-dial-code">+971</span>
-              </div>
-            </div>
-            <div class="divider"></div>
-            <input type="tel" id="dependant-${
-              dependantCount + 1
-            }-phone-number" placeholder=" " required />
-            <label for="dependant-${
-              dependantCount + 1
-            }-phone-number">Phone Number</label>
-          </div>
-          <div class="form-field">
-            <input type="email" id="dependant-${
-              dependantCount + 1
-            }-email" placeholder=" " required />
-            <label for="dependant-${dependantCount + 1}-email">Email ID*</label>
-          </div>
-          <div class="form-field">
-            <select id="dependant-${dependantCount + 1}-relationship" required>
-              <option value="" disabled selected></option>
-              <option value="mother">Mother</option>
-              <option value="father">Father</option>
-              <option value="son">Son</option>
-              <option value="daughter">Daughter</option>
-            </select>
-            <label for="dependant-${
-              dependantCount + 1
-            }-relationship">Relationship*</label>
-          </div>
-          <div class="form-field">
-            <input type="text" id="dependant-${
-              dependantCount + 1
-            }-social-media" placeholder=" " />
-            <label for="dependant-${
-              dependantCount + 1
-            }-social-media">Social Media Handle</label>
-          </div>
+        <div class="country-option" data-code="+1" data-country="United States">
+          <span class="country-name">United States</span>
+          <span class="country-dial-code">+1</span>
         </div>
-      `;
+        <div class="country-option" data-code="+1" data-country="Canada">
+          <span class="country-name">Canada</span>
+          <span class="country-dial-code">+1</span>
+        </div>
+        <div class="country-option" data-code="+44" data-country="United Kingdom">
+          <span class="country-name">United Kingdom</span>
+          <span class="country-dial-code">+44</span>
+        </div>
+        <div class="country-option" data-code="+65" data-country="Singapore">
+          <span class="country-name">Singapore</span>
+          <span class="country-dial-code">+65</span>
+        </div>
+        <div class="country-option" data-code="+971" data-country="United arab emirates">
+          <span class="country-name">United arab emirates</span>
+          <span class="country-dial-code">+971</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <input type="tel" id="dependant-${
+        dependantCount + 1
+      }-phone-number" placeholder=" " required />
+      <label for="dependant-${
+        dependantCount + 1
+      }-phone-number">Phone Number</label>
+    </div>
+    <div class="form-field">
+      <input type="email" id="dependant-${
+        dependantCount + 1
+      }-email" placeholder=" " required />
+      <label for="dependant-${dependantCount + 1}-email">Email ID*</label>
+    </div>
+    <div class="form-field">
+      <select id="dependant-${dependantCount + 1}-relationship" required>
+        <option value="" disabled selected></option>
+        <option value="mother">Mother</option>
+        <option value="father">Father</option>
+        <option value="son">Son</option>
+        <option value="daughter">Daughter</option>
+      </select>
+      <label for="dependant-${
+        dependantCount + 1
+      }-relationship">Relationship*</label>
+    </div>
+    <div class="form-field">
+      <input type="text" id="dependant-${
+        dependantCount + 1
+      }-social-media" placeholder=" " />
+      <label for="dependant-${
+        dependantCount + 1
+      }-social-media">Social Media Handle</label>
+    </div>
+  </div>
+`;
 
           const container = document.getElementById("dependants-container");
           const addDependantButton = container.querySelector(".add-dependant");
@@ -2319,6 +2461,8 @@
             partnerDetails.phoneNumber;
           document.getElementById("partner-email-id").value =
             partnerDetails.emailId;
+          document.getElementById("partner-linkedin-url").value =
+            partnerDetails.linkedinUrl || ""; // Add this line
           document.getElementById("partner-anniversary").value =
             partnerDetails.anniversary;
           document.getElementById("partner-social-media-handle").value =
@@ -2413,6 +2557,42 @@
 
       // Run the function on page load
       document.addEventListener("DOMContentLoaded", saveUtmToSessionStorage);
+
+      // Update the radio button event listeners
+      document.querySelectorAll('input[name="family"]').forEach((radio) => {
+        radio.addEventListener("change", function () {
+          const homeNameField = document.getElementById("home-name-field");
+          const goaAddressSection = document.getElementById(
+            "goa-address-section"
+          );
+          const linkedinUrlField =
+            document.getElementById("linkedin-url-field");
+          const partnerLinkedinUrlField = document.getElementById(
+            "partner-linkedin-url-field"
+          );
+
+          // Reset all conditional fields
+          homeNameField.style.display = "none";
+          goaAddressSection.style.display = "none";
+          linkedinUrlField.style.display = "none";
+          partnerLinkedinUrlField.style.display = "none";
+
+          // Show appropriate fields based on selection
+          if (
+            this.value === "isprava_homeowner" ||
+            this.value === "chapter_homeowner"
+          ) {
+            homeNameField.style.display = "block";
+          } else if (
+            this.value === "not_yet" ||
+            this.value === "lohono_platinum"
+          ) {
+            goaAddressSection.style.display = "block";
+            linkedinUrlField.style.display = "block";
+            partnerLinkedinUrlField.style.display = "block";
+          }
+        });
+      });
     </script>
   </body>
 </html>
