@@ -608,6 +608,7 @@ function isAnyPartnerFieldFilled() {
     "partner-email-id",
     "partner-anniversary",
     "partner-social-media-handle",
+    "partner-linkedin-url"
   ];
 
   return partnerFields.some((fieldId) => {
@@ -1851,5 +1852,110 @@ document.querySelectorAll('input[name="family"]').forEach((radio) => {
       linkedinUrlField.style.display = "block";
       partnerLinkedinUrlField.style.display = "block";
     }
+  });
+});
+
+function validatePartnerFields() {
+  const hasPartnerData = isAnyPartnerFieldFilled();
+  
+  // If no partner data, skip validation
+  if (!hasPartnerData) return true;
+
+  const partnerFields = {
+      "partner-full-name": {
+          label: "Partner's Full Name",
+          pattern: /^[a-zA-Z\s'-]+$/
+      },
+      "partner-date-of-birth": {
+          label: "Partner's Date of Birth",
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          validate: validateDateField
+      },
+      "partner-phone-number": {
+          label: "Partner's Phone Number",
+          pattern: /^\d{10}$/
+      },
+      "partner-email-id": {
+          label: "Partner's Email",
+          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      },
+      "partner-anniversary": {
+          label: "Anniversary Date",
+          pattern: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/,
+          validate: validateDateField
+      },
+      "partner-social-media-handle": {
+          label: "Partner's Social Media Handle"
+      }
+  };
+
+  // Add LinkedIn URL validation for specific family types
+  const familyType = document.querySelector('input[name="family"]:checked')?.value;
+  if (["not_yet", "lohono_platinum"].includes(familyType)) {
+      partnerFields["partner-linkedin-url"] = {
+          label: "Partner's LinkedIn URL",
+          pattern: /^https?:\/\/([a-z]{2,3}\.)?linkedin\.com\/.*$/
+      };
+  }
+
+  let isValid = true;
+  let firstInvalidField = null;
+
+  Object.entries(partnerFields).forEach(([fieldId, rules]) => {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+
+      clearFieldError(field);
+      const value = field.value.trim();
+
+      // Required field validation
+      if (!value) {
+          showFieldError(field, `${rules.label} is required when any partner detail is provided`);
+          isValid = false;
+          if (!firstInvalidField) firstInvalidField = field;
+          return;
+      }
+
+      // Pattern validation
+      if (rules.pattern && !rules.pattern.test(value)) {
+          showFieldError(field, `Please enter a valid ${rules.label.toLowerCase()}`);
+          isValid = false;
+          if (!firstInvalidField) firstInvalidField = field;
+          return;
+      }
+
+      // Custom validation
+      if (rules.validate && !rules.validate(field)) {
+          isValid = false;
+          if (!firstInvalidField) firstInvalidField = field;
+      }
+  });
+
+  // Scroll to first invalid field
+  if (firstInvalidField) {
+      firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  return isValid;
+}
+
+// Update event listeners for partner fields
+document.addEventListener('DOMContentLoaded', function() {
+  const partnerFields = document.querySelectorAll('[id^="partner-"]');
+  
+  partnerFields.forEach(field => {
+      field.addEventListener('blur', function() {
+          if (isAnyPartnerFieldFilled()) {
+              validatePartnerFields();
+          } else {
+              clearFieldError(this);
+          }
+      });
+
+      field.addEventListener('input', function() {
+          if (this.parentElement.querySelector('.error-message')) {
+              validatePartnerFields();
+          }
+      });
   });
 });
