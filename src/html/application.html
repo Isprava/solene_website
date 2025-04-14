@@ -2090,7 +2090,7 @@
             };
 
             const response = await fetch(
-              "https://api-staging.lohono.com/api/v1/solene/applications",
+              `https://${API_URL}/api/v1/solene/applications`,
               {
                 method: "POST",
                 headers: {
@@ -2211,7 +2211,7 @@
               };
 
               const response = await fetch(
-                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/additional_information`,
+                `https://${API_URL}/api/v1/solene/applications/${applicationSlug}/additional_information`,
                 {
                   method: "PATCH",
                   headers: {
@@ -2267,7 +2267,7 @@
               );
 
               const response = await fetch(
-                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/dependents/add_multiple`,
+                `https://${API_URL}/api/v1/solene/applications/${applicationSlug}/dependents/add_multiple`,
                 {
                   method: "POST",
                   headers: {
