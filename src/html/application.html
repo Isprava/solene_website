@@ -21,7 +21,7 @@
     <div class="app">
       <div class="header">
         <div class="logo">
-          <img src="__IMG_URL__/public/favicon.ico" alt="Logo" />
+          <img src="__IMG_URL__/public/logo.svg" alt="Logo" />
         </div>
         <section class="partner-details">
           <h1 id="membership-applciation">Membership application form</h1>
@@ -2184,7 +2184,7 @@
               const dependantSections = document.querySelectorAll(
                 "#dependants-container .form-section"
               );
-              const dependants = Array.from(dependantSections).map(
+              const dependents = Array.from(dependantSections).map(
                 (section, index) => ({
                   full_name:
                     document.getElementById(`dependant-${index + 1}-full-name`)
@@ -2214,13 +2214,13 @@
               );
 
               const response = await fetch(
-                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/dependants/add_multiple`,
+                `https://api-staging.lohono.com/api/v1/solene/applications/${applicationSlug}/dependents/add_multiple`,
                 {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
                   },
-                  body: JSON.stringify({ dependants }),
+                  body: JSON.stringify({ dependents }),
                 }
               );
 
