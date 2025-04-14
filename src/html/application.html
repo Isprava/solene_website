@@ -1894,7 +1894,7 @@
             isValid = false;
           }
         });
-        isValid = validatePartnerFields();
+        isValid = isValid && validatePartnerFields();
 
         return isValid;
       }
@@ -2080,8 +2080,8 @@
 
               progressBar.style.width = "66.67%";
               termsSection.style.display = "block";
-              nextButton.textContent = "Submit";
-              originalText = "Submit";
+              nextButton.textContent = "Next";
+              originalText = "Next";
             } else {
               throw new Error("Invalid response from server");
             }
