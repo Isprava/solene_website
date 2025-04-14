@@ -503,9 +503,8 @@
             <p class="card-description">
               Apply for dependant membership for your children or parent
             </p>
-            <div class="separator"></div>
           </div>
-
+          <div class="separator"></div>
           <div class="card-content" id="dependants-container">
             <div class="form-section">
               <h3>Dependant 1</h3>
@@ -650,8 +649,8 @@
           <div class="card-header">
             <h2>Additional Information</h2>
             <p class="card-description">Where did you hear about Solene?</p>
-            <div class="separator"></div>
           </div>
+          <div class="separator"></div>
 
           <div class="card-content">
             <div class="form-section">
@@ -2000,6 +1999,7 @@
                 membershipType === "not_yet"
               ) {
                 initialForm.classList.add("slide-out");
+                initialForm.style.height = "760px";
                 additionalForm.style.display = "block";
                 additionalForm.classList.add("slide-in");
                 membershipForm.scrollIntoView({
@@ -2008,6 +2008,7 @@
                 });
               } else {
                 initialForm.classList.add("slide-out");
+                initialForm.style.height = "600px";
                 dependantForm.style.display = "block";
                 dependantForm.classList.add("slide-in");
                 membershipForm.scrollIntoView({
@@ -2303,6 +2304,7 @@
       previousButton.addEventListener("click", async function () {
         const familyType = await localStorage.getItem("familyType");
         initialForm.classList.remove("slide-out");
+        initialForm.style.height = "fit-content";
         dependantForm.classList.remove("slide-in");
         additionalForm.classList.remove("slide-in");
         termsSection.style.display = "none";
@@ -2318,7 +2320,6 @@
           const dependantCount = document.querySelectorAll(
             "#dependants-container .form-section"
           ).length;
-
           const newDependantSection = document.createElement("div");
           newDependantSection.className = "form-section";
           newDependantSection.innerHTML = `
@@ -2447,7 +2448,33 @@
             });
 
           initializeNewDependantDropdowns(newDependantSection);
+          const mainCard = document.querySelector(".main-card");
+          const dependantForm = document.getElementById("dependant-form");
+          const navigation = document.querySelector(".form-navigation");
+          const currentHeight = dependantForm.scrollHeight;
+          const currentFooterPosition = 0;
+          const newHeight = container.offsetHeight + 250;
+          navigation.style.position = "absolute";
+          navigation.style.bottom = "0px";
+          // const newHeight = (dependantCount) * 400;
+          // const mainCardHeight = mainCard.scrollHeight;
+          // mainCard.style.height = `${mainCardHeight + additionalHeight}px`;
+          // Add new dependant section (your existing code for adding the section)
+          // ...existing code for adding dependant section...
 
+          // After adding the new section, animate the height
+          requestAnimationFrame(() => {
+            // const newHeight = (dependantCount + 1) * 300 + 100; // Add 600px for new section
+            dependantForm.style.height = `${newHeight}px`;
+            mainCard.style.height = `${newHeight}px`;
+
+            // mainCard.style.height = `${newHeight}px`;
+            // navigation.remove();
+            // mainCard.appendChild(navigation);
+            // Add transition styles dynamically
+            dependantForm.style.transition = "height 0.3s ease-in-out";
+            mainCard.style.transition = "height 0.3s ease-in-out";
+          });
           // Hide remove buttons on all sections except the last one
           const dependantSections = document.querySelectorAll(
             "#dependants-container .form-section"
@@ -2473,7 +2500,9 @@
             if (separator && separator.classList.contains("separator")) {
               separator.remove();
             }
-
+            document.querySelector(".main-card").style.height = `${
+              this.offsetHeight + 250
+            }px`;
             // Update the numbering of remaining dependants
             const dependantSections = document.querySelectorAll(
               "#dependants-container .form-section"

@@ -150,8 +150,12 @@ body {
   flex-direction: column;
   height: fit-content;
   min-height: min-content;
+  transition: height 0.3s ease-in-out;
   // min-height: 800px;
-
+  &.dependant-view {
+    height: fit-content;
+    min-height: min-content;
+  }
   @media (max-width: 768px) {
     width: 95%;
     margin: 1rem auto;
@@ -280,6 +284,7 @@ hr {
   @media (max-width: 768px) {
     // padding: 16px 16px 0 16px;
     padding: 0;
+    margin-top: 8px;
   }
 }
 
@@ -728,15 +733,22 @@ hr {
 
 /* Card Content Styles */
 .card-content {
-  padding: 28px 24px;
+  padding: 0px 20px;
   flex: 1;
+  height: fit-content;
+  min-height: min-content;
+  transition: height 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding: 0px 24px 28px 24px;
+  }
 }
 
 /* Separator */
 .separator {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.1);
-  margin: 24px 0;
+  margin: 20px 0;
 }
 
 /* Add Dependant Button */
@@ -982,10 +994,12 @@ hr {
   padding: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  position: sticky;
   bottom: 0;
   z-index: 10;
-
+  width: 100%;
+  @media (max-width: 768px) {
+    position: sticky;
+  }
   .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -1122,7 +1136,8 @@ input:focus {
   top: 0;
   right: -100%;
   width: 100%;
-  height: calc(100% - 140px);
+  height: fit-content;
+  min-height: min-content;
   background: white;
   transition: transform 0.3s ease-in-out;
   border-radius: 8px;
@@ -1134,8 +1149,8 @@ input:focus {
   width: 100%;
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
-  overflow-y: auto;
-  height: calc(100% - 140px);
+  overflow-y: visible;
+  height: fit-content;
 }
 
 #initial-form.slide-out {
