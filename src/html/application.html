@@ -652,102 +652,109 @@
 
         <div id="additional-form">
           <div class="card-header">
-            <h2>Additional Information</h2>
-            <p class="card-description">Where did you hear about Solene?</p>
+            <div class="header-group">
+              <h2>Additional Information</h2>
+              <p class="card-description">Where did you hear about Solene?</p>
+            </div>
             <div class="separator"></div>
           </div>
 
           <div class="card-content">
-            <div class="form-section">
-              <label class="section-label"
-                >How did you hear about Solene? (Select all that apply) *</label
-              >
-              <div class="checkbox-group">
-                <div class="checkbox-item">
-                  <input type="checkbox" id="member" />
-                  <label for="member">Via a member</label>
-                  <div></div>
-                </div>
-                <div
-                  class="reference-details"
-                  id="reference-details"
-                  style="display: none; position: relative"
+            <div class="form-group">
+              <div class="form-section">
+                <label class="section-label"
+                  >How did you hear about Solene? (Select all that apply) *</label
                 >
-                  <div class="form-grid">
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="reference-full-name"
-                        placeholder=" "
-                      />
-                      <label for="reference-full-name">Full Name</label>
-                    </div>
-                    <div class="form-field phone-field">
-                      <div class="country-code">
-                        <span>+91 India</span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
+                <div class="checkbox-group">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="member" />
+                    <label for="member">Via a member</label>
+                    <div></div>
+                  </div>
+                  <div
+                    class="reference-details"
+                    id="reference-details"
+                    style="display: none; position: relative"
+                  >
+                  <div class="reference-label">
+                    <h4>Reference Details</h4>
+                  </div>
+                    <div class="form-grid">
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="reference-full-name"
+                          placeholder=" "
+                        />
+                        <label for="reference-full-name">Full Name</label>
                       </div>
-                      <div class="divider"></div>
-                      <input
-                        type="tel"
-                        id="reference-phone-number"
-                        placeholder=" "
-                      />
-                      <label for="reference-phone-number">Phone Number</label>
-                    </div>
-                    <div class="form-field">
-                      <input
-                        type="text"
-                        id="reference-relationship"
-                        placeholder=" "
-                      />
-                      <label for="reference-relationship">Relationship</label>
+                      <div class="form-field phone-field">
+                        <div class="country-code">
+                          <span>+91 India</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </div>
+                        <div class="divider"></div>
+                        <input
+                          type="tel"
+                          id="reference-phone-number"
+                          placeholder=" "
+                        />
+                        <label for="reference-phone-number">Phone Number</label>
+                      </div>
+                      <div class="form-field">
+                        <input
+                          type="text"
+                          id="reference-relationship"
+                          placeholder=" "
+                        />
+                        <label for="reference-relationship">Relationship</label>
+                      </div>
                     </div>
                   </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="social" />
+                    <label for="social">Social Media</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="website" />
+                    <label for="website">Website</label>
+                  </div>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="other" />
+                    <label for="other">Other</label>
+                  </div>
+                  <div class="other-input">
+                    <input type="text" placeholder="Type here" disabled />
+                  </div>
                 </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="social" />
-                  <label for="social">Social Media</label>
-                </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="website" />
-                  <label for="website">Website</label>
-                </div>
-                <div class="checkbox-item">
-                  <input type="checkbox" id="other" />
-                  <label for="other">Other</label>
-                </div>
-                <div class="other-input">
-                  <input type="text" placeholder="Type here" disabled />
-                </div>
+                <span class="error-message" id="source-error"></span>
               </div>
-              <span class="error-message" id="source-error"></span>
-            </div>
 
-            <div class="form-section">
-              <label class="section-label"
-                >Why do you wish to be a part of the Solene community?</label
-              >
-              <textarea placeholder="Type here" id="why"></textarea>
-            </div>
+              <div class="form-section">
+                <label class="section-label"
+                  >Why do you wish to be a part of the Solene community?</label
+                >
+                <textarea placeholder="Type here" id="why"></textarea>
+              </div>
 
-            <div class="form-section" id="how">
-              <label class="section-label"
-                >How do you see yourself making use of the club's facilities and
-                services?</label
-              >
-              <textarea placeholder="Type here"></textarea>
+              <div class="form-section" id="how">
+                <label class="section-label"
+                  >How do you see yourself making use of the club's facilities and
+                  services?</label
+                >
+                <textarea placeholder="Type here"></textarea>
+              </div>
             </div>
           </div>
         </div>
