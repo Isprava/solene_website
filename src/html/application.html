@@ -9,8 +9,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <!-- Favicon -->
-    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
-
+    <link
+      rel="icon"
+      href="__IMG_URL__/public/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -2178,7 +2181,7 @@
               if (!hasDependantData()) {
                 // Skip API call and proceed to success page
                 showToast("Form submitted successfully!");
-                localStorage.clear();
+                await localStorage.clear();
                 setTimeout(() => {
                   window.location.href = "success.html";
                 }, 500);
@@ -2233,7 +2236,7 @@
             }
 
             showToast("Form submitted successfully!");
-            localStorage.clear();
+            await localStorage.clear();
             setTimeout(() => {
               window.location.href = "success.html";
             }, 500);
