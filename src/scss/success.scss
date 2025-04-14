@@ -56,8 +56,8 @@ body {
 }
 
 .logo img {
-  margin-top: 24px;
-  margin-left: 80px;
+  // margin-top: 24px;
+  // margin-left: 80px;
   height: 48px;
   @media (max-width: 768px) {
     margin-top: 10px;
@@ -100,7 +100,7 @@ body {
     font-family: "Alegreya Sans", sans-serif;
     font-size: 36px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 44px; /* 122.222% */
     @media (max-width: 768px) {
       font-size: 22px;
@@ -180,7 +180,7 @@ body {
 
 .card h3 {
   font-family: "Playfair", serif;
-  font-weight: bold;
+  font-weight: 600;
   color: #3d3937;
   font-size: 28px;
   line-height: 44px;
