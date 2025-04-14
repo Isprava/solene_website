@@ -137,8 +137,8 @@ body {
 
 /* Main card */
 .main-card {
-  width: 768px;
-  margin: -100px auto 0;
+  width: 848px;
+  margin: -120px auto 0;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -148,7 +148,9 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 800px;
+  height: fit-content;
+  min-height: min-content;
+  // min-height: 800px;
 
   @media (max-width: 768px) {
     width: 95%;
@@ -377,7 +379,7 @@ hr {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px; // Reduced from 24px to account for new field margins
+  gap: 20px; // Reduced from 24px to account for new field margins
   // margin-bottom: 8px; // Add bottom margin to the grid
 }
 

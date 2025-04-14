@@ -138,7 +138,6 @@ header {
 
 .hero-content {
   flex: 1;
-  max-width: 928px;
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
@@ -148,7 +147,10 @@ header {
   gap: 2.5rem;
   padding-bottom: 2rem;
   width: 100%;
-
+  @media (max-width: 480px) {
+    gap: 1rem;
+    margin-bottom: 20px;
+  }
   h1 {
     font-family: "Bodoni Moda", serif;
     font-size: 3.5rem;
@@ -161,12 +163,12 @@ header {
     hyphens: auto;
     width: 85%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       font-size: 2.5rem;
       padding: 0 1rem;
       max-width: 100%;
       width: 100%;
-
+      gap: 1rem;
       // Replace pipes with line breaks on mobile
       &::before {
         content: "community | culture |\A connection";
@@ -256,6 +258,10 @@ header {
   font-family: "Bodoni Moda", serif;
   font-size: 2rem;
   font-weight: 400;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .amenities-grid {
@@ -286,6 +292,10 @@ header {
   font-family: "Bodoni Moda", serif;
   font-size: 1.5rem;
   font-weight: 400;
+
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+  }
 }
 
 /* Membership Section */
@@ -308,16 +318,28 @@ header {
       font-family: "Bodoni Moda", serif;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
 
     p {
       font-size: 1.25rem;
       line-height: 1.6;
+      @media (max-width: 768px) {
+        font-size: 0.875rem;
+      }
     }
   }
 
   @media (max-width: 768px) {
     padding: 3rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -728,7 +750,7 @@ footer::before {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 393px;
+    width: 100%;
     height: 48px;
     padding: 15px 0px;
     flex-direction: column;
@@ -791,9 +813,16 @@ footer::before {
     font-size: 2.5rem;
     padding: 0 1rem;
   }
-
+  .about-text {
+    background-image: url("__IMG_URL__/public/landing/membership.png");
+    background-repeat: no-repeat;
+    background-position: 152%;
+    background-size: 50%;
+  }
   .about-text p {
-    font-size: 1.25rem;
+    font-size: 0.875rem;
+    text-align: left;
+    padding-right: 90px;
   }
 
   .amenities-grid {
@@ -802,7 +831,7 @@ footer::before {
   }
 
   .amenity-card {
-    height: 10rem;
+    height: 7.5rem;
   }
 
   .amenity-card img {
@@ -811,10 +840,29 @@ footer::before {
   }
 
   .amenity-card h3 {
-    font-size: 1.25rem;
+    font-size: 0.875rem;
   }
 
   .contact-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+  }
+
+  .contact-header p {
+    font-size: 0.875rem;
+    margin-bottom: 0px;
+  }
+
+  .membership {
+    padding: 4.5rem 2rem;
+    min-height: 400px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .membership h2 {
     font-size: 2rem;
   }
 }
@@ -829,12 +877,20 @@ footer::before {
   }
 
   .amenities-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .about,
   .amenities {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
+
+    p {
+      font-size: 0.875rem;
+      color: #3d3937;
+    }
+  }
+
+  .about {
+    padding: 2rem 0rem 1rem 1rem;
   }
 
   .membership {
@@ -846,7 +902,7 @@ footer::before {
   }
 
   .contact {
-    padding: 3rem 1rem;
+    padding: 3rem 2rem;
   }
 
   .footer-logo {
