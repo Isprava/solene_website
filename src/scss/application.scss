@@ -31,7 +31,6 @@ body {
 /* App container */
 .app {
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   background: {
@@ -69,7 +68,7 @@ body {
       }
 
       p {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 1.6;
         width: 90%;
       }
@@ -87,7 +86,7 @@ body {
   position: relative;
   width: 104px;
   height: 48px;
-  padding-top: 24px;
+  padding-top: 12px;
   padding-left: 80px;
 
   @media (max-width: 768px) {
@@ -112,7 +111,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 768px;
+  // max-width: 768px;
   margin: 40px auto 0;
   text-align: center;
   color: white;
@@ -129,17 +128,17 @@ body {
 }
 
 .partner-details p {
-  margin-top: 15px;
+  margin-top: 12px;
   font-size: 22px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 26px;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* Main card */
 .main-card {
   width: 768px;
-  margin: -64px auto 0;
+  margin: -100px auto 0;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -155,19 +154,22 @@ body {
     width: 95%;
     margin: 1rem auto;
     padding: 0px;
-    top: -120px;
+    top: -160px;
     .card-header {
       h2 {
         font-size: 20px;
+        line-height: 24px;
       }
 
       .card-description {
         font-size: 14px;
+        margin-top: 2px;
       }
     }
 
     .form-group {
       padding: 1.25rem 1rem;
+      padding-bottom: 0px;
     }
   }
 }
@@ -175,11 +177,11 @@ body {
 /* Address Section */
 .address-section {
   width: 100%;
-  padding: 24px 0;
+  padding: 0;
 }
 
 .section-content {
-  padding: 40px;
+  padding: 32px 0px 32px 32px;
 }
 
 @media (max-width: 768px) {
@@ -253,9 +255,14 @@ body {
     line-height: 20px;
   }
 }
-
+.mobile-only {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
 hr {
-  margin-top: 16px;
+  margin-top: 16px 0px;
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   @media (max-width: 768px) {
@@ -267,6 +274,7 @@ hr {
 .personal-details {
   width: 100%;
   padding: 0 40px;
+  margin-top: 24px;
   @media (max-width: 768px) {
     // padding: 16px 16px 0 16px;
     padding: 0;
@@ -370,7 +378,7 @@ hr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px; // Reduced from 24px to account for new field margins
-  margin-bottom: 8px; // Add bottom margin to the grid
+  // margin-bottom: 8px; // Add bottom margin to the grid
 }
 
 /* Form field styles */
@@ -883,12 +891,18 @@ hr {
   margin-top: auto;
   position: relative;
   z-index: 2;
+  @media (max-width: 768px) {
+    padding: 8px 20px;
+  }
 }
 
 .terms-section .checkbox-container {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  @media (max-width: 768px) {
+    gap: 4px;
+  }
 }
 
 .terms-section .terms-text {
@@ -919,6 +933,36 @@ hr {
   width: 24px;
   height: 24px;
   margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1); // 10% black
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    background-color: #9c3c33;
+    border-color: #9c3c33;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 40%; // Adjusted from 50% to 40% for visual center
+      width: 7px;
+      height: 14px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: center; // Added to ensure proper centering
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(156, 60, 51, 0.2);
+  }
 }
 
 .terms-text {
@@ -933,7 +977,7 @@ hr {
 
 /* Form Navigation */
 .form-navigation {
-  padding: 16px 40px;
+  padding: 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
   position: sticky;
@@ -963,10 +1007,6 @@ hr {
         gap: 8px;
       }
     }
-
-    @media (max-width: 768px) {
-      padding: 16px 0px;
-    }
   }
 
   .btn-previous,
@@ -982,8 +1022,11 @@ hr {
   }
 
   @media (max-width: 768px) {
-    padding: 16px;
-
+    padding: 16px 0px 0px 0px;
+    position: fixed;
+    margin-left: -16px;
+    margin-right: -16px;
+    width: 101%;
     .navigation-buttons {
       flex-wrap: nowrap; // Prevent wrapping on mobile
       gap: 12px;
@@ -1006,10 +1049,11 @@ hr {
   }
 
   @media (max-width: 480px) {
-    padding: 12px;
+    padding: 0px;
 
     .navigation-buttons {
       gap: 8px;
+      padding: 10px 20px;
     }
 
     .btn-previous,
@@ -1023,7 +1067,6 @@ hr {
 .progress-bar {
   width: 100%;
   height: 6px;
-  margin-top: -20px;
   background-color: rgba(222, 222, 222, 0.8);
 }
 
@@ -1207,7 +1250,7 @@ textarea {
 
 .form-field {
   position: relative;
-  margin-bottom: 32px; // Increased from 24px to accommodate error message
+  margin-bottom: 24px; // Increased from 24px to accommodate error message
 
   input,
   select {
@@ -1332,6 +1375,7 @@ textarea {
 
 #home-name-field {
   margin-bottom: 24px;
+  margin-top: 20px;
 }
 
 /* Shake animation for error validation */

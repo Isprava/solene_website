@@ -50,9 +50,9 @@
                     know you better
                   </p>
                 </div>
-                <hr />
               </div>
             </section>
+            <hr />
 
             <section class="personal-details">
               <div class="radio-group">
@@ -88,11 +88,7 @@
                       <span>Not yet</span>
                     </label>
                   </div>
-                  <div
-                    class="form-grid"
-                    id="home-name-grid"
-                    style="margin-top: 16px"
-                  >
+                  <div class="form-grid" id="home-name-grid">
                     <div
                       class="form-field"
                       id="home-name-field"
@@ -103,7 +99,7 @@
                     </div>
                   </div>
                 </div>
-                <hr />
+                <hr class="mobile-only" />
               </div>
             </section>
 
@@ -111,7 +107,7 @@
               <div class="form-sections">
                 <div class="form-section">
                   <div class="form-group">
-                    <h3>Basic Details*</h3>
+                    <h3>Basic Details</h3>
                     <div class="form-grid">
                       <div class="form-field">
                         <input
@@ -244,7 +240,7 @@
                       </div>
                     </div>
                   </div>
-                  <hr />
+                  <hr class="mobile-only" />
                 </div>
 
                 <div class="form-section">
@@ -293,7 +289,7 @@
                       </div>
                     </div>
                   </div>
-                  <hr />
+                  <hr class="mobile-only" />
                 </div>
 
                 <div
@@ -340,7 +336,7 @@
                       </div>
                     </div>
                   </div>
-                  <hr />
+                  <hr class="mobile-only" />
                 </div>
 
                 <div class="form-section">
@@ -660,7 +656,7 @@
           <div class="card-content">
             <div class="form-section">
               <label class="section-label"
-                >How did you hear about Solene? (Select all that apply) *</label
+                >How did you hear about Solene? (Select all that apply)</label
               >
               <div class="checkbox-group">
                 <div class="checkbox-item">
@@ -752,24 +748,23 @@
           </div>
         </div>
 
-        <div class="terms-section" style="display: none">
-          <label class="checkbox-container">
-            <input type="checkbox" id="terms" required />
-            <span class="checkmark"></span>
-            <span class="terms-text">
-              I agree to the
-              <a href="/terms-n-conditions.html" class="terms-link"
-                >Terms & Conditions</a
-              >
-              and
-              <a href="/terms-n-conditions.html" class="terms-link"
-                >Privacy Policy.</a
-              >
-            </span>
-          </label>
-        </div>
-
         <footer class="form-navigation">
+          <div class="terms-section" style="display: none">
+            <label class="checkbox-container">
+              <input type="checkbox" id="terms" required />
+              <span class="checkmark"></span>
+              <span class="terms-text">
+                I agree to the
+                <a href="/terms-n-conditions.html" class="terms-link"
+                  >Terms & Conditions</a
+                >
+                and
+                <a href="/terms-n-conditions.html" class="terms-link"
+                  >Privacy Policy.</a
+                >
+              </span>
+            </label>
+          </div>
           <div class="progress-bar">
             <div class="progress" style="width: 33.33%"></div>
           </div>
