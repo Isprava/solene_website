@@ -1,12 +1,3 @@
-@font-face {
-  font-family: "FONTSPRING DEMO - The Seasons";
-  src: url("/public/Fontspring-DEMO-theseasons.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:500");
-
 * {
   margin: 0;
   padding: 0;
@@ -58,10 +49,21 @@ body {
   height: 48px;
   margin-top: 24px;
   margin-left: 80px;
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }
 
 .logo img {
-  position: absolute;
+  margin-top: 24px;
+  margin-left: 80px;
+  height: 48px;
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 30px;
+  }
 }
 
 .header {
@@ -91,16 +93,27 @@ body {
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
-}
 
-.thank-you h2 {
-  color: #fff;
-  text-align: center;
-  font-family: "Alegreya Sans", sans-serif;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 44px; /* 122.222% */
+  h2 {
+    color: #fff;
+    text-align: center;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px; /* 122.222% */
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+  img {
+    width: 60px;
+    height: 46px;
+    @media (max-width: 768px) {
+      width: 30px;
+      height: 24px;
+    }
+  }
 }
 
 .card {
@@ -112,6 +125,11 @@ body {
   padding: 32px;
   text-align: center;
   max-height: 538px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 16px;
+  }
 }
 
 .success-icon {
@@ -121,6 +139,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 76px;
+    height: 76px;
+    padding: 16px;
+
+    & img {
+      width: 76px;
+      height: 76px;
+    }
+  }
 }
 
 .success-icon-inner {
@@ -150,12 +179,15 @@ body {
 }
 
 .card h3 {
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Bodoni Moda", serif;
   font-weight: bold;
   color: #3d3937;
   font-size: 28px;
   line-height: 44px;
   margin-bottom: 8px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .card p {
@@ -163,6 +195,9 @@ body {
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 40px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .button {
