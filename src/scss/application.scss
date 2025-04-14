@@ -326,6 +326,7 @@ hr {
 
   input[type="radio"] {
     margin: 0;
+    accent-color: #9C3C33;
   }
 
   span {
@@ -342,7 +343,7 @@ hr {
 .membership-info {
   width: 100%;
   margin: 0 auto;
-  padding: 40px;
+  padding: 8px 40px 0px 40px;
   @media (max-width: 768px) {
     padding: 0px;
   }
@@ -351,7 +352,7 @@ hr {
 .form-sections {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  // gap: 40px;
 
   @media (max-width: 768px) {
     gap: 0px;
@@ -375,7 +376,7 @@ hr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px; // Reduced from 24px to account for new field margins
-  margin-bottom: 8px; // Add bottom margin to the grid
+  // margin-bottom: 8px; // Add bottom margin to the grid
 }
 
 /* Form field styles */
@@ -543,7 +544,7 @@ hr {
 
   // Special handling for LinkedIn URL fields
   &#linkedin-url-field {
-    margin-bottom: 36px;
+    // margin-bottom: 36px;
 
     .error-message {
       bottom: -24px;
@@ -1231,10 +1232,10 @@ textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid $input-border;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 16px;
     transition: all 0.3s ease;
-    min-height: 48px;
+    min-height: 56px;
     background: transparent;
 
     &:focus {
@@ -1349,6 +1350,11 @@ textarea {
 
 #home-name-field {
   margin-bottom: 24px;
+}
+
+#home-name-field {
+  width: 50%;
+  padding-right: 8px;
 }
 
 /* Shake animation for error validation */
