@@ -436,25 +436,35 @@ input.error {
   padding-bottom: 4px;
 }
 
-.country-code {
+untry-code {
+  // ...existing code...
+  width: 120px; // Fixed width
   display: flex;
   align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  color: #3d3937;
-  font-size: 16px;
-  min-width: 100px;
-  padding: 4px 0;
+  justify-content: space-between;
+  padding: 8px 12px;
 
-  svg {
-    width: 12px;
-    height: 12px;
-    transition: transform 0.2s;
-    color: #787878;
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 24px); // Account for the dropdown arrow
+  }
+}
+
+.country-option {
+  // ...existing code...
+  .country-dial-code {
+    min-width: 60px; // Fixed width for country code
+    text-align: right;
   }
 
-  &.active svg {
-    transform: rotate(180deg);
+  .country-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
   }
 }
 
