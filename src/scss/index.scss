@@ -757,6 +757,7 @@ footer::before {
   @media (max-width: 768px) {
     display: flex;
     position: fixed;
+    text-decoration: none;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
