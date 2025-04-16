@@ -471,14 +471,18 @@ const countries = [
 ];
 
 function populateCountryDropdown() {
-    const dropdown = document.querySelector('.country-dropdown');
-    dropdown.innerHTML = ''; // Clear existing options
+  const countryCode = document.querySelector(".country-code");
+  const countryDropdown = document.querySelector('.country-dropdown');
+  countryDropdown.innerHTML = ''; // Clear existing options
 
     countries.forEach((country, index) => {
         const option = document.createElement('div');
+        
         option.className = 'country-option' + (index === 0 ? ' selected' : '');
         option.setAttribute('data-code', country.code);
         option.setAttribute('data-country', country.name);
+    const countryCodeText = document.querySelector(".country-code span");
+
         
         option.innerHTML = `
             <span class="country-name">${country.name}</span>
@@ -488,7 +492,6 @@ function populateCountryDropdown() {
           try {
             const code = option.dataset.code;
             const country = option.dataset.country;
-            countryCodeText = option.getFirstElementChild("span");
             if (countryCodeText && code && country) {
               countryCodeText.textContent = `${code} ${country}`;
               countryDropdown?.classList.remove("active");
@@ -504,9 +507,11 @@ function populateCountryDropdown() {
             console.error("Error in country option click handler:", error);
           }
         }
-        dropdown.appendChild(option);
+        countryDropdown.appendChild(option);
     });
 }
 
 // Run the function on page load
-document.addEventListener("DOMContentLoaded", () => {saveUtmToSessionStorage(); populateCountryDropdown()});
+document.addEventListener("DOMContentLoaded", () => {
+  saveUtmToSessionStorage(); 
+  populateCountryDropdown()});
