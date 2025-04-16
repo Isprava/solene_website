@@ -171,7 +171,7 @@ header {
       gap: 1rem;
       // Replace pipes with line breaks on mobile
       &::before {
-        content: "community | culture |\A connection";
+        content: "community \A culture \A connection";
         white-space: pre;
       }
 
