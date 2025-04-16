@@ -47,9 +47,10 @@ try {
    // Contact button click handler for responsive design
    document.querySelector(".mobile-cta")?.addEventListener("click", function () {
     try {
-      document.querySelector("#contact")?.scrollIntoView({
-        behavior: "smooth",
-      });
+      // document.querySelector("#contact")?.scrollIntoView({
+      //   behavior: "smooth",
+      // });
+      window.location.href = '08326620696'
     } catch (error) {
       console.error("Error in contact button click handler:", error);
     }
