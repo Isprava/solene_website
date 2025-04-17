@@ -436,7 +436,7 @@ input.error {
   padding-bottom: 4px;
 }
 
-untry-code {
+.country-code {
   // ...existing code...
   width: 120px; // Fixed width
   display: flex;
@@ -895,6 +895,7 @@ footer::before {
 
   .hero-content {
     padding: 0;
+    margin-bottom: 48px;
   }
 
   .hero h1 {
